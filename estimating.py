@@ -6,7 +6,7 @@ import random as rand
 import matplotlib.pyplot as plt
 
 # Defining 3 functions fitted to experimental data
-powerlaw = lambda v, lam, n : 1 - exp(-lam*v**n)
+powerlaw = lambda v: 1 - exp(-0.00377*v**0.411)
 threshold = lambda v, p_min, p_max, M_cr : p_min if v<M_cr else p_max
 logistic_threshold = lambda v, lam, p_m, lam2, M_cr : (p_m/(p_m + exp(-lam*v))) if v<M_cr else (p_m/(p_m + exp(-lam*M_cr - lam2*(v - M_cr))))  
 
@@ -15,73 +15,77 @@ cutoffs = [500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000, 256000]
 probs = [0.03, 0.056, 0.1, 0.255, 0.204, 0.15, 0.104, 0.056, 0.039, 0.006]
 intervals = ((1, 500), (500, 1000), (1000, 2000), (2000, 4000), (4000, 8000), (8000, 16000), (16000, 32000), (32000, 64000), \
              (64000, 128000), (128000, 256000))
+lengths = [500, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000]
 
-# Defining probability ditribution and plotting it on linear and log scale
-     # dist = ProbabilityDistribution[Sum[probs[[i]]*PDF[UniformDistribution[intervals[[i]],x],{i,1,Length[probs]}],{x,1,Max[cutoffs]}]
-     # ProbSpz[x_] = PDF[dist,x]
+# Cache for cdfProbSpz
+cdf_cache = zeros(256001)
+cdf_cache[0] = 0
+
+
+# Defining probability ditribution
 
 def ProbSpz(x):
-
-  dist = 0
+#  dist = 0
 #  for i in range(len(probs)):
 #    dist = dist+probs[i]*uniform.pdf(x, intervals[i][0], intervals[i][1]-intervals[i][0])
+  if (x<=500):
+    return probs[0], 0
+  elif (x>500 and x<=1000):
+    return probs[1], 1
+  elif (x>1000 and x<=2000):
+    return probs[2], 2
+  elif (x>2000 and x<=4000):
+    return probs[3], 3
+  elif (x>4000 and x<=8000):
+    return probs[4], 4
+  elif (x>8000 and x<=16000):
+    return probs[5], 5
+  elif (x>16000 and x<=32000):
+    return probs[6], 6
+  elif (x>32000 and x<=64000):
+    return probs[7], 7
+  elif (x>64000 and x<=128000):
+    return probs[8], 8
+  elif (x>128000 and x<=256000):
+    return probs[9], 9
  
-  return dist
 
+# Defining probability density function
+def cdfProbSpz(x): 
 
-def cdfProbSpz(x):
+  if (cdf_cache[x] != 0):
+    return cdf_cache[x]
+  else:
+    
+    cdf_cache[x] = cdf_cache[x-1]+(ProbSpz(x)[0]/lengths[ProbSpz(x)[1]])
+  return cdf_cache[x]
+'''
   Prob = 0
-
 
   for i in range(x):
     Prob+=ProbSpz(i+1)
 
   return Prob
+'''
 
-
+# Defining a sample from the distribution
 def mosquito_sample(val_array):
   sample = rand.random()
   
+  # Return the index of closest value of sample in val_array
   index = (abs(val_array-sample)).argmin()
 
+#  print (sample, val_array[index+1])
   return index+1
 
 
 
-
-
-
-
-
-#nboot = 10000
-
-#boot1 = random.choice(ProbSpz(cutoffs), nboot, p=probs)
-
-
-
-
 def main():
-#  print (ProbSpz(8000))
-#  print (ProbSpz(cutoffs))
-
- # arr = arange (0, 256000, 0.01);
-
-#  plt.plot(cutoffs, ProbSpz(cutoffs))
-#  plt.plot(arr, ProbSpz(arr))
-#  plt.show()
-
-#  print(boot1)
-#  plt.hist(boot1)
-#  plt.show()
-
- # plt.hist(log10(boot1))
-#  plt.show()
 #  max_value = max(cutoffs)
-  max_value = 1000
+  max_value = 256000
   val_array = zeros(max_value)
-
-#  print(max_value)
-#  print (cdfProbSpz(100))
+  sample_array = zeros(10000)
+  disease_probs = zeros(10000)
 
 
   for i in range(max_value):
@@ -89,10 +93,26 @@ def main():
 #    print(i, cdfProbSpz(i+1))
 
 #  print(val_array)
+#  plt.plot(val_array)
+#  plt.show()
 
-  for i in range(100):
-    print(mosquito_sample(val_array))
+#  print(mosquito_sample(val_array))
+
+  for i in range(10000):
+#    print(mosquito_sample(val_array))
+    sample_array[i] = mosquito_sample(val_array)
+    disease_probs[i] = powerlaw(sample_array[i])
+#  print(sample_array)
+  plt.hist(log10(sample_array), 10)
+  plt.show()
+
+  plt.hist(disease_probs, normed = True)
+  plt.show()
+
   
+
+
+
 
 if __name__ == "__main__":
   main()
