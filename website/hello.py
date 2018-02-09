@@ -1,7 +1,7 @@
 import sys
 
-who = sys.argv[1]
-functionCalls = sys.argv[2]
+args = sys.argv[1]
+#functionCalls = sys.argv[2]
 
 
 #Bins
@@ -16,5 +16,6 @@ if "logisticThreshold" in functionCalls:
 	#Function call logisticThreshold
 '''
 
-print ("hello")
+print ("Hello %s" % args)
+
 #print "Hello %s" % who + " " + who2

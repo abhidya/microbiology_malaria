@@ -6,48 +6,53 @@
 
 <?php
 
+
+
+###START bin array parse information###
+$binStart = $_GET['binsStart'];
+$binEnd = $_GET['binsEnd'];
+$probs = $_GET['probs'];
+
+$numbins = count($binStart);
+
+//$binStartStr = "";
+$args = "";
+$binEndStr = "";
+for($i = 0; $i < $numbins; $i++){
+	$args .= $binStart[$i] . " " . $binEnd[$i] . " " . $probs[$i] . " ";
+	//$binEndStr .= $binEnd[$i] . " ";
+}
+
+
 ###START function parse information###
 #Grabs the functions information from the form
 $functions = $_GET['functionLaw'];
 #Gets the number of elements in the array
 $numFunctions = count($functions);
-$strFun = "";
+$FunStr = "";
 
 #Runs through the functions array and adds the values to a single string to pass to python
 for($i = 0; $i < $numFunctions; $i++){
-	$strFun .= $functions[$i] . " ";
+	$args .= $functions[$i] . " ";
 }
+
+echo($args);
+echo("<br>");
+
 ###END function parse information###
 
-###START bin array parse information###
-$binStart = $_GET['binsStart'];
-$binStartStr = "";
-$numBinStart = count($binStart);
-for($i = 0; $i < $numBinStart; $i++){
-	$binStartStr .= $binStart[$i] . " ";
-}
+$var1 = "hi fh djfh";
+$var2 = "second";
 
-$binEnd = $_GET['binsEnd'];
-$binEndStr = "";
-$numBinEnd = count($binEnd);
-for($i = 0; $i < $numBinEnd; $i++){
-	$binEndStr .= $binEnd[$i] . " ";
-}
-
-$binProb = $_GET['probs'];
-$binProbStr = "";
-$numBinProb = count($binProb);
-for($i = 0; $i < $numBinProb; $i++){
-	$binProbStr .= $binProb[$i] . " ";
-}
-
-###END bin array parse information###
-
-#$result = shell_exec('/usr/bin/python /var/www/html/microbio/hello.py ' . $var3 ; $var4);
-$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '".$var1."' '".$strFun."'");
+#$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '".$var1."' '".$strFun."'");
+#$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '".$var1."' '".$var2."'");
+$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '" .$args."'");
 echo($page);
 
 ?>
+
+
+
 <html>
  <head>
   <title>PHP Test</title>
