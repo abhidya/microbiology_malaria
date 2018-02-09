@@ -30,10 +30,16 @@ for($i = 0; $i < $numBinStart; $i++){
 $binEnd = $_GET['binsEnd'];
 $binEndStr = "";
 $numBinEnd = count($binEnd);
-#TODO Write for loop
+for($i = 0; $i < $numBinEnd; $i++){
+	$binEndStr .= $binEnd[$i] . " ";
+}
 
-#TODO write binProb info
 $binProb = $_GET['probs'];
+$binProbStr = "";
+$numBinProb = count($binProb);
+for($i = 0; $i < $numBinProb; $i++){
+	$binProbStr .= $binProb[$i] . " ";
+}
 
 ###END bin array parse information###
 
