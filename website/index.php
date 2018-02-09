@@ -5,10 +5,6 @@
 --> 
 
 <?php
-$var1 = $_GET['binsStart'];
-$var2 = $_GET['binsEnd'];
-$var3 = "test";
-$var4 = "test2";
 
 ###START function parse information###
 #Grabs the functions information from the form
@@ -24,12 +20,25 @@ for($i = 0; $i < $numFunctions; $i++){
 ###END function parse information###
 
 ###START bin array parse information###
+$binStart = $_GET['binsStart'];
+$binStartStr = "";
+$numBinStart = count($binStart);
+for($i = 0; $i < $numBinStart; $i++){
+	$binStartStr .= $binStart[$i] . " ";
+}
 
+$binEnd = $_GET['binsEnd'];
+$binEndStr = "";
+$numBinEnd = count($binEnd);
+#TODO Write for loop
+
+#TODO write binProb info
+$binProb = $_GET['probs'];
 
 ###END bin array parse information###
 
 #$result = shell_exec('/usr/bin/python /var/www/html/microbio/hello.py ' . $var3 ; $var4);
-$page = shell_exec("/usr/bin/python /var/www/html/microbio/hello.py '".$var1."' '".$strFun."'");
+$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '".$var1."' '".$strFun."'");
 echo($page);
 
 ?>
@@ -41,7 +50,9 @@ echo($page);
 <br><br>
 	Test Stuff: 
 	<form action="" method="get">
-	<p>Bins1 Start: <input type="text" name='binsStart1' /> Bins End: <input type="text" name='binsEnd1' />Probibility: <input type="text" name='probs' /></p>
+	<p>Bins1 Start: <input type="text" name='binsStart[]' /> Bins End: <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bins2 Start: <input type="text" name='binsStart[]' /> Bins End: <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bins3 Start: <input type="text" name='binsStart[]' /> Bins End: <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
 	<input type="checkbox" name="functionLaw[]" value="powerLaw">Powerlaw<br>
 	<input type="checkbox" name="functionLaw[]" value="threshold">Threshold<br> 
 	<input type="checkbox" name="functionLaw[]" value="logisticThreshold">Logistic Threshold<br> 
