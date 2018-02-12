@@ -7,16 +7,30 @@
 <?php
 
 
+###START Getting the number of bins and functions###
+$binStart = $_GET['binsStart'];
+$numbins = count($binStart);
+
+
+#Grabs the functions information from the form
+$functions = $_GET['functionLaw'];
+#Gets the number of elements in the array
+$numfunctions = count($functions);
+
+###END GEtting the number of bins and functions###
+
+
 
 ###START bin array parse information###
-$binStart = $_GET['binsStart'];
 $binEnd = $_GET['binsEnd'];
 $probs = $_GET['probs'];
 
-$numbins = count($binStart);
 
 //$binStartStr = "";
 $args = "";
+$args .= $numbins ." ". $numfunctions . " ";
+
+
 $binEndStr = "";
 for($i = 0; $i < $numbins; $i++){
 	$args .= $binStart[$i] . " " . $binEnd[$i] . " " . $probs[$i] . " ";
@@ -25,14 +39,9 @@ for($i = 0; $i < $numbins; $i++){
 
 
 ###START function parse information###
-#Grabs the functions information from the form
-$functions = $_GET['functionLaw'];
-#Gets the number of elements in the array
-$numFunctions = count($functions);
-$FunStr = "";
 
 #Runs through the functions array and adds the values to a single string to pass to python
-for($i = 0; $i < $numFunctions; $i++){
+for($i = 0; $i < $numfunctions; $i++){
 	$args .= $functions[$i] . " ";
 }
 
@@ -61,9 +70,16 @@ echo($page);
 <br><br>
 	Test Stuff: 
 	<form action="" method="get">
-	<p>Bins1 Start: <input type="text" name='binsStart[]' /> Bins End: <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
-	<p>Bins2 Start: <input type="text" name='binsStart[]' /> Bins End: <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
-	<p>Bins3 Start: <input type="text" name='binsStart[]' /> Bins End: <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 1: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 2: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 3: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 4: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 5: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 6: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 7: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 8: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 9: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+	<p>Bin 10: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
 	<input type="checkbox" name="functionLaw[]" value="powerLaw">Powerlaw<br>
 	<input type="checkbox" name="functionLaw[]" value="threshold">Threshold<br> 
 	<input type="checkbox" name="functionLaw[]" value="logisticThreshold">Logistic Threshold<br> 
