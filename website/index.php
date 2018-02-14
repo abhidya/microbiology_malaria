@@ -55,7 +55,7 @@ $var2 = "second";
 
 #$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '".$var1."' '".$strFun."'");
 #$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '".$var1."' '".$var2."'");
-$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '" .$args."'");
+$page = shell_exec("/usr/bin/python3 /var/www/html/website/estimate.py '" .$args."'");
 echo($page);
 
 ?>
