@@ -84,13 +84,15 @@ def main():
     #add depending on function
     disease_probs[i] = powerlaw(sample_array[i])
 
+  print(disease_probs)
+
   plt.hist(log10(sample_array), 10)
   plt.show()
 
   plt.hist(disease_probs, normed = True)
   plt.show()
      
- 
+
   print ("\n")
  
 
