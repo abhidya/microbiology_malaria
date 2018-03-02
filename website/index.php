@@ -65,11 +65,54 @@ echo($page);
 <html>
  <head>
   <title>PHP Test</title>
+ 
+  <!-- JAVASCRIPT -->
+  <script>
+    var i = 11;
+    function addfields() {
+      var e = document.createElement("P");
+      e.setAttribute("id", i);
+      var t = document.createTextNode("Bin "+ i+": ");
+      e.appendChild(t);      
+      //Add start bin
+      var x = document.createElement("INPUT");
+      x.setAttribute("type", "text");
+      x.setAttribute("name", "binsStart[]");
+      e.appendChild(x);
+      //Add "-"
+      t = document.createTextNode(" - ");
+      e.appendChild(t);
+      //Add end bin
+      x = document.createElement("INPUT");
+      x.setAttribute("type", "text");
+      x.setAttribute("name", "binsEnd[]");
+      e.appendChild(x);
+      //Add "Probability:"
+      t = document.createTextNode("Probability: ");
+      e.appendChild(t);
+      //Add probability
+      x = document.createElement("INPUT");
+      x.setAttribute("type", "text");
+      x.setAttribute("name", "probs[]");
+      e.appendChild(x);
+      i++;
+      document.getElementById("binsform").appendChild(e);        
+    }
+
+    function removefields() {
+      document.getElementById("binsform").removeChild(document.getElementById(i-1)); 
+      i--;
+    }
+  </script>
+
+  
  </head>
  <body>
 <br><br>
 	Test Stuff: 
+        <div id="binsform">
 	<form action="" method="get">
+
 	<p>Bin 1: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
 	<p>Bin 2: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
 	<p>Bin 3: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
@@ -80,6 +123,10 @@ echo($page);
 	<p>Bin 8: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
 	<p>Bin 9: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
 	<p>Bin 10: <input type="text" name='binsStart[]' /> - <input type="text" name='binsEnd[]' />Probibility: <input type="text" name='probs[]' /></p>
+        </div>
+	<button type="button" onclick="addfields()"> ADD Bins </button>
+	<button type="button" onclick="removefields()"> Remove Bins </button>
+	<br>
 	<input type="checkbox" name="functionLaw[]" value="powerLaw">Powerlaw<br>
 	<input type="checkbox" name="functionLaw[]" value="threshold">Threshold<br> 
 	<input type="checkbox" name="functionLaw[]" value="logisticThreshold">Logistic Threshold<br> 
@@ -89,3 +136,5 @@ echo($page);
 	
 </body>
 </html>
+
+
