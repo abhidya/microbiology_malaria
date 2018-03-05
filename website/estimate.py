@@ -74,22 +74,39 @@ def main():
   numsamples = 10000
   val_array = zeros(max_value)
   sample_array = zeros(numsamples)
-  disease_probs = zeros(numsamples)
 
   for i in range(max_value):
     val_array[i] = cdfProbSpz(i+1)
 
+  if("powerLaw" in arglist):
+    powerlaw_probs = zeros(numsamples)
+  if("threshold" in arglist):
+    threshold_probs = zeros(numsamples)
+  if("logisticThreshold" in arglist):
+    logisticthreshold_probs = zeros(numsamples)
+
+
   for i in range(numsamples):
     sample_array[i] = mosquito_sample(val_array)
-    #add depending on function
-    disease_probs[i] = powerlaw(sample_array[i])
+    if("powerLaw" in arglist):
+      powerlaw_probs[i] = powerlaw(sample_array[i])
+    if("threshold" in arglist):
+      threshold_probs[i] = threshold(sample_array[i])
+    if("logisticThreshold" in arglist):
+      logisticthreshold_probs[i] = logistic_threshold(sample_array[i])
 
-  print(disease_probs)
+  print(powerlaw_probs)
+  print(threshold_probs)
+  print(logisticthreshold_probs)
 
   plt.hist(log10(sample_array), 10)
   plt.show()
 
-  plt.hist(disease_probs, normed = True)
+  plt.hist(powerlaw_probs, normed = True)
+  plt.show()
+  plt.hist(threshold_probs, normed = True)
+  plt.show()
+  plt.hist(logisticthreshold_probs, normed = True)
   plt.show()
      
 
