@@ -1,55 +1,15 @@
-
+<!DOCTYPE html>
 
 <html>
  <head>
-  <title>PHP Test</title>
- 
-  <!-- JAVASCRIPT -->
-  <script>
-    var i = 11;
-    function addfields() {
-      var e = document.createElement("P");
-      e.setAttribute("id", i);
-      var t = document.createTextNode("Bin "+ i+": ");
-      e.appendChild(t);      
-      //Add start bin
-      var x = document.createElement("INPUT");
-      x.setAttribute("type", "text");
-      x.setAttribute("name", "binsStart[]");
-      e.appendChild(x);
-      //Add "-"
-      t = document.createTextNode(" - ");
-      e.appendChild(t);
-      //Add end bin
-      x = document.createElement("INPUT");
-      x.setAttribute("type", "text");
-      x.setAttribute("name", "binsEnd[]");
-      e.appendChild(x);
-      //Add "Probability:"
-      t = document.createTextNode("Probability: ");
-      e.appendChild(t);
-      //Add probability
-      x = document.createElement("INPUT");
-      x.setAttribute("type", "text");
-      x.setAttribute("name", "probs[]");
-      e.appendChild(x);
-      i++;
-      document.getElementById("binsform").appendChild(e);        
-    }
-
-    function removefields() {
-      document.getElementById("binsform").removeChild(document.getElementById(i-1)); 
-      i--;
-    }
-  </script>
-
+  <title>PHP Test</title> 
   
  </head>
  <body>
 <br><br>
 	Test Stuff: 
-        <div id="binsform">
-	<form action="process.php" method="get">
+        <div id="bins">
+	<form id="binsform" action="process.php" method="get">
 
 	<p>Bin 1: <input type="text" name='binsStart[]' value="1"/> - <input type="text" name='binsEnd[]' value="500"/>Probibility: <input type="text" name='probs[]' value="3"/></p>
 	<p>Bin 2: <input type="text" name='binsStart[]' value="501"/> - <input type="text" name='binsEnd[]' value="1000"/>Probibility: <input type="text" name='probs[]' value="5.6"/></p>
@@ -62,14 +22,14 @@
 	<p>Bin 9: <input type="text" name='binsStart[]' value="64001"/> - <input type="text" name='binsEnd[]' value="128000"/>Probibility: <input type="text" name='probs[]' value="3.9"/></p>
 	<p>Bin 10: <input type="text" name='binsStart[]' value="128001"/> - <input type="text" name='binsEnd[]' value="256000"/>Probibility: <input type="text" name='probs[]' value="0.65"/></p>
         </div>
-	<button type="button" onclick="addfields()"> ADD Bins </button>
-	<button type="button" onclick="removefields()"> Remove Bins </button>
-	<br>
 	<input type="checkbox" name="functionLaw[]" value="powerLaw">Powerlaw<br>
 	<input type="checkbox" name="functionLaw[]" value="threshold">Threshold<br> 
 	<input type="checkbox" name="functionLaw[]" value="logisticThreshold">Logistic Threshold<br> 
 	<br><br>
-	<input type="submit" value="Submit">
+	<input type="submit" value="Submit"> 
+        <br>
+        <p>Don't like these ditrbutions? Insert your own here:
+	<a href="custom.html"><button type="button"> Create New Distributions </button> </a>
 	</form>
 	
 </body>
