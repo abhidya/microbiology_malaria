@@ -18,6 +18,8 @@ arglist = args.split()        #turn the args string into list items
 
 numbins = int(arglist[0])        #number of bins
 numfunctions = int(arglist[1])   #number of functions
+numsamples = int(arglist[2])     #numver of samples
+
 
 
 cutoffs = []    
@@ -25,7 +27,7 @@ probs = []
 intervals = []
 lengths = []
 
-for i in range(2, 3*numbins, 3): 
+for i in range(3, 3*numbins, 3): 
   intervals.append([float(arglist[i]), float(arglist[i+1])])
   cutoffs.append(float(arglist[i+1]))
   probs.append(float(arglist[i+2])*0.01)
@@ -71,7 +73,7 @@ def mosquito_sample(val_array):
 
 def main():
   max_value = int(max(cutoffs))
-  numsamples = 10000
+#  numsamples = 10000
   val_array = zeros(max_value)
   sample_array = zeros(numsamples)
 
@@ -95,9 +97,12 @@ def main():
     if("logisticThreshold" in arglist):
       logisticthreshold_probs[i] = logistic_threshold(sample_array[i])
 
-  print(powerlaw_probs)
-  print(threshold_probs)
-  print(logisticthreshold_probs)
+  if("powerLaw" in arglist):
+    print(powerlaw_probs)
+  if("threshold" in arglist):
+    print(threshold_probs)
+  if("logisticThreshold" in arglist):
+    print(logisticthreshold_probs)
 
   plt.hist(log10(sample_array), 10)
   plt.show()

@@ -18,11 +18,12 @@ $numfunctions = count($functions);
 ###START bin array parse information###
 $binEnd = $_GET['binsEnd'];
 $probs = $_GET['probs'];
+$size = $_GET['size'];
 
 
 //$binStartStr = "";
 $args = "";
-$args .= $numbins ." ". $numfunctions . " ";
+$args .= $numbins ." ". $numfunctions . " " . $size . " ";
 
 
 $binEndStr = "";
