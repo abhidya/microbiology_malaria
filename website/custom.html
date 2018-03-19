@@ -26,20 +26,52 @@
       x.setAttribute("name", 'binsEnd[]');
       e.appendChild(x);
       //Add "Probability:"
-      t = document.createTextNode("Probability: ");
+      t = document.createTextNode("Probability %: ");
       e.appendChild(t);
       //Add probability
       x = document.createElement("INPUT");
       x.setAttribute("type", "text");
       x.setAttribute("name", 'probs[]');
+      x.setAttribute("id", "prob"+i);
       e.appendChild(x);
       i++;
-      document.getElementById("binsform").appendChild(e);        
+      document.getElementById("binsform").appendChild(e);   
     }
 
     function removefields() {
       document.getElementById("binsform").removeChild(document.getElementById(i-1)); 
       i--;
+    }
+
+    //create bins based on number entered by user
+    function createbins() {
+       var number = parseInt(document.getElementById("bincreate").value);
+       while (i<=number){
+         addfields();
+       }
+
+    }
+
+    //check sum of probabilities
+    function checksum() {
+	var sum = 0;
+        var j;
+
+        for (j = i-1; j!=0; j--){
+	  sum += parseFloat(document.getElementById("prob"+j).value);
+	}
+
+        if (sum > 100){
+          var diff = sum-100;
+          alert("Percentage sum is bigger than 100 by " + diff);
+          return false;
+        }
+        else if (isNaN(sum) || sum < 100){
+          var diff = 100-sum;
+          alert("Percentage sum is smaller than 100 by " + diff);
+          return false;
+        }
+        else return true;
     }
   </script>
 
@@ -48,18 +80,26 @@
  <body>
 <br><br>
 	Test Stuff: 
+
+        <div id = "build">
+	  Enter Number of bins to add: <input type="text" id="bincreate" name="binacreate"/> 
+          <button type="button" onclick="createbins()"> Create </button> 
+	</div>
+
         <div id="bins">
-	<form id="binsform" action="process.php" method="get">
+	  <form id="binsform" action="process.php" method="get">
 
         </div>
-	<button type="button" onclick="addfields()"> ADD Bins </button>
+
+	<button type="button" onclick="addfields()"> Add Bins </button>
 	<button type="button" onclick="removefields()"> Remove Bins </button>
-	<br>
+	<br><br>
 	<input type="checkbox" name="functionLaw[]" value="powerLaw">Powerlaw Model<br>
 	<input type="checkbox" name="functionLaw[]" value="threshold">Threshold Model<br> 
 	<input type="checkbox" name="functionLaw[]" value="logisticThreshold">Logistic Threshold Model<br> 
+        <p>Number of Samples: <input type="text" name="size" value="3000" /> </p> <br>
 	<br><br>
-	<input type="submit" value="Submit">
+	<input type="submit" value="Submit" onclick=" return checksum();">
 	</form>
 	
 </body>
