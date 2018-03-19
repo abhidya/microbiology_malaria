@@ -16,6 +16,7 @@
       var x = document.createElement("INPUT");
       x.setAttribute("type", "text");
       x.setAttribute("name", 'binsStart[]');
+      x.setAttribute("id", "start"+i);
       e.appendChild(x);
       //Add "-"
       t = document.createTextNode(" - ");
@@ -24,6 +25,7 @@
       x = document.createElement("INPUT");
       x.setAttribute("type", "text");
       x.setAttribute("name", 'binsEnd[]');
+      x.setAttribute("id", "end"+i);
       e.appendChild(x);
       //Add "Probability:"
       t = document.createTextNode("Probability %: ");
@@ -45,9 +47,23 @@
 
     //create bins based on number entered by user
     function createbins() {
+       var j;
        var number = parseInt(document.getElementById("bincreate").value);
        while (i<=number){
          addfields();
+       }
+       // auto fill of the bins
+       var val = parseInt(document.getElementById("min").value);
+       var step = parseInt(document.getElementById("step").value);
+
+       for (j=1; j<i; j++){
+	  document.getElementById("start"+j).value = val;
+          val--;
+          val += step;
+     //     step = val; 
+	  document.getElementById("end"+j).value = val;
+          val++;
+          
        }
 
     }
@@ -57,7 +73,7 @@
 	var sum = 0;
         var j;
 
-        for (j = i-1; j!=0; j--){
+        for (j = 1; j < i; j++){
 	  sum += parseFloat(document.getElementById("prob"+j).value);
 	}
 
@@ -82,7 +98,9 @@
 	Test Stuff: 
 
         <div id = "build">
-	  Enter Number of bins to add: <input type="text" id="bincreate" name="binacreate"/> 
+	  Enter number of bins to add: <input type="text" id="bincreate" name="binacreate"/><br> 
+	  Enter minimum value of infecion data: <input type="text" id="min" name="min"/> <br>
+	  Enter step value of infection data: <input type="text" id="step" name="step"/> <br>
           <button type="button" onclick="createbins()"> Create </button> 
 	</div>
 
