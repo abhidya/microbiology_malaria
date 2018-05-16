@@ -2,9 +2,12 @@ import sys
 from math import exp
 from scipy.stats import norm
 from scipy.stats import uniform
-from numpy import log10, power, arange,array, zeros, random, abs
+from numpy import log10, power, arange,array, zeros, random, abs, set_printoptions, inf
 import random as rand
 import matplotlib.pyplot as plt
+
+set_printoptions(threshold=inf)
+
 
 # Defining 3 functions fitted to experimental data
 powerlaw = lambda v: 1 - exp(-0.0037777154*v**0.41129882)
