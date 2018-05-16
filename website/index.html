@@ -2,37 +2,128 @@
 
 <html>
  <head>
-  <title>PHP Test</title> 
-  
+  <title>MicroBio - Home</title> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="a    nonymous">
+     
+     <style>
+         .center {
+     margin: auto;
+      width: 100%;
+      padding: 10px;
+  }
+.container {
+  display: flex;
+}
+.container > div {
+  flex: 1; /*grow*/
+}
+body {
+  background: url('http://www.slopemedia.org/wp-content/uploads/2016/09/tubitos.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.blur {
+  background: url('http://www.slopemedia.org/wp-content/uploads/2016/09/tubitos.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+  filter: blur(13px);
+  position: absolute;
+  height: 300px;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+}
+
+.widget {
+  border-top: 2px solid rgba(255, 255, 255, .5);
+  border-bottom: 2px solid rgba(255, 255, 255, .5);
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.center {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
+
+
+
+
+/*  NOT REQUIRED  */
+
+.text {
+  width: 100%;
+  /*height: 200px;
+  width: 340px;*/
+}
+
+.text h1 {
+  text-align: center;
+  text-shadow: 1px 1px rgba(0, 0, 0, .1);
+  color: #ffffff;
+  margin-top: 57px;
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 38px;
+}
+
+.text p {
+  text-align: center;
+  color: #000;
+  text-shadow: 1px 1px rgba(0, 0, 0, .1);
+  margin-top: 0px;
+  font-family: 'Lato', serif;
+  font-weight: 400;
+  font-size: 22px;
+}
+      </style> 
  </head>
  <body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="index.html">Microbiology Malaria</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+    </button> 
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+     <div class="navbar-nav">
+       <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+       <a class="nav-item nav-link" href="example.html">Example Distribution</a>
+       <a class="nav-item nav-link" href="custom.html">New Distribution</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+  </div>
+ </nav>
+
 <br><br>
-	Test Stuff: 
-        <div id=bins">
-	<form id="binsform" action="process.php" method="get">
 
-	<p>Bin 1: <input type="text" name='binsStart[]' value="1"/> - <input type="text" name='binsEnd[]' value="500"/>Probability %:  <input type="text" name='probs[]' value="3"/></p>
-	<p>Bin 2: <input type="text" name='binsStart[]' value="501"/> - <input type="text" name='binsEnd[]' value="1000"/>Probability %:  <input type="text" name='probs[]' value="5.6"/></p>
-	<p>Bin 3: <input type="text" name='binsStart[]' value="1001"/> - <input type="text" name='binsEnd[]' value="2000"/>Probability %:  <input type="text" name='probs[]' value="10"/></p>
-	<p>Bin 4: <input type="text" name='binsStart[]' value="2001"/> - <input type="text" name='binsEnd[]' value="4000"/>Probability %:  <input type="text" name='probs[]' value="25.5"/></p>
-	<p>Bin 5: <input type="text" name='binsStart[]' value="4001"/> - <input type="text" name='binsEnd[]' value="8000"/>Probability %:  <input type="text" name='probs[]' value="20.4"/></p>
-	<p>Bin 6: <input type="text" name='binsStart[]' value="8001"/> - <input type="text" name='binsEnd[]' value="16000"/>Probability %:  <input type="text" name='probs[]' value="15"/></p>
-	<p>Bin 7: <input type="text" name='binsStart[]' value="16001"/> - <input type="text" name='binsEnd[]' value="32000"/>Probability %:  <input type="text" name='probs[]' value="10.4"/></p>
-	<p>Bin 8: <input type="text" name='binsStart[]' value="32001"/> - <input type="text" name='binsEnd[]' value="64000"/>Probability %:  <input type="text" name='probs[]' value="5.6"/></p>
-	<p>Bin 9: <input type="text" name='binsStart[]' value="64001"/> - <input type="text" name='binsEnd[]' value="128000"/>Probability %:  <input type="text" name='probs[]' value="3.9"/></p>
-	<p>Bin 10: <input type="text" name='binsStart[]' value="128001"/> - <input type="text" name='binsEnd[]' value="256000"/>Probability %:  <input type="text" name='probs[]' value="0.65"/></p>
-        </div>
 
-	<input type="checkbox" name="functionLaw[]" value="powerLaw">Powerlaw Model<br>
-	<input type="checkbox" name="functionLaw[]" value="threshold">Threshold Model<br> 
-	<input type="checkbox" name="functionLaw[]" value="logisticThreshold">Logistic Threshold Model<br> 
-        <p>Number of Samples: <input type="text" name="size" value="3000" /> </p> 
-	<br><br>
-	<input type="submit" value="Submit"> 
-        <br>
-        <p>Don't like these distributions? Insert your own here:
-	<a href="custom.html"><button type="button"> Create New Distributions </button> </a>
-	</form>
+<div class="widget center">
+  
+  <div class="blur"></div>
+  
+  <div class="text center">
+    <h1 class="">Microbiology Malaria</h1>
+	<center>
+	<a href="example.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Example</a>
+	<a href="custom.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">New Distribution</a></center>`
+    <p>This site has been built by the UTK EECS Independent Study students for use by the Microbiology Department. Please use the navigation at the top to see example distributions or submit your own.
+</p>
+  </div>
+
+</div>
+<center>
+
+</center>
+
 	
 </body>
 </html>

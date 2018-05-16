@@ -2,11 +2,9 @@ import sys
 from math import exp
 from scipy.stats import norm
 from scipy.stats import uniform
-from numpy import log10, power, arange,array, zeros, random, abs, set_printoptions, inf
+from numpy import log10, power, arange,array, zeros, random, abs
 import random as rand
 import matplotlib.pyplot as plt
-
-set_printoptions(threshold=inf)
 
 # Defining 3 functions fitted to experimental data
 powerlaw = lambda v: 1 - exp(-0.0037777154*v**0.41129882)
@@ -17,10 +15,19 @@ logistic_threshold = lambda v: (0.04131329044/(0.04131329044 + exp(-0.0001102641
 #Constructing data on infectivity from website
 args = sys.argv[1]
 arglist = args.split()        #turn the args string into list items
+print("DEBUG arglist: ", arglist)
+
 
 numbins = int(arglist[0])        #number of bins
+print("DEBUG numbins: ", numbins)
+
+print("DEBUG arglist[1]: ", arglist[1])
+
 numfunctions = int(arglist[1])   #number of functions
+print("DEBUG numfunctions: ", numbins)
+
 numsamples = int(arglist[2])     #numver of samples
+print("DEBUG numsamples: ", numbins)
 
 
 
@@ -106,15 +113,15 @@ def main():
   if("logisticThreshold" in arglist):
     print(logisticthreshold_probs)
 
-  plt.hist(log10(sample_array), 10)
-  plt.show()
+#  plt.hist(log10(sample_array), 10)
+#  plt.show()
 
-  plt.hist(powerlaw_probs, normed = True)
-  plt.show()
-  plt.hist(threshold_probs, normed = True)
-  plt.show()
-  plt.hist(logisticthreshold_probs, normed = True)
-  plt.show()
+#  plt.hist(powerlaw_probs, normed = True)
+#  plt.show()
+#  plt.hist(threshold_probs, normed = True)
+#  plt.show()
+#  plt.hist(logisticthreshold_probs, normed = True)
+#  plt.show()
      
 
   print ("\n")

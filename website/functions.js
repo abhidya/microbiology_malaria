@@ -4,6 +4,8 @@
     function addfields() {
       var e = document.createElement("P");
       e.setAttribute("id", i);
+      e.setAttribute("class", "card w-75");
+      e.setAttribute("class", "content");
       var t = document.createTextNode("Bin "+ i+": ");
       e.appendChild(t);      
       //Add start bin
