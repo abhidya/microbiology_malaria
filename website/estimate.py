@@ -18,19 +18,14 @@ logistic_threshold = lambda v: (0.04131329044/(0.04131329044 + exp(-0.0001102641
 #Constructing data on infectivity from website
 args = sys.argv[1]
 arglist = args.split()        #turn the args string into list items
-print("DEBUG arglist: ", arglist)
 
 
 numbins = int(arglist[0])        #number of bins
-print("DEBUG numbins: ", numbins)
 
-print("DEBUG arglist[1]: ", arglist[1])
 
 numfunctions = int(arglist[1])   #number of functions
-print("DEBUG numfunctions: ", numbins)
 
 numsamples = int(arglist[2])     #numver of samples
-print("DEBUG numsamples: ", numbins)
 
 
 
@@ -110,21 +105,27 @@ def main():
       logisticthreshold_probs[i] = logistic_threshold(sample_array[i])
 
   if("powerLaw" in arglist):
-    print(powerlaw_probs)
+#    print(powerlaw_probs)
+    for i in powerlaw_probs:
+      print(i) 
   if("threshold" in arglist):
-    print(threshold_probs)
+#    print(threshold_probs)
+    for i in threshold_probs:
+      print(i)
   if("logisticThreshold" in arglist):
-    print(logisticthreshold_probs)
+#    print(logisticthreshold_probs)
+    for i in logisticthreshold_probs:
+      print(i)
 
 #  plt.hist(log10(sample_array), 10)
 #  plt.show()
 
-#  plt.hist(powerlaw_probs, normed = True)
-#  plt.show()
-#  plt.hist(threshold_probs, normed = True)
-#  plt.show()
-#  plt.hist(logisticthreshold_probs, normed = True)
-#  plt.show()
+  plt.hist(powerlaw_probs, normed = True)
+  plt.show()
+  plt.hist(threshold_probs, normed = True)
+  plt.show()
+  plt.hist(logisticthreshold_probs, normed = True)
+  plt.show()
      
 
   print ("\n")
