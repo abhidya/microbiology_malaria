@@ -4,124 +4,48 @@
  <head>
   <title>MicroBio - New Distro</title>
   <script src="functions.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
-	 <style>
-            .center {
-       margin: auto;
-       width: 100%;
-       padding: 10px;
-   }
- .container {
-   display: flex;
- }
- .container > div {
-   flex: 1; /*grow*/
- }
- 
-.content {
-    max-width: 99%;
-    margin: auto;
-    background: white;
-    padding: 10px;
-}
-
-.bins{
-	text-align: center;
-}
-.binsform{
-	text-align: center;
-}
-.text{
-	text-align: center;
-}
-
-       </style> 	
 
  </head>
+
  <body>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="index.html">Microbiology Malaria</a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-    </button> 
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-     <div class="navbar-nav">
-       <a class="nav-item nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-       <a class="nav-item nav-link" href="example.html">Example Distribution</a>
-       <a class="nav-item nav-link active" href="custom.html">New Distribution</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-  </div>
- </nav>
-<br><br>
 
-        <div id = "build">
-<center> 
- 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+    <a href="index.html">Home</a>
+       <a href="#">Example Distribution</a>
+       <a href="custom.html">New Distribution</a>
+      <a href="#">Disabled</a>
+
 	    <p>Number of Bins to add: <input type="text" id="bincreate" name="binacreate"/><br> 
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
 	   <p>Min value of infecion data: <input type="text" id="min" name="min"/> <br>
-      </div>
-    </div>
-  </div>
-</div> 
+
  
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
 	    <p>Step value of infection data: <input type="text" id="step" name="step"/> <br>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
+
 	    <p>Location of taken data: <input type="text" id="location" name="location"/> <br>
-      </div>
-    </div>
-  </div>
-</div> 
 
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
 	    <p>Mosquito species: <input type="text" id="species" name="species"/> <br>
-      </div>
-    </div>
-  </div>
-
 
 <br>
 
           <button type="button" onclick="createbins()"> Create </button> 
 	  <a href="custom.html"><button type="button"> Reset </button> </a>
 	<br>
-	</div>
+
 <br>
         <div class="bins" id="bins">
 	  <form id="binsform" action="process.php" method="get">
-</center>
+
         </div>
-<center>
+
 	<br>
 	<button type="button" onclick="addfields()"> Add Bins </button>
 	<button type="button" onclick="removefields()"> Remove Bins </button>
 	<br><br>
 
- <div class="card w-50">
-  <div class="card-body">
     <p>Number of Samples: <input type="text" name="size" value="3000" /> </p> 
-  <div class="container">
+
 	<div><input type="checkbox" name="functionLaw[]" value="powerLaw"> Powerlaw Model</div>
   <div>
 	<input type="checkbox" name="functionLaw[]" value="threshold"> Threshold Model<br> 
@@ -129,14 +53,11 @@
   <div>
 	<input type="checkbox" name="functionLaw[]" value="logisticThreshold"> Logistic Threshold Model<br> 
 	</div>
-</div>
-</div>
-</div>
+
 <br>
 	<input type="submit" value="Submit" onclick=" return checksum();">
 	</form>
 	<br><br><br>
-	</center>
 </body>
 </html>
 

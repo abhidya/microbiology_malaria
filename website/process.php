@@ -45,12 +45,10 @@ echo("<br>");
 
 ###END function parse information###
 
-$var1 = "hi fh djfh";
-$var2 = "second";
-
-#$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '".$var1."' '".$strFun."'");
-#$page = shell_exec("/usr/bin/python /var/www/html/website/hello.py '".$var1."' '".$var2."'");
-$page = shell_exec("/usr/bin/python3 /var/www/html/website/estimate.py '" .$args."'");
+$page = shell_exec("/usr/bin/python3 /var/www/html/website/estimate.py '" .$args."'"); #Nasib Ubuntu
+$page = shell_exec("/usr/bin/python3 /var/www/html/website/estimate.py '" .$args."'"); #Mark Windows
+$page = shell_exec("/usr/bin/python3 /var/www/html/website/estimate.py '" .$args."'"); #Kristina Mac
+$page = shell_exec("/usr/bin/python3 /var/www/html/website/estimate.py '" .$args."'"); #Manny Ubuntu
 echo($page);
 
 ?>
@@ -58,25 +56,23 @@ echo($page);
 
 
 <head>
-<!-- Plotly.js -->
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        </head>
-        <body>
-        <!-- Plotly chart will be drawn inside this DIV -->
-        <div id="myDiv"></div>
-        <script>
-        /* JAVASCRIPT CODE GOES HERE */
-var d = <?php echo json_encode($page); ?>;
-var x= d.split("\n");
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
 
-var trace = {
-    x: x,
-    type: 'histogram',
-  };
-var data = [trace];
-Plotly.newPlot('myDiv', data);
-        </script>
-        </body>
+<body>
+    <!-- Plotly chart will be drawn inside this DIV -->
+    <div id="myDiv"></div>
+    <script>
+    /* JAVASCRIPT CODE GOES HERE */
+    var data = <?php echo json_encode($page); ?>;
+    var x= data.split("\n");
 
-
-
+    var trace = {
+        x: x,
+        type: 'histogram',
+    };
+    var data = [trace];
+    Plotly.newPlot('myDiv', data);
+</script>
+</body>

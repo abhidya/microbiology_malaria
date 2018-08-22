@@ -3,174 +3,63 @@
 <html>
  <head>
   <title>MicroBio - Example Distro</title> 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="a    nonymous">
-     
-     <style>
-         .center {
-     margin: auto;
-      width: 100%;
-      padding: 10px;
-  }
-.container {
-  display: flex;
-}
-.container > div {
-  flex: 1; /*grow*/
-}
-	 .wrapper{position:relative;}
-    .right,.left{width:50%; position:absolute;}
-    .right{right:0;}
-    .left{left:0;}
-
-/*Input field size shrinker, from bootstrap size */
-input[type=text], select {
-    width: 10%;
-}
-.content {
-    max-width: 99%;
-    margin: auto;
-    background: white;
-    padding: 10px;
-}
-
-      </style> 
  </head>
  <body>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="index.html">Microbiology Malaria</a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-    </button> 
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-     <div class="navbar-nav">
-       <a class="nav-item nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-       <a class="nav-item nav-link active" href="#">Example Distribution</a>
-       <a class="nav-item nav-link" href="custom.html">New Distribution</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-  </div>
- </nav>
+       <a href="index.html">Home</a>
+       <a href="#">Example Distribution</a>
+       <a href="custom.html">New Distribution</a>
+      <a href="#">Disabled</a>
 
 <div class="content">
 <br>
 
-	<!--<center>
-	<h1>Example Distribution</h1> 
-	<br>
-	<p>Wondering how and where to get started with your own distribution? Check out this sample distribution that we have created for you. Please select at least one  "function" from the bottom then submit the form to see the distribution.</p>	
 
-	</center>
-   <br><br>-->
-
-
-     <div id=bins">
+     <div id="bins">
 	<form id="binsform" action="process.php" method="get">
 
-<center>
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
+
 	    <p>Bin 1: <input type="text" name='binsStart[]' value="1"/> - <input type="text" name='binsEnd[]' value="500"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="3"/></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
 	    <p>Bin 2: <input type="text" name='binsStart[]' value="501"/> - <input type="text" name='binsEnd[]' value="1000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="5.6"/></p>
-      </div>
-    </div>
-  </div>
-</div> 
+    
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
 	    <p>Bin 3: <input type="text" name='binsStart[]' value="1001"/> - <input type="text" name='binsEnd[]' value="2000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="10"/></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+ 
+
 	    <p>Bin 4: <input type="text" name='binsStart[]' value="2001"/> - <input type="text" name='binsEnd[]' value="4000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="25.5"/></p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
 	    <p>Bin 5: <input type="text" name='binsStart[]' value="4001"/> - <input type="text" name='binsEnd[]' value="8000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="20.4"/></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
+
 	    <p>Bin 6: <input type="text" name='binsStart[]' value="8001"/> - <input type="text" name='binsEnd[]' value="16000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="15"/></p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
 	    <p>Bin 7: <input type="text" name='binsStart[]' value="16001"/> - <input type="text" name='binsEnd[]' value="32000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="10.4"/></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
 	    <p>Bin 8: <input type="text" name='binsStart[]' value="32001"/> - <input type="text" name='binsEnd[]' value="64000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="5.6"/></p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
+
+
 	    <p>Bin 9: <input type="text" name='binsStart[]' value="64001"/> - <input type="text" name='binsEnd[]' value="128000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="3.9"/></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-	    <p>Bin 10: <input type="text" name='binsStart[]' value="128001"/> - <input type="text" name='binsEnd[]' value="256000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="0.65"/></p>
-      </div>
-    </div>
-  </div>
-</div>
 
- <div class="card w-50">
-  <div class="card-body">
+	    <p>Bin 10: <input type="text" name='binsStart[]' value="128001"/> - <input type="text" name='binsEnd[]' value="256000"/> &nbsp; Probability %:  <input type="text" name='probs[]' value="0.65"/></p>
+
+
     <p>Number of Samples: <input type="text" name="size" value="3000" /> </p> 
-  <div class="container">
+
 	<div><input type="checkbox" name="functionLaw[]" value="powerLaw"> Powerlaw Model</div>
-  <div>
+  
 	<input type="checkbox" name="functionLaw[]" value="threshold"> Threshold Model<br> 
-	</div>
-  <div>
+	
 	<input type="checkbox" name="functionLaw[]" value="logisticThreshold"> Logistic Threshold Model<br> 
-	</div>
-</div>
-</div>
-</div>
+
 <br>
 
 <input type="submit" value="Submit"> 
 
-</center>
+
 
 	</form>
 </div>
