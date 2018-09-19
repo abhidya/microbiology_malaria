@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+
 <html>
  <head>
   <title>MicroBio - Example Distro</title> 
@@ -8,14 +13,14 @@
        <a href="index.html">Home</a>
        <a href="#">Example Distribution</a>
        <a href="custom.html">New Distribution</a>
-      <a href="#">Disabled</a>
+      <!-- <a href="#">Disabled</a> -->
 
 <div class="content">
 <br>
 
 
      <div id="bins">
-	<form id="binsform" action="process.php" method="get">
+	<form id="binsform" action="process.php" method="get" onsubmit="showLoadingMessage();" >
 
 
 
@@ -62,6 +67,17 @@
 
 
 	</form>
+
+
+	<script>
+		function showLoadingMessage() {
+		  var message = document.createElement('div');
+		  message.innerHTML = 'We are working. Please wait...';
+		  document.body.appendChild(message);
+		}
+		</script>
+		
+		
 </div>
 </body>
 </html>
