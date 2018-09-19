@@ -48,16 +48,16 @@
 	
 	#$page = shell_exec("/usr/bin/python3 /var/www/html/website/estimate.py '" .$args."'"); #Nasib Ubuntu
 	#$page = shell_exec("/usr/bin/python3 /var/www/html/website/estimate.py '" .$args."'"); #Mark Windows
-	#$page = shell_exec("/usr/bin/python3 /var/www/html/website/estimate.py '" .$args."'"); #Kristina Mac
-	$page = shell_exec("/home/manny/anaconda3/bin/python3 /var/www/html/microbiology_malaria/website/estimate.py '" .$args."'"); #Manny Ubuntu
+	$page = shell_exec("/usr/bin/python2.7 /Users/kristinabridgwater/Sites/microbiology_malaria/website/estimate.py '" .$args."'"); #Kristina Mac
+	#$page = shell_exec("/home/manny/anaconda3/bin/python3 /var/www/html/microbiology_malaria/website/estimate.py '" .$args."'"); #Manny Ubuntu
 	// echo($page)
-	$models_ar = explode(',', $page);
+	$models_ar =explode(',', $page);
     // echo($models_ar[0]);
     // echo($models_ar[1]);
     // echo($models_ar[2]);
     
 	
-	// $handle = popen("/home/manny/anaconda3/bin/python3 /var/www/html/microbiology_malaria/website/estimate.py 2>&1 '" .$args."'" , 'r');
+	// $handle = popen("/usr/bin/python2.7 /Users/kristinabridgwater/Sites/microbiology_malaria/website/estimate.py 2>&1 '" .$args."'" , 'r');
 	// $output = fread($handle, 1024);
 	// var_dump($output);
 	// pclose($handle);
