@@ -127,11 +127,11 @@ def main():
     # plt.show()
 
     plt.hist(powerlaw_probs, normed=True)
-    plt.show()
+   # plt.show()
     plt.hist(threshold_probs, normed=True)
-    plt.show()
+   # plt.show()
     plt.hist(logisticthreshold_probs, normed=True)
-    plt.show()
+   # plt.show()
 
     print("\n")
 
