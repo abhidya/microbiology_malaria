@@ -92,22 +92,22 @@ def main():
 
 
     # print("powerlaw_probs,")
+    if("powerLaw" in arglist):
+        for i in powerlaw_probs:
+            print(i)
+    print(",")
+        # print("thresholds_probs,")
+    if("threshold" in arglist):
+        for i in threshold_probs:
+            print(i)
+    print(",")
 
-    for i in powerlaw_probs:
-        print(i)
-    print(" , ")
-    # print("thresholds_probs,")
+        # print("logtresh_probs,")
 
-    for i in threshold_probs:
-        print(i)
-    print(" , ")
-
-    # print("logtresh_probs,")
-
-
-    for i in logisticthreshold_probs:
-        print(i)
-    print(" , ")
+    if("logisticThreshold" in arglist):
+        for i in logisticthreshold_probs:
+            print(i)
+    print(",")
 
 
      # plt.hist(log10(sample_array), 10)
