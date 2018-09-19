@@ -12,7 +12,7 @@ set_printoptions(threshold=inf)
 powerlaw = lambda v: 1 - exp(-0.0037777154 * v ** 0.41129882)
 threshold = lambda v: 0.06639757 if v < 20166.6408644 else 0.352561152
 logistic_threshold = lambda v: (0.04131329044 / (0.04131329044 + exp(-0.0001102641 * v))) if v < 20737.338791655 else (
-            0.04131329044 / (0.04131329044 + exp(-0.0001102641 * 20737.338791655 - 3.25839158 * (v - 20737.338791655))))
+        0.04131329044 / (0.04131329044 + exp(-0.0001102641 * 20737.338791655 - 3.25839158 * (v - 20737.338791655))))
 
 # Constructing data on infectivity from website
 args = sys.argv[1]
@@ -74,45 +74,57 @@ def mosquito_sample(val_array):
 
 
 def main():
+    pl_flag = False
+    thresh_flag = False
+    logThres_flag = False
+
+    if ("powerLaw" in arglist):
+        pl_flag = True
+    if ("threshold" in arglist):
+        thresh_flag = True
+    if ("logisticThreshold" in arglist):
+        logThres_flag = True
+
     max_value = int(max(cutoffs))
     val_array = zeros(max_value)
     sample_array = zeros(numsamples)
 
     for i in range(max_value):
         val_array[i] = cdfProbSpz(i + 1)
-        powerlaw_probs = zeros(numsamples)
-        threshold_probs = zeros(numsamples)
-        logisticthreshold_probs = zeros(numsamples)
+
+    powerlaw_probs = zeros(numsamples)
+    threshold_probs = zeros(numsamples)
+    logisticthreshold_probs = zeros(numsamples)
 
     for i in range(numsamples):
         sample_array[i] = mosquito_sample(val_array)
-        powerlaw_probs[i] = powerlaw(sample_array[i])
-        threshold_probs[i] = threshold(sample_array[i])
-        logisticthreshold_probs[i] = logistic_threshold(sample_array[i])
-
+        if (pl_flag):
+            powerlaw_probs[i] = powerlaw(sample_array[i])
+        if (thresh_flag):
+            threshold_probs[i] = threshold(sample_array[i])
+        if (logThres_flag):
+            logisticthreshold_probs[i] = logistic_threshold(sample_array[i])
 
     # print("powerlaw_probs,")
-    if("powerLaw" in arglist):
+    if (pl_flag):
         for i in powerlaw_probs:
             print(i)
     print(",")
-        # print("thresholds_probs,")
-    if("threshold" in arglist):
+    # print("thresholds_probs,")
+    if (thresh_flag):
         for i in threshold_probs:
             print(i)
     print(",")
 
-        # print("logtresh_probs,")
+    # print("logtresh_probs,")
 
-    if("logisticThreshold" in arglist):
+    if (logThres_flag):
         for i in logisticthreshold_probs:
             print(i)
     print(",")
 
-
-     # plt.hist(log10(sample_array), 10)
-     # plt.show()
-
+    # plt.hist(log10(sample_array), 10)
+    # plt.show()
 
     plt.hist(powerlaw_probs, normed=True)
     plt.show()
@@ -122,6 +134,7 @@ def main():
     plt.show()
 
     print("\n")
+
 
 if __name__ == "__main__":
     main()
