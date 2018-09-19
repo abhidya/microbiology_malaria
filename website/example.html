@@ -20,7 +20,7 @@
 
 
      <div id="bins">
-	<form id="binsform" action="process.php" method="get">
+	<form id="binsform" action="process.php" method="get" onsubmit="showLoadingMessage();" >
 
 
 
@@ -67,6 +67,17 @@
 
 
 	</form>
+
+
+	<script>
+		function showLoadingMessage() {
+		  var message = document.createElement('div');
+		  message.innerHTML = 'We are working. Please wait...';
+		  document.body.appendChild(message);
+		}
+		</script>
+		
+		
 </div>
 </body>
 </html>
