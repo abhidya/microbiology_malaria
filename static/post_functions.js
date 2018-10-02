@@ -18,6 +18,7 @@ function powerlaw(data) {
     };
     var data = [trace];
     Plotly.newPlot('powerlaw_probs', data);
+
 }
 
 
@@ -29,6 +30,7 @@ function treshold(data) {
 
     var data = [trace];
     Plotly.newPlot('threshold_probs', data);
+
 }
 
 
@@ -39,6 +41,7 @@ function log_treshold(data) {
     };
     var data = [trace];
     Plotly.newPlot('logisticthreshold_probs', data);
+
 }
 
 
