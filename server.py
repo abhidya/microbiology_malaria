@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from threading import Lock
-from flask import Flask, render_template, session, request, jsonify, abort
+
+from flask import Flask, render_template, request, jsonify
 from flask_pymongo import PyMongo
 
 from compute import compute
