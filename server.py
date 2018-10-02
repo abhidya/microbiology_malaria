@@ -17,8 +17,7 @@ thread_lock = Lock()
 
 @app.route('/')
 def index():
-    return render_template('custom.html')
-
+    return render_template('index.html')
 
 @app.route('/example.html')
 def example():
