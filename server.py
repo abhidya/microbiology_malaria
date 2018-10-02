@@ -30,19 +30,14 @@ def custom():
 
 @app.route('/compute', methods=['POST'])
 def new_game():
-    # bob = request.args
-    # for key in bob:
-    #     print(bob.get(key))
-    #     print(bob.getlist(key))
     probs = request.form.getlist('probs[]')
     size = request.form['size']
     functionLaw = request.form.getlist('functionLaw[]')
     binsStart = request.form.getlist('binsStart[]')
     binsEnd = request.form.getlist('binsEnd[]')
-    print(functionLaw, size, probs, binsStart, binsEnd)
-    bob = compute(functionLaw, size, probs, binsStart, binsEnd)
-    print(bob)
-    return jsonify(bob), 201
+    data = compute(functionLaw, size, probs, binsStart, binsEnd)
+    # print(data)
+    return jsonify(data), 200
 
 
 if __name__ == '__main__':
