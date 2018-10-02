@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+
+<script src="/static/functions.js"></script>
+<script src="/static/ajax.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>MicroBio - Example Distro</title>
+</head>
+<body>
+<a href="index.html">Home</a>
+<a href="#">Example Distribution</a>
+<a href="custom.html">New Distribution</a>
+<!-- <a href="#">Disabled</a> -->
+
+<br>
+
+
+<form id="binsform" action="/compute" method="POST">
+
+
+    <p>Bin 1: <input type="text" name='binsStart[]' value="1"/> - <input type="text" name='binsEnd[]'
+                                                                         value="500"/> &nbsp; Probability %:
+        <input type="text" name='probs[]' value="3"/></p>
+
+    <p>Bin 2: <input type="text" name='binsStart[]' value="501"/> - <input type="text" name='binsEnd[]'
+                                                                           value="1000"/> &nbsp; Probability %:
+        <input type="text" name='probs[]' value="5.6"/></p>
+
+
+    <p>Bin 3: <input type="text" name='binsStart[]' value="1001"/> - <input type="text" name='binsEnd[]'
+                                                                            value="2000"/> &nbsp; Probability %:
+        <input type="text" name='probs[]' value="10"/></p>
+
+
+    <p>Bin 4: <input type="text" name='binsStart[]' value="2001"/> - <input type="text" name='binsEnd[]'
+                                                                            value="4000"/> &nbsp; Probability %:
+        <input type="text" name='probs[]' value="25.5"/></p>
+
+
+    <p>Bin 5: <input type="text" name='binsStart[]' value="4001"/> - <input type="text" name='binsEnd[]'
+                                                                            value="8000"/> &nbsp; Probability %:
+        <input type="text" name='probs[]' value="20.4"/></p>
+
+
+    <p>Bin 6: <input type="text" name='binsStart[]' value="8001"/> - <input type="text" name='binsEnd[]'
+                                                                            value="16000"/> &nbsp; Probability
+        %: <input type="text" name='probs[]' value="15"/></p>
+
+
+    <p>Bin 7: <input type="text" name='binsStart[]' value="16001"/> - <input type="text" name='binsEnd[]'
+                                                                             value="32000"/> &nbsp; Probability
+        %: <input type="text" name='probs[]' value="10.4"/></p>
+
+    <p>Bin 8: <input type="text" name='binsStart[]' value="32001"/> - <input type="text" name='binsEnd[]'
+                                                                             value="64000"/> &nbsp; Probability
+        %: <input type="text" name='probs[]' value="5.6"/></p>
+
+
+    <p>Bin 9: <input type="text" name='binsStart[]' value="64001"/> - <input type="text" name='binsEnd[]'
+                                                                             value="128000"/> &nbsp; Probability
+        %: <input type="text" name='probs[]' value="3.9"/></p>
+
+    <p>Bin 10: <input type="text" name='binsStart[]' value="128001"/> - <input type="text" name='binsEnd[]'
+                                                                               value="256000"/> &nbsp;
+        Probability %: <input type="text" name='probs[]' value="0.65"/></p>
+
+
+    <p>Number of Samples: <input type="text" name="size" value="3000"/></p>
+
+    <div><input type="checkbox" name="functionLaw[]" value="powerLaw"> Powerlaw Model</div>
+
+    <input type="checkbox" name="functionLaw[]" value="threshold"> Threshold Model<br>
+
+    <input type="checkbox" name="functionLaw[]" value="logisticThreshold"> Logistic Threshold Model<br>
+
+    <br>
+
+    <input type="submit" value="Submit">
+
+
+</form>
+
+<div id="fade"></div>
+<div id="modal">
+    <img id="loader" src="/static/images/loading.gif"/>
+</div>
+
+
+<div id="powerlaw_probs_container" style=“display:none”>
+    <h1>
+        powerlaw_probs
+        <h1>
+            <!-- Plotly chart will be drawn inside this DIV -->
+            <div id="powerlaw_probs"></div>
+</div>
+
+<div id="threshold_probs_container">
+    <!-- Plotly chart will be drawn inside this DIV -->
+    <h1>
+        threshold_probs
+        <h1>
+            <div id="threshold_probs"></div>
+</div>
+
+<div id="logisticthreshold_probs_container" style=“display:none”>
+    <!-- Plotly chart will be drawn inside this DIV -->
+    <h1>
+        logisticthreshold_probs
+        <h1>
+            <div id="logisticthreshold_probs"></div>
+</div>
+
+<script src="/static/post_functions.js"></script>
+
+</body>
+</html>
+
