@@ -32,11 +32,11 @@ function addfields() {
     x.setAttribute("id", "prob" + i);
     e.appendChild(x);
     i++;
-    document.getElementById("binsform").appendChild(e);
+    document.getElementById("gen_forms").appendChild(e);
 }
 
 function removefields() {
-    document.getElementById("binsform").removeChild(document.getElementById(i - 1));
+    document.getElementById("gen_forms").removeChild(document.getElementById(i - 1));
     i--;
 }
 
@@ -83,4 +83,24 @@ function checksum() {
         return false;
     }
     else return true;
+}
+
+
+function showbins() {
+    // document.getElementById("data_entry").style.display = "inline";
+    $("#data_entry").show(400);
+
+}
+
+
+function showgraphs() {
+    // document.getElementById("graphs").style.display = "inline";
+    $("#graphs").show(400);
+
+}
+
+function hideentry() {
+    // document.getElementById("entry").style.display = "none";
+    $("#entry").hide(400);
+
 }

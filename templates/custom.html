@@ -4,92 +4,120 @@
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0"/>
 
-<script src="/static/js/functions.js"></script>
-<script src="/static/js/ajax.js"></script>
-<script src="/static/js/plotly-v1.41.3.min.js"></script>
-
 
 <html>
 <head>
     <link rel="stylesheet" href="/static/css/style.css">
     <title>MicroBio - New Distro</title>
+    <script src="/static/js/ajax.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="/static/js/functions.js"></script>
 </head>
 <body>
-<a href="index.html">Home</a>
+
+<a href="/">Home</a>
 <a href="example.html">Example Distribution</a>
 <a href="#">New Distribution</a>
-<!-- <a href="#">Disabled</a> -->
 
 
-<p>Number of Bins to add: <input type="text" id="bincreate" name="binacreate"/><br>
+<div id="entry">
 
-<p>Min value of infecion data: <input type="text" id="min" name="min"/> <br>
+    <div id="setup" name="setup">
+
+        <p>Number of Bins to add: <input type="text" id="bincreate" name="binacreate"/><br>
+
+        <p>Min value of infecion data: <input type="text" id="min" name="min"/> <br>
 
 
-<p>Step value of infection data: <input type="text" id="step" name="step"/> <br>
+        <p>Step value of infection data: <input type="text" id="step" name="step"/> <br>
 
 
-<p>Location of taken data: <input type="text" id="location" name="location"/> <br>
+        <p>Location of taken data: <input type="text" id="location" name="location"/> <br>
 
-<p>Mosquito species: <input type="text" id="species" name="species"/> <br>
+        <p>Mosquito species: <input type="text" id="species" name="species"/> <br>
+
+            <br>
+
+            <button type="button" onclick="createbins();showbins();"> Create</button>
+            <a href="custom.html">
+                <button type="button"> Reset</button>
+            </a>
+
+    </div>
+
 
     <br>
 
-    <button type="button" onclick="createbins()"> Create</button>
-    <a href="custom.html">
-        <button type="button"> Reset</button>
-    </a>
     <br>
 
-    <br>
-    <form id="binsform" action="/compute" method="post">
+    <div id="data_entry" name="data_entry" style="display:none">
+        <form id="binsform" action="/compute" method="post" onsubmit="hideentry();">
+
+            <div id="gen_forms">
+            </div>
+            <br>
+            <button type="button" onclick="addfields()"> Add Bins</button>
+            <button type="button" onclick="removefields()"> Remove Bins</button>
+            <br><br>
 
 
-        <br>
-        <button type="button" onclick="addfields()"> Add Bins</button>
-        <button type="button" onclick="removefields()"> Remove Bins</button>
-        <br><br>
+            <p>Number of Samples: <input type="text" name="size" value="3000"/></p>
 
-<p>Number of Samples: <input type="text" name="size" value="3000"/></p>
+            <input type="hidden" id="location_form" name="location"/>
 
-<input type="checkbox" name="functionLaw[]" value="powerLaw"> Powerlaw Model
-<input type="checkbox" name="functionLaw[]" value="threshold"> Threshold Model<br>
-<input type="checkbox" name="functionLaw[]" value="logisticThreshold"> Logistic Threshold Model<br>
+            <input type="hidden" id="species_form" name="species"/>
 
-<br>
-<input type="submit" value="Submit" onclick=" return checksum();">
-</form>
 
-<div id="fade"></div>
+            <script>
+                document.getElementById('location_form').values = document.getElementById('location').values;
+                document.getElementById('species_form').values = document.getElementById('location').values;
+
+            </script>
+
+            <input type="checkbox" name="functionLaw[]" value="powerLaw"> Powerlaw Model
+            <input type="checkbox" name="functionLaw[]" value="threshold"> Threshold Model<br>
+            <input type="checkbox" name="functionLaw[]" value="logisticThreshold"> Logistic Threshold Model<br>
+
+            <br>
+            <input type="submit" value="Submit" onclick=" return checksum();">
+        </form>
+    </div>
+
+</div>
+<div id="fade">
+</div>
+
 <div id="modal">
     <img id="loader" src="/static/images/loading.gif"/>
 </div>
 
 
-<div class="powerlaw_probs_container">
-    <h1>
-        powerlaw_probs
-        <h1>
-            <!-- Plotly chart will be drawn inside this DIV -->
-            <div id="powerlaw_probs"></div>
-</div>
+<div id="graphs" name="graphs">
 
-<div class="threshold_probs_container">
-    <!-- Plotly chart will be drawn inside this DIV -->
-    <h1>
-        threshold_probs
+    <div class="powerlaw_probs_container">
         <h1>
-            <div id="threshold_probs"></div>
-</div>
+            powerlaw_probs
+            <h1>
+                <!-- Plotly chart will be drawn inside this DIV -->
+                <div id="powerlaw_probs"></div>
+    </div>
 
-<div class="logisticthreshold_probs_container" >
-    <!-- Plotly chart will be drawn inside this DIV -->
-    <h1>
-        logisticthreshold_probs
+    <div class="threshold_probs_container">
+        <!-- Plotly chart will be drawn inside this DIV -->
         <h1>
-            <div id="logisticthreshold_probs"></div>
-</div>
+            threshold_probs
+            <h1>
+                <div id="threshold_probs"></div>
+    </div>
 
+    <div class="logisticthreshold_probs_container">
+        <!-- Plotly chart will be drawn inside this DIV -->
+        <h1>
+            logisticthreshold_probs
+            <h1>
+                <div id="logisticthreshold_probs"></div>
+    </div>
+</div>
 <script src="/static/js/post_functions.js"></script>
 
 </body>

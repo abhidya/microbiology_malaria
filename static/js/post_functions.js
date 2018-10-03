@@ -1,5 +1,3 @@
-
-
 function openModal() {
     document.getElementById('modal').style.display = 'block';
     document.getElementById('fade').style.display = 'block';
@@ -10,6 +8,7 @@ function closeModal() {
     document.getElementById('fade').style.display = 'none';
 }
 
+// $("#graphs").hide();
 
 function powerlaw(data) {
     var trace = {
@@ -44,7 +43,6 @@ function log_treshold(data) {
 
 }
 
-
 var frm = $('#binsform');
 
 $("body").addClass("loading");
@@ -63,16 +61,23 @@ frm.submit(function (e) {
         success: function (data) {
             console.log('Submission was successful.');
             console.log(data);
+            // $("#graphs").show(400);
 
             // $(".bins").hide(100);
             if (data.threshold != null) {
                 treshold(data.threshold);
+                // $("#powerlaw_probs_container").show(400);
+
             }
             if (data.powerLaw != null) {
                 powerlaw(data.powerLaw);
+                // $("#threshold_probs_container").show(400);
+
             }
             if (data.logisticThreshold != null) {
                 log_treshold(data.logisticThreshold);
+                // $("#logisticthreshold_probs_container").show(400);
+
             }
         },
 
