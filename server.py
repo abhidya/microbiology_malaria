@@ -51,7 +51,7 @@ def data_visualization():
 
 
 @app.route('/compute', methods=['POST'])
-def new_game():
+def new_entry():
     probs = request.form.getlist('probs[]')
     size = request.form['size']
     functionLaw = request.form.getlist('functionLaw[]')
