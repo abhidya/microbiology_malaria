@@ -4,10 +4,10 @@ import json
 from flask import Flask, render_template, request, jsonify
 from flask_pymongo import PyMongo
 import datetime
+import random
 from compute import compute
+
 async_mode = None
-
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -15,6 +15,8 @@ app.config['MONGO_URI'] = 'mongodb://localhost:27017/malaria'
 mongo = PyMongo(app)
 thread = None
 thread_lock = Lock()
+
+FIELDS = {'location': True, 'species': True, 'date':True}
 
 
 @app.route('/')
@@ -32,6 +34,22 @@ def custom():
     return render_template('custom.html')
 
 
+@app.route('/data.html')
+def data():
+    return render_template('data.html')
+
+
+@app.route('/data/visualization', methods=['get'])
+def data_visualization():
+    projects = mongo.db.data.find(projection=FIELDS)
+    json_projects = []
+    for project in projects:
+        json_projects.append(project)
+        # print(project)
+    json_projects = json.dumps(json_projects,  indent=4, sort_keys=True, default=str)
+    return json_projects, 200
+
+
 @app.route('/compute', methods=['POST'])
 def new_game():
     probs = request.form.getlist('probs[]')
@@ -42,15 +60,20 @@ def new_game():
     location = request.form['location_form']
     species = request.form['species_form']
     data = compute(functionLaw, size, probs, binsStart, binsEnd)
-    print(functionLaw, size, probs, binsStart, binsEnd, location, species)
+    # print(functionLaw, size, probs, binsStart, binsEnd, location, species)
+
+    year = random.choice(range(1980, 2001))
+    month = random.choice(range(1, 13))
+    day = random.choice(range(1, 29))
+    birth_date = datetime.datetime(year, month, day)# datetime.datetime.utcnow()
     dict = {"location": location, "species": species, "size": size, "binStart": binsStart, "binEnd": binsEnd,
-            "Probability": probs, "Models": functionLaw, "date": datetime.datetime.utcnow()}
+            "Probability": probs, "Models": functionLaw, "date":birth_date}
     r = json.dumps(dict, indent=4, sort_keys=True, default=str)
     loaded_r = json.loads(r)
-    print(loaded_r)
+    # print(loaded_r)
     mongo.db.data.insert_one(loaded_r)
     return jsonify(data), 200
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
