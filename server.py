@@ -16,7 +16,7 @@ mongo = PyMongo(app)
 thread = None
 thread_lock = Lock()
 
-FIELDS = {'location': True, 'species': True, 'date':True}
+FIELDS = {'location': True, 'species': True, 'date': True}
 
 
 @app.route('/')
@@ -46,7 +46,7 @@ def data_visualization():
     for project in projects:
         json_projects.append(project)
         # print(project)
-    json_projects = json.dumps(json_projects,  indent=4, sort_keys=True, default=str)
+    json_projects = json.dumps(json_projects, indent=4, sort_keys=True, default=str)
     return json_projects, 200
 
 
@@ -61,11 +61,15 @@ def new_game():
     species = request.form['species_form']
     data = compute(functionLaw, size, probs, binsStart, binsEnd)
     # print(functionLaw, size, probs, binsStart, binsEnd, location, species)
+    year = random.randint(2010, 2019)
+    month = random.randint(1, 11)
+    day = random.randint(1, 28)
     t = datetime.datetime.now()
+    # t = datetime.datetime(year, month, day)
     s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
 
     dict = {"location": location, "species": species, "size": size, "binStart": binsStart, "binEnd": binsEnd,
-            "Probability": probs, "Models": functionLaw, "date":s[:-3]}
+            "Probability": probs, "Models": functionLaw, "date": s[:-3]}
     r = json.dumps(dict, indent=4, sort_keys=True, default=str)
     loaded_r = json.loads(r)
     # print(loaded_r)
