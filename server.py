@@ -61,13 +61,11 @@ def new_game():
     species = request.form['species_form']
     data = compute(functionLaw, size, probs, binsStart, binsEnd)
     # print(functionLaw, size, probs, binsStart, binsEnd, location, species)
+    t = datetime.datetime.now()
+    s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
 
-    year = random.choice(range(1980, 2001))
-    month = random.choice(range(1, 13))
-    day = random.choice(range(1, 29))
-    birth_date = datetime.datetime(year, month, day)# datetime.datetime.utcnow()
     dict = {"location": location, "species": species, "size": size, "binStart": binsStart, "binEnd": binsEnd,
-            "Probability": probs, "Models": functionLaw, "date":birth_date}
+            "Probability": probs, "Models": functionLaw, "date":s[:-3]}
     r = json.dumps(dict, indent=4, sort_keys=True, default=str)
     loaded_r = json.loads(r)
     # print(loaded_r)

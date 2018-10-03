@@ -128,7 +128,7 @@
 
         //Clean projectsJson data
         var project = projectsJson;
-        var dateFormat = d3.time.format("%Y-%d-%m %H:%M:%S");
+        var dateFormat = d3.time.format("%Y-%d-%m %H:%M:%S.%L");
         project.forEach(function (d) {
             d["date"] = dateFormat.parse(d["date"]);
         });
