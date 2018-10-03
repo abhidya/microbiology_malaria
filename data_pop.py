@@ -27,7 +27,7 @@ for i in tqdm.tqdm(range(1000)):
 
     form['location_form'] = random.choice(locations)
     form['species_form'] = random.choice(species)
-    form['size'] = 10
+    form['size'] = 1
     form['functionLaw[]'] = random.choice(functionLaw)
     response = browser.submit_form(form)
 
