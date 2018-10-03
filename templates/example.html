@@ -23,7 +23,11 @@
 <div id="entry">
 
 
-    <form id="binsform" action="/compute" method="POST">
+    <form id="binsform" action="/compute" method="POST" onsubmit="hideentry();">
+
+        <p>Location of taken data: <input type="input" id="location_form" name="location_form" value="Tennessee"/>
+
+        <p>Mosquito species: <input type="input" id="species_form" name="species_form" value="Culex"/>
 
 
         <p>Bin 1: <input type="text" name='binsStart[]' value="1"/> - <input type="text" name='binsEnd[]'
@@ -83,7 +87,7 @@
 
         <br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" >
 
 
     </form>
