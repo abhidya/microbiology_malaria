@@ -65,13 +65,42 @@ removes input from div class=gen_forms
 ##createbins()
 adds multiple bins at once
 
-##createbins()
+##checksum()
 makes sure that probs add up to 100
+
+##showbins()
+Makes bins visible
+
+##showgraphs()
+Makes graphs visible
+
+##hideentry()
+Hides entry div
 
 ##post_functions.js
 
+##openModal()
+starts the fade in and the loading gif
+
+##closeModal()
+stops fade in and hides the loading gif
+
+##powerlaw()
+displays powerlaw graph
+
+##threshold()
+displays threshold graph
+
+##log_threshold()
+displays log threshold graph
+
+## on submit function
+starts loading gif and loads data and builds graphs
+hides gif after loading is complete
 
 ##visualize_graphs.js
+
+makes graphs for data.html
 
 ## css
 
