@@ -57,8 +57,8 @@ def new_entry():
     functionLaw = request.form.getlist('functionLaw[]')
     binsStart = request.form.getlist('binsStart[]')
     binsEnd = request.form.getlist('binsEnd[]')
-    location = request.form['location_form']
-    species = request.form['species_form']
+    location = request.form['location']
+    species = request.form['species']
     data = compute(functionLaw, size, probs, binsStart, binsEnd)
     # print(functionLaw, size, probs, binsStart, binsEnd, location, species)
     year = random.randint(2010, 2019)

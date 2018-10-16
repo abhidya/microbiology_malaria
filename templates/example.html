@@ -18,7 +18,6 @@
 <a href="example.html">Example Distribution</a>
 <a href="custom.html">New Distribution</a>
 <a href="data.html">Visualize Data</a>
-<a href="#">KristinaB</a>
 <br>
 
 <div id="entry">
@@ -26,9 +25,9 @@
 
     <form id="binsform" action="/compute" method="POST" onsubmit="hideentry();">
 
-        <p>Location of taken data: <input type="input" id="location_form" name="location_form" value="Tennessee"/>
+        <p>Location of taken data: <input type="input" id="location" name="location" value="Tennessee"/>
 
-        <p>Mosquito species: <input type="input" id="species_form" name="species_form" value="Culex"/>
+        <p>Mosquito species: <input type="input" id="species" name="species" value="Culex"/>
 
 
         <p>Bin 1: <input type="text" name='binsStart[]' value="1"/> - <input type="text" name='binsEnd[]'
@@ -102,10 +101,9 @@
 
 <div id="graphs" name="graphs">
 
-
     <div class="powerlaw_probs_container">
-        <h1>
-            powerlaw_probs
+        <h1 id="powerlaw_probs_container_h1">
+
             <h1>
                 <!-- Plotly chart will be drawn inside this DIV -->
                 <div id="powerlaw_probs"></div>
@@ -113,16 +111,16 @@
 
     <div class="threshold_probs_container">
         <!-- Plotly chart will be drawn inside this DIV -->
-        <h1>
-            threshold_probs
+        <h1 id="threshold_probs_container_h1">
+
             <h1>
                 <div id="threshold_probs"></div>
     </div>
 
     <div class="logisticthreshold_probs_container">
         <!-- Plotly chart will be drawn inside this DIV -->
-        <h1>
-            logisticthreshold_probs
+        <h1 id="logisticthreshold_probs_container_h1">
+
             <h1>
                 <div id="logisticthreshold_probs"></div>
     </div>

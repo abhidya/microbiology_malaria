@@ -64,18 +64,23 @@ frm.submit(function (e) {
             // $("#graphs").show(400);
 
             // $(".bins").hide(100);
+
             if (data.threshold != null) {
                 treshold(data.threshold);
+                $("#threshold_probs_container_h1").text("threshold_probs_container_h1");
                 // $("#powerlaw_probs_container").show(400);
 
             }
             if (data.powerLaw != null) {
                 powerlaw(data.powerLaw);
+                $("#powerlaw_probs_container_h1").text("powerlaw_probs_container_h1");
                 // $("#threshold_probs_container").show(400);
 
             }
             if (data.logisticThreshold != null) {
                 log_treshold(data.logisticThreshold);
+                $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
+
                 // $("#logisticthreshold_probs_container").show(400);
 
             }
