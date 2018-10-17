@@ -59,11 +59,11 @@ function all_graphs(a, b, c){
                 type: "histogram",
             };
 
-            var alldata = [trace1, trace2, trace3];
-            var layout = {
-                grid: {rows: 2, columns: 2, pattern: 'independent'},
-            };
-            Plotly.newPlot("allGraphs", alldata, layout);
+            var alldata = [trace1];
+          //  var layout = {
+           //     grid: {rows: 2, columns: 2, pattern: 'independent'},
+           // };
+            Plotly.newPlot("allGraphs", alldata);
 }
 
 var frm = $('#binsform');
