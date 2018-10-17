@@ -10,23 +10,15 @@ function closeModal() {
 
 // $("#graphs").hide();
 
-var layout = {
-    autosize: false,
-    width: 500,
-    height: 500,
-};
+
 
 function powerlaw(data) {
     var trace = {
         x: data,
-        marker: {
-            color: 'pink',
-            opacity: 0.5,
-        },
         type: 'histogram',
     };
     var data = [trace];
-    Plotly.newPlot('powerlaw_probs', data, layout);
+    Plotly.newPlot('powerlaw_probs', data);
 
 }
 
@@ -38,7 +30,7 @@ function treshold(data) {
     };
 
     var data = [trace];
-    Plotly.newPlot('threshold_probs', data, layout);
+    Plotly.newPlot('threshold_probs', data);
 
 }
 
@@ -49,11 +41,40 @@ function log_treshold(data) {
         type: 'histogram',
     };
     var data = [trace];
-    Plotly.newPlot('logisticthreshold_probs', data, layout);
+    Plotly.newPlot('logisticthreshold_probs', data);
 
 }
 
+function all_graphs(x1, x2, x3){
+             var trace1 = {
+                x: x1,
+                type: "histogram",
+                opacity: 0.4,
+                marker: {
+                    color: 'green',
+                },
+            };
+             var trace2 = {
+                x: x2,
+                type: "histogram",
+                opacity: 0.5,
+                marker: {
+                    color: 'blue',
+                },
+            };
+             var trace3 = {
+                x: x3,
+                type: "histogram",
+                opacity: 0.6,
+                marker: {
+                    color: 'red',
+                },
+            };
 
+            var alldata = [trace1, trace2, trace3];
+            var layout = {barmode: "overlay"};
+            Plotly.newPlot("allGraphs", alldata, layout);
+}
 
 var frm = $('#binsform');
 
@@ -76,11 +97,19 @@ frm.submit(function (e) {
             // $("#graphs").show(400);
 
             // $(".bins").hide(100);
+            var x1 = [];
+            var x2 = [];
+            var x3 = [];
+
+            x1 = data.threshold;
+            x1 = data.powerLaw;
+            x1 = data.logisticThreshold;
 
             if (data.threshold != null) {
                 treshold(data.threshold);
                 $("#threshold_probs_container_h1").text("threshold_probs_container_h1");
                 // $("#powerlaw_probs_container").show(400);
+
 
             }
             if (data.powerLaw != null) {
@@ -95,6 +124,8 @@ frm.submit(function (e) {
                 // $("#logisticthreshold_probs_container").show(400);
 
             }
+
+            all_graphs(x1, x2, x3);
 
         },
 
