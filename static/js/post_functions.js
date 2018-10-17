@@ -49,7 +49,36 @@ function log_treshold(data) {
 
 }
 
+function all_graphs(data1, data2, data3){
+            var trace1 = {
+                x: data1,
+                type: "histogram",
+                opacity: 0.4,
+                marker: {
+                    color: 'green',
+                },
+            };
+             var trace2 = {
+                x: data2,
+                type: "histogram",
+                opacity: 0.5,
+                marker: {
+                    color: 'blue',
+                },
+            };
+             var trace3 = {
+                x: data3,
+                type: "histogram",
+                opacity: 0.6,
+                marker: {
+                    color: 'red',
+                },
+            };
 
+            var alldata = [trace1, trace2, trace3];
+            var layout = {barmode: "overlay"};
+            Plotly.newPlot("allGraphs, alldata, layout");
+}
 
 var frm = $('#binsform');
 
@@ -92,34 +121,11 @@ frm.submit(function (e) {
                 // $("#logisticthreshold_probs_container").show(400);
 
             }
-            var trace1 = {
-                x: data.threshold,
-                type: "histogram",
-                opacity: 0.4,
-                marker: {
-                    color: 'green',
-                },
-            };
-             var trace2 = {
-                x: data.powerLaw,
-                type: "histogram",
-                opacity: 0.5,
-                marker: {
-                    color: 'blue',
-                },
-            };
-             var trace3 = {
-                x: data.logisticThreshold,
-                type: "histogram",
-                opacity: 0.6,
-                marker: {
-                    color: 'red',
-                },
-            };
+            if(data.threshold != null and data.powerLaw != null and data.logisticThreshold != null){
+                all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
+                $("#allgraphs_container_h1").text("allgraphs_container_h1");
+            }
 
-            var alldata = [trace1, trace2, trace3];
-            var layout = {barmode: "overlay"};
-            Plotly.newPlot("allGraphs, alldata, layout");
         },
 
         complete: function (data) {
