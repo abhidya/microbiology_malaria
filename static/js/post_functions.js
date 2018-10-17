@@ -49,21 +49,28 @@ function all_graphs(a, b, c){
              var trace1 = {
                 x: a,
                 type: "histogram",
+                opacity: 0.4,
+                    marker: {
+                        color: 'green'
+                    },
             };
              var trace2 = {
                 x: b,
                 type: "histogram",
+                opacity: 0.5,
+                    marker: {
+                        color: 'red'
+                    },
             };
              var trace3 = {
                 x: c,
                 type: "histogram",
+                opacity: 0.6,
             };
 
-            var alldata = [trace1];
-          //  var layout = {
-           //     grid: {rows: 2, columns: 2, pattern: 'independent'},
-           // };
-            Plotly.newPlot("allGraphs", alldata);
+            var alldata = [trace1, trace2, trace3];
+            var layout = {barmode: "overlay"};
+            Plotly.newPlot("allGraphs", alldata, layout);
 }
 
 var frm = $('#binsform');
@@ -88,35 +95,28 @@ frm.submit(function (e) {
 
             // $(".bins").hide(100);
 
-            var x1 = [];
-            var x2 = [];
-            var x3 = [];
-
-
-
 
             if (data.threshold != null) {
-                x1 = data.threshold;
                 treshold(data.threshold);
                 $("#threshold_probs_container_h1").text("threshold_probs_container_h1");
                 // $("#powerlaw_probs_container").show(400);
 
             }
             if (data.powerLaw != null) {
-                x2 = data.powerLaw;
                 powerlaw(data.powerLaw);
                 $("#powerlaw_probs_container_h1").text("powerlaw_probs_container_h1");
                 // $("#threshold_probs_container").show(400);
 
             }
             if (data.logisticThreshold != null) {
-                x3 = data.logisticThreshold;
                 log_treshold(data.logisticThreshold);
                 $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
 
             }
-
-
+            if(data){
+                all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
+                $("#allGraphs_container_h1").text("allGraphs_container_h1");
+            }
 
         },
 
