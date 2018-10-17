@@ -87,9 +87,51 @@ function all_graphs(a, b, c){
             };
 
             var alldata = [trace1, trace2, trace3];
-            var layout = {barmode: "overlay"};
+            var layout = {
+                autosize: false,
+                width: 600,
+                height: 800,
+                barmode: "overlay"
+            };
             Plotly.newPlot("allGraphs", alldata, layout);
 }
+
+function subplots(x1, x2, x3){
+            var trace1 = {
+                x: x1,
+                type: "histogram",
+                    opacity: 0.4,
+                    marker: {
+                        color: 'green'
+                    },
+            };
+            var trace2 = {
+                x: x2,
+                type: "histogram",
+                    opacity: 0.4,
+                    marker: {
+                        color: 'red'
+                    },
+            };
+            var trace3 = {
+                x: x3,
+                type: "histogram",
+                    opacity: 0.4,
+                    marker: {
+                        color: 'blue'
+                    },
+            };
+
+            var data = [trace1, trace2, trace3];
+            var layout = {
+                autosize: false,
+                width: 500,
+                height: 800,
+                grid: {rows: 3, columns: 2, pattern: 'independent'},
+            };
+            Plotly.newPlot("subs", data, layout);
+}
+
 
 var frm = $('#binsform');
 
@@ -133,6 +175,7 @@ frm.submit(function (e) {
             }
             if(data){
                 all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
+                subplots(data.threshold, data.powerLaw, data.logisticThreshold);
                 $("#allGraphs_container_h1").text("allGraphs_container_h1");
             }
 
