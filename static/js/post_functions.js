@@ -10,13 +10,19 @@ function closeModal() {
 
 // $("#graphs").hide();
 
+var layout = {
+    autosize: false,
+    width: 500,
+    height: 500,
+};
+
 function powerlaw(data) {
     var trace = {
         x: data,
         type: 'histogram',
     };
     var data = [trace];
-    Plotly.newPlot('powerlaw_probs', data);
+    Plotly.newPlot('powerlaw_probs', data, layout);
 
 }
 
@@ -28,7 +34,7 @@ function treshold(data) {
     };
 
     var data = [trace];
-    Plotly.newPlot('threshold_probs', data);
+    Plotly.newPlot('threshold_probs', data, layout);
 
 }
 
@@ -39,9 +45,10 @@ function log_treshold(data) {
         type: 'histogram',
     };
     var data = [trace];
-    Plotly.newPlot('logisticthreshold_probs', data);
+    Plotly.newPlot('logisticthreshold_probs', data, layout);
 
 }
+
 
 var frm = $('#binsform');
 
