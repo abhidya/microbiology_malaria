@@ -66,6 +66,9 @@ function all_graphs(a, b, c){
                 x: c,
                 type: "histogram",
                 opacity: 0.6,
+                    marker: {
+                        color: 'blue'
+                    },
             };
 
             var alldata = [trace1, trace2, trace3];
