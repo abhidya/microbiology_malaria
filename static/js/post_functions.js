@@ -12,7 +12,7 @@ function closeModal() {
 
 var layout = {
     autosize: false,
-    width: 500,
+    width: 250,
     height: 500,
 };
 
