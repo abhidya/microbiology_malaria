@@ -20,6 +20,10 @@ function powerlaw(data) {
     var trace = {
         x: data,
         type: 'histogram',
+        opacity: 0.5,
+        marker: {
+            color: 'green',
+        },
     };
     var data = [trace];
     Plotly.newPlot('powerlaw_probs', data, layout);
@@ -43,9 +47,6 @@ function log_treshold(data) {
     var trace = {
         x: data,
         type: 'histogram',
-            marker: {
-                color: 'pink',
-            },
     };
     var data = [trace];
     Plotly.newPlot('logisticthreshold_probs', data, layout);
