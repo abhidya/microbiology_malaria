@@ -43,6 +43,8 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
             if (x >= intervals[i][0] and x <= intervals[i][1]):
                 return probs[i], lengths[i]
                 break
+            else:
+                return -1
 
     # Defining probability density function
     def cdfProbSpz(x):
