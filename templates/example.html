@@ -102,65 +102,21 @@
 <div id="graphs" name="graphs">
 
     <div class="powerlaw_probs_container">
-        <h1 id="powerlaw_probs_container_h1">
-
-            <h1>
-                <!-- Plotly chart will be drawn inside this DIV -->
-                <div id="powerlaw_probs"></div>
+        <h1>powerlaw_probs_container_h1</h1>
+        <!-- Plotly chart will be drawn inside this DIV -->
+        <div id="powerlaw_probs"></div>
     </div>
 
     <div class="threshold_probs_container">
         <!-- Plotly chart will be drawn inside this DIV -->
-        <h1 id="threshold_probs_container_h1">
-
-            <h1>
-                <div id="threshold_probs"></div>
+        <h1>threshold_probs_container_h1</h1>
+        <div id="threshold_probs"></div>
     </div>
 
     <div class="logisticthreshold_probs_container">
         <!-- Plotly chart will be drawn inside this DIV -->
-        <h1 id="logisticthreshold_probs_container_h1">
-
-            <h1>
-                <div id="logisticthreshold_probs"></div>
-    </div>
-
-    <div class="allGraphs_container">
-        <!-- Plotly chart will be drawn inside this DIV -->
-     <!--   <h1 id="allGraphs_container_h1">
-
-            <h1>   -->
-        <div id="allGraphs"></div>
-        <script>
-            var x1 = [];
-var x2 = [];
-for (var i = 1; i < 500; i++)
-{
-	k = Math.random();
-	x1.push(Math.random() + 1);
-	x2.push(Math.random() + 1.1);
-}
-var trace1 = {
-  x: x1,
-  type: "histogram",
-  opacity: 0.5,
-  marker: {
-     color: 'green',
-  },
-};
-var trace2 = {
-  x: x2,
-  type: "histogram",
-  opacity: 0.6,
-  marker: {
-     color: 'red',
-  },
-};
-
-var data = [trace1, trace2];
-var layout = {barmode: "overlay"};
-Plotly.newPlot("myDiv", data, layout);
-        </script>
+        <h1>logisticthreshold_probs_container_h1</h1>
+        <div id="logisticthreshold_probs"></div>
     </div>
 </div>
 
