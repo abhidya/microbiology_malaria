@@ -92,36 +92,8 @@ frm.submit(function (e) {
                 // $("#logisticthreshold_probs_container").show(400);
 
             }
-            if True:
-                var trace1 = {
-                x: data.threshold,
-                type: "histogram",
-                opacity: 0.4,
-                marker: {
-                    color: 'green',
-                },
-                 };
-                var trace2 = {
-                x: data.powerLaw,
-                type: "histogram",
-                opacity: 0.5,
-                marker: {
-                    color: 'blue',
-                },
-                };
-                var trace3 = {
-                x: data.logisticThreshold,
-                type: "histogram",
-                opacity: 0.6,
-                marker: {
-                    color: 'red',
-                },
-                };
 
-                var alldata = [trace1, trace2, trace3];
-                var layout = {barmode: "overlay"};
-                Plotly.newPlot("allgraphs", alldata, layout);
-                $("#allgraphs_container_h1").text("allgraphs_container_h1");
+            $("#allgraphs_container_h1").text("allgraphs_container_h1");
         },
 
         complete: function (data) {
