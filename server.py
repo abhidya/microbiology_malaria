@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from threading import Lock
 import json
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, make_response
 from flask_pymongo import PyMongo
 import datetime
 import random
@@ -50,6 +50,36 @@ def data_visualization():
     return json_projects, 200
 
 
+@app.route('/transform', methods=["POST"])
+def transform_view():
+    csv = 'foo,bar,baz\nhai,bai,crai\n'
+    response = make_response(csv)
+    cd = 'attachment; filename=mycsv.csv'
+    response.headers['Content-Disposition'] = cd
+    response.mimetype='text/csv'
+
+    return response
+    # probs = request.form.getlist('probs[]')
+    # size = request.form['size']
+    # functionLaw = request.form.getlist('functionLaw[]')
+    # binsStart = request.form.getlist('binsStart[]')
+    # binsEnd = request.form.getlist('binsEnd[]')
+    # location = request.form['location']
+    # species = request.form['species']
+    # t = datetime.datetime.now()
+    # s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
+    #
+    # dictee = {"location": location, "species": species, "size": size, "binStart": binsStart, "binEnd": binsEnd,
+    #         "Probability": probs, "Models": functionLaw, "date": s[:-3]}
+    # r = json.dumps(dictee, indent=4, sort_keys=True, default=str)
+    # result = json.loads(r)
+    #
+    # result = make_response(str(result))
+    # result.mimetype = "text"
+    # result.headers["Content-disposition"] = "attachment; filename=results.txt"
+    # return result
+
+
 @app.route('/compute', methods=['POST'])
 def new_entry():
     probs = request.form.getlist('probs[]')
@@ -74,8 +104,9 @@ def new_entry():
     loaded_r = json.loads(r)
     # print(loaded_r)
     mongo.db.data.insert_one(loaded_r)
+
     return jsonify(data), 200
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run()
