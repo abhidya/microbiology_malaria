@@ -120,7 +120,7 @@ frm.submit(function (e) {
 
                 var alldata = [trace1, trace2, trace3];
                 var layout = {barmode: "overlay"};
-                Plotly.newPlot("allgraphs, alldata, layout");
+                Plotly.newPlot("allgraphs", alldata, layout);
                 $("#allgraphs_container_h1").text("allgraphs_container_h1");
         },
 
