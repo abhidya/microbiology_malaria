@@ -107,6 +107,8 @@ function subplots(x1, x2, x3){
             };
             var trace2 = {
                 x: x2,
+                xaxis: 'x2',
+                yaxis: 'y2',
                 type: "histogram",
                     opacity: 0.4,
                     marker: {
@@ -115,6 +117,8 @@ function subplots(x1, x2, x3){
             };
             var trace3 = {
                 x: x3,
+                xaxis: 'x3',
+                yaxis: 'y3',
                 type: "histogram",
                     opacity: 0.4,
                     marker: {
