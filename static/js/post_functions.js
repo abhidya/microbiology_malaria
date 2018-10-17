@@ -19,11 +19,11 @@ var layout = {
 function powerlaw(data) {
     var trace = {
         x: data,
-        type: 'histogram',
         marker: {
-            color: 'rgb(158,202,225'),
+            color: 'pink',
             opacity: 0.5,
-        }
+        },
+        type: 'histogram',
     };
     var data = [trace];
     Plotly.newPlot('powerlaw_probs', data, layout);
@@ -92,7 +92,6 @@ frm.submit(function (e) {
             if (data.logisticThreshold != null) {
                 log_treshold(data.logisticThreshold);
                 $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
-                $("#allgraphs_container_h1").text("allgraphs_container_h1");
                 // $("#logisticthreshold_probs_container").show(400);
 
             }
