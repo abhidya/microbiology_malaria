@@ -106,7 +106,7 @@ frm.submit(function (e) {
             x2 = data.allgraphsTH;
             x3 = data.allgraphsLT;
             all_graphs(x1, x2, x3);
-            $("#allGraphs_container_h1").text("allGraphs_container_h1");
+           // $("#allGraphs_container_h1").text("allGraphs_container_h1");
 
            // var x1 = data.threshold;
            // var x2 = data.powerLaw;
@@ -116,6 +116,7 @@ frm.submit(function (e) {
                 treshold(data.threshold);
                 $("#threshold_probs_container_h1").text("threshold_probs_container_h1");
                 // $("#powerlaw_probs_container").show(400);
+                $("#allGraphs_container_h1").text("allGraphs_container_h1");
 
 
             }
