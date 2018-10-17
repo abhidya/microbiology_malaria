@@ -79,7 +79,7 @@ frm.submit(function (e) {
 
             if (data.threshold != null) {
                 treshold(data.threshold);
-                $("#threshold_probs_container_h1").text("threshold_probs_!!!container_h1");
+                $("#threshold_probs_container_h1").text("threshold_probs_container_h1");
                 // $("#powerlaw_probs_container").show(400);
 
             }
