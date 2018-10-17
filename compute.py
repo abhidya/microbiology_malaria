@@ -41,9 +41,7 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
     def ProbSpz(x):
         for i in range(numbins):
             if (x >= intervals[i][0] and x <= intervals[i][1]):
-                result = [probs[i]]
-                result.append(lengths[i])
-                return result
+                return probs[i], lengths[i]
                 break
 
     # Defining probability density function
