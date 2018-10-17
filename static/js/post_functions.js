@@ -88,12 +88,11 @@ frm.submit(function (e) {
             if (data.logisticThreshold != null) {
                 log_treshold(data.logisticThreshold);
                 $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
-
+                $("#allgraphs_container_h1").text("allgraphs_container_h1");
                 // $("#logisticthreshold_probs_container").show(400);
 
             }
 
-            $("#allgraphs_container_h1").text("allgraphs_container_h1");
         },
 
         complete: function (data) {
