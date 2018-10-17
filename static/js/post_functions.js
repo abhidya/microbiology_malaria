@@ -12,7 +12,7 @@ function closeModal() {
 
 var layout = {
     autosize: false,
-    width: 900,
+    width: 500,
     height: 500,
 };
 
@@ -22,8 +22,8 @@ function powerlaw(data) {
         type: 'histogram',
         opacity: 0.5,
         marker: {
-            color: 'green',
-        },
+            color: ['green'],
+        }
     };
     var data = [trace];
     Plotly.newPlot('powerlaw_probs', data, layout);
