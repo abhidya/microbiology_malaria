@@ -49,7 +49,7 @@ function all_graphs(a, b, c){
              var trace1 = {
                 x: a,
                 type: "histogram",
-                opacity: 0.4,
+            //    opacity: 0.4,
                     marker: {
                         color: 'green'
                     },
@@ -57,7 +57,7 @@ function all_graphs(a, b, c){
              var trace2 = {
                 x: b,
                 type: "histogram",
-                opacity: 0.5,
+              //  opacity: 0.5,
                     marker: {
                         color: 'red'
                     },
@@ -65,14 +65,14 @@ function all_graphs(a, b, c){
              var trace3 = {
                 x: c,
                 type: "histogram",
-                opacity: 0.6,
+              //  opacity: 0.6,
                     marker: {
                         color: 'blue'
                     },
             };
 
             var alldata = [trace1, trace2, trace3];
-            var layout = {barmode: "overlay"};
+            var layout = {barmode: "stack"};
             Plotly.newPlot("allGraphs", alldata, layout);
 }
 
