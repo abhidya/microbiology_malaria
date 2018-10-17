@@ -49,7 +49,8 @@ function all_graphs(a, b, c){
              var trace1 = {
                 x: a,
                 type: "histogram",
-            //    opacity: 0.4,
+                    histnorm: 'probability_density',
+                    opacity: 0.4,
                     marker: {
                         color: 'green'
                     },
@@ -57,7 +58,8 @@ function all_graphs(a, b, c){
              var trace2 = {
                 x: b,
                 type: "histogram",
-              //  opacity: 0.5,
+                    histnorm: 'probability_density',
+                    opacity: 0.5,
                     marker: {
                         color: 'red'
                     },
@@ -65,7 +67,8 @@ function all_graphs(a, b, c){
              var trace3 = {
                 x: c,
                 type: "histogram",
-              //  opacity: 0.6,
+                    histnorm: 'probability_density',
+                    opacity: 0.6,
                     marker: {
                         color: 'blue'
                     },
@@ -73,7 +76,7 @@ function all_graphs(a, b, c){
 
             var alldata = [trace1, trace2, trace3];
             var layout = {barmode: "overlay"};
-            Plotly.newPlot("allGraphs", alldata, layout, histnorm: "probability_density");
+            Plotly.newPlot("allGraphs", alldata, layout);
 }
 
 var frm = $('#binsform');
