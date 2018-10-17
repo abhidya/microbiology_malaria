@@ -97,13 +97,11 @@ frm.submit(function (e) {
             // $("#graphs").show(400);
 
             // $(".bins").hide(100);
-            var x1 = [];
-            var x2 = [];
-            var x3 = [];
 
-            x1 = data.threshold;
-            x1 = data.powerLaw;
-            x1 = data.logisticThreshold;
+
+            var x1 = data.threshold;
+            var x2 = data.powerLaw;
+            var x3 = data.logisticThreshold;
 
             if (data.threshold != null) {
                 treshold(data.threshold);
@@ -122,10 +120,10 @@ frm.submit(function (e) {
                 log_treshold(data.logisticThreshold);
                 $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
                 // $("#logisticthreshold_probs_container").show(400);
-
+                all_graphs(x1, x2, x3);
             }
 
-            all_graphs(x1, x2, x3);
+            
 
         },
 

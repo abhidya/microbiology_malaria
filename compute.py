@@ -92,4 +92,6 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
                 logisticThreshold_probs[i] = logistic_threshold(mosquito_sample(val_array))
             response['logisticThreshold'] = logisticThreshold_probs.tolist()
 
+
+
     return response
