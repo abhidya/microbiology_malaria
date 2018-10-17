@@ -121,9 +121,10 @@ frm.submit(function (e) {
                 $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
                 // $("#logisticthreshold_probs_container").show(400);
                 all_graphs(x1, x2, x3);
+                $("#allGraphs_container_h1").text("allGraphs_container_h1");
             }
 
-            
+
 
         },
 
