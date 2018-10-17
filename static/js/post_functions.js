@@ -61,7 +61,7 @@ function all_graphs(a, b, c){
              var trace1 = {
                 x: a,
                 type: "histogram",
-                    histnorm: 'density',
+                    histnorm: 'probability',
                     opacity: 0.4,
                     marker: {
                         color: 'green'
@@ -70,7 +70,7 @@ function all_graphs(a, b, c){
              var trace2 = {
                 x: b,
                 type: "histogram",
-                    histnorm: 'density',
+                    histnorm: 'probability',
                     opacity: 0.4,
                     marker: {
                         color: 'red'
@@ -79,7 +79,7 @@ function all_graphs(a, b, c){
              var trace3 = {
                 x: c,
                 type: "histogram",
-                    histnorm: 'density',
+                    histnorm: 'probability',
                     opacity: 0.4,
                     marker: {
                         color: 'blue'
