@@ -121,9 +121,9 @@ frm.submit(function (e) {
                 // $("#logisticthreshold_probs_container").show(400);
 
             }
-
-            all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
-            $("#allgraphs_container_h1").text("allgraphs_container_h1");
+            if True:
+                all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
+                $("#allgraphs_container_h1").text("allgraphs_container_h1");
 
 
         },
