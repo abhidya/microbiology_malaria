@@ -22,7 +22,7 @@ function powerlaw(data) {
         type: 'histogram',
         opacity: 0.5,
         marker: {
-            color: ['green'],
+            color: 'green',
         }
     };
     var data = [trace];
