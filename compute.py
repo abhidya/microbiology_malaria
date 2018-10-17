@@ -79,19 +79,21 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
                 # sample_array[i] = mosquito_sample(val_array)
                 powerlaw_probs[i] = powerlaw(mosquito_sample(val_array))
             response['powerLaw'] = powerlaw_probs.tolist()
+            response['allgraphsPL'] = powerlaw_probs.tolist()
 
         if model == "threshold":
             threshold_probs = zeros(numsamples)
             for i in range(numsamples):
                 threshold_probs[i] = threshold(mosquito_sample(val_array))
             response['threshold'] = threshold_probs.tolist()
+            response['allgraphsTH'] = threshold_probs.tolist()
 
         if model == "logisticThreshold":
             logisticThreshold_probs = zeros(numsamples)
             for i in range(numsamples):
                 logisticThreshold_probs[i] = logistic_threshold(mosquito_sample(val_array))
             response['logisticThreshold'] = logisticThreshold_probs.tolist()
-
+            response['allgraphsLT'] = logisticThreshold_probs.tolist()
 
 
     return response

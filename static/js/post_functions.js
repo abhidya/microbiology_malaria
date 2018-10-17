@@ -45,9 +45,9 @@ function log_treshold(data) {
 
 }
 
-function all_graphs(x1, x2, x3){
+function all_graphs(a, b, c){
              var trace1 = {
-                x: x1,
+                x: a,
                 type: "histogram",
                 opacity: 0.4,
                 marker: {
@@ -55,7 +55,7 @@ function all_graphs(x1, x2, x3){
                 },
             };
              var trace2 = {
-                x: x2,
+                x: b,
                 type: "histogram",
                 opacity: 0.5,
                 marker: {
@@ -63,7 +63,7 @@ function all_graphs(x1, x2, x3){
                 },
             };
              var trace3 = {
-                x: x3,
+                x: c,
                 type: "histogram",
                 opacity: 0.6,
                 marker: {
@@ -98,6 +98,9 @@ frm.submit(function (e) {
 
             // $(".bins").hide(100);
 
+            var x1 = [];
+            var x2 = [];
+            var x3 = [];
 
            // var x1 = data.threshold;
            // var x2 = data.powerLaw;
@@ -121,9 +124,15 @@ frm.submit(function (e) {
                 $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
                 // $("#logisticthreshold_probs_container").show(400);
              //   all_graphs(x1, x2, x3);
-                $("#allGraphs_container_h1").text("allGraphs_container_h1");
             }
 
+            if(data.allgraphsPL != null && data.allgraphsTH != null && data.allgraphsLT != null){
+                x1 = data.allgraphsPL;
+                x2 = data.allgraphsTH;
+                x3 = data.allgraphsLT;
+                all_graphs(x1, x2, x3);
+                $("#allGraphs_container_h1").text("allGraphs_container_h1");
+            }
 
 
         },
