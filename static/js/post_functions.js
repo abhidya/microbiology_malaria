@@ -102,6 +102,12 @@ frm.submit(function (e) {
             var x2 = [];
             var x3 = [];
 
+            x1 = data.allgraphsPL;
+            x2 = data.allgraphsTH;
+            x3 = data.allgraphsLT;
+            all_graphs(x1, x2, x3);
+            $("#allGraphs_container_h1").text("allGraphs_container_h1");
+
            // var x1 = data.threshold;
            // var x2 = data.powerLaw;
            // var x3 = data.logisticThreshold;
@@ -126,13 +132,9 @@ frm.submit(function (e) {
              //   all_graphs(x1, x2, x3);
             }
 
-            if(data.allgraphsPL != null && data.allgraphsTH != null && data.allgraphsLT != null){
-                x1 = data.allgraphsPL;
-                x2 = data.allgraphsTH;
-                x3 = data.allgraphsLT;
-                all_graphs(x1, x2, x3);
-                $("#allGraphs_container_h1").text("allGraphs_container_h1");
-            }
+           // if(data.allgraphsPL != null && data.allgraphsTH != null && data.allgraphsLT != null){
+
+          //  }
 
 
         },
