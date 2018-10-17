@@ -51,7 +51,7 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
         if (cdf_cache[x] != 0):
             return cdf_cache[x]
         else:
-            prob, length = ProbSpz(x)
+            probs, lengths = ProbSpz(x)
             cdf_cache[x] = cdf_cache[x - 1] + (prob / length)
             return cdf_cache[x]
 
