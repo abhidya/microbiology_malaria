@@ -20,9 +20,9 @@ function powerlaw(data) {
     var trace = {
         x: data,
         type: 'histogram',
-        opacity: 0.5,
         marker: {
-            color: 'green',
+            color: 'rgb(158,202,225'),
+            opacity: 0.5,
         }
     };
     var data = [trace];
