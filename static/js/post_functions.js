@@ -156,6 +156,7 @@ frm.submit(function (e) {
             // $(".bins").hide(100);
 
            // alert(data);
+           /*
             if (data.threshold != null) {
                 treshold(data.threshold);
                 $("#threshold_probs_container_h1").text("threshold_probs_container_h1");
@@ -173,6 +174,7 @@ frm.submit(function (e) {
                 $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
 
             }
+            */
             if(data){
                 all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
                 subplots(data.threshold, data.powerLaw, data.logisticThreshold);
