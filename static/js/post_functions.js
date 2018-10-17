@@ -72,8 +72,8 @@ function all_graphs(a, b, c){
             };
 
             var alldata = [trace1, trace2, trace3];
-            var layout = {barmode: "stack"};
-            Plotly.newPlot("allGraphs", alldata, layout);
+            var layout = {barmode: "overlay"};
+            Plotly.newPlot("allGraphs", alldata, layout, histnorm: "probability_density");
 }
 
 var frm = $('#binsform');
