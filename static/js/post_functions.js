@@ -87,7 +87,7 @@ frm.submit(function (e) {
             // $("#graphs").show(400);
 
             // $(".bins").hide(100);
-            /*
+
             var x1 = [];
             var x2 = [];
             var x3 = [];
@@ -97,28 +97,23 @@ frm.submit(function (e) {
 
             if (data.threshold != null) {
                 x1 = data.threshold;
-                //treshold(data.threshold);
+                treshold(data.threshold);
                 $("#threshold_probs_container_h1").text("threshold_probs_container_h1");
                 // $("#powerlaw_probs_container").show(400);
 
             }
             if (data.powerLaw != null) {
                 x2 = data.powerLaw;
-               // powerlaw(data.powerLaw);
+                powerlaw(data.powerLaw);
                 $("#powerlaw_probs_container_h1").text("powerlaw_probs_container_h1");
                 // $("#threshold_probs_container").show(400);
 
             }
             if (data.logisticThreshold != null) {
                 x3 = data.logisticThreshold;
-                //log_treshold(data.logisticThreshold);
+                log_treshold(data.logisticThreshold);
                 $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
 
-            }
-            */
-
-            if(data.threshold != null && data.powerLaw != null && data.logisticThreshold != null){
-                all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
             }
 
 
