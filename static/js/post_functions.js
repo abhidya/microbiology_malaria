@@ -129,9 +129,9 @@ function subplots(x1, x2, x3){
             var data = [trace1, trace2, trace3];
             var layout = {
                 autosize: false,
-                width: 500,
+                width: 600,
                 height: 800,
-                grid: {rows: 3, columns: 2, pattern: 'independent', roworder: 'bottom to top'},
+                grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
             };
             Plotly.newPlot("subs", data, layout);
 }
