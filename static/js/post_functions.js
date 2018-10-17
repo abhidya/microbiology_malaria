@@ -127,7 +127,7 @@ function subplots(x1, x2, x3){
                 autosize: false,
                 width: 500,
                 height: 800,
-                grid: {rows: 3, columns: 2, pattern: 'independent'},
+                grid: {rows: 3, columns: 2, pattern: 'independent', roworder: 'bottom to top'},
             };
             Plotly.newPlot("subs", data, layout);
 }
