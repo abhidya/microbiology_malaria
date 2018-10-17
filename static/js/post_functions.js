@@ -39,6 +39,9 @@ function log_treshold(data) {
     var trace = {
         x: data,
         type: 'histogram',
+        marker: {
+                    color: 'green',
+        },
     };
     var data = [trace];
     Plotly.newPlot('logisticthreshold_probs', data);
