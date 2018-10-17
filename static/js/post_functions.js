@@ -16,6 +16,10 @@ function powerlaw(data) {
     var trace = {
         x: data,
         type: 'histogram',
+            opacity: 0.4,
+            marker: {
+                color: 'red'
+            },
     };
     var data = [trace];
     Plotly.newPlot('powerlaw_probs', data);
@@ -27,6 +31,10 @@ function treshold(data) {
     var trace = {
         x: data,
         type: 'histogram',
+            opacity: 0.4,
+            marker: {
+                color: 'green'
+            },
     };
 
     var data = [trace];
@@ -39,6 +47,10 @@ function log_treshold(data) {
     var trace = {
         x: data,
         type: 'histogram',
+            opacity: 0.4,
+            marker: {
+                color: 'blue'
+            },
     };
     var data = [trace];
     Plotly.newPlot('logisticthreshold_probs', data);
@@ -49,7 +61,7 @@ function all_graphs(a, b, c){
              var trace1 = {
                 x: a,
                 type: "histogram",
-                    histnorm: 'probability_density',
+                    histnorm: 'density',
                     opacity: 0.4,
                     marker: {
                         color: 'green'
@@ -58,8 +70,8 @@ function all_graphs(a, b, c){
              var trace2 = {
                 x: b,
                 type: "histogram",
-                    histnorm: 'probability_density',
-                    opacity: 0.5,
+                    histnorm: 'density',
+                    opacity: 0.4,
                     marker: {
                         color: 'red'
                     },
@@ -67,8 +79,8 @@ function all_graphs(a, b, c){
              var trace3 = {
                 x: c,
                 type: "histogram",
-                    histnorm: 'probability_density',
-                    opacity: 0.6,
+                    histnorm: 'density',
+                    opacity: 0.4,
                     marker: {
                         color: 'blue'
                     },
