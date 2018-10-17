@@ -41,7 +41,9 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
     def ProbSpz(x):
         for i in range(numbins):
             if (x >= intervals[i][0] and x <= intervals[i][1]):
-                return probs[i], lengths[i]
+                result = [probs[i]]
+                result.append(lengths[i])
+                return result
                 break
 
     # Defining probability density function
@@ -51,7 +53,7 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
         else:
             prob, length = ProbSpz(x)
             cdf_cache[x] = cdf_cache[x - 1] + (prob / length)
-        return cdf_cache[x]
+            return cdf_cache[x]
 
     # Defining a sample from the distribution
     def mosquito_sample(val_array):
