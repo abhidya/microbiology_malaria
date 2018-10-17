@@ -51,7 +51,7 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
         else:
             prob, length = ProbSpz(x)
             cdf_cache[x] = cdf_cache[x - 1] + (prob / length)
-        return cdf_cache[x]
+            return cdf_cache[x]
 
     # Defining a sample from the distribution
     def mosquito_sample(val_array):
