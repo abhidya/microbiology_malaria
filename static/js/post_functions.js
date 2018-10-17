@@ -95,7 +95,7 @@ frm.submit(function (e) {
 
             // $(".bins").hide(100);
 
-            alert(data);
+           // alert(data);
             if (data.threshold != null) {
                 treshold(data.threshold);
                 $("#threshold_probs_container_h1").text("threshold_probs_container_h1");
