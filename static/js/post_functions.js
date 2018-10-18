@@ -91,6 +91,7 @@ function all_graphs(a, b, c){
 
             var alldata = [trace1, trace2, trace3];
             var layout = {
+                showlegend: false,
                 xaxis: {
                     title: 'Infection Probability per Bite',
                     titlefont: {
