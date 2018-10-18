@@ -156,11 +156,11 @@ function subplots(x1, x2, x3){
             var layout = {
                 showlegend: false,
                 autosize: false,
-               /* font: {
+                font: {
                     family: 'Courier New, monospace',
                     size: 18,
                     color: '#7f7f7f'
-                } */
+                }
                 width: 650,
                 height: 650,
                 margin: {
@@ -172,31 +172,33 @@ function subplots(x1, x2, x3){
                 grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
                 annotations: [
                     {
+                        text: 'Threshold Model',
+                        showarrow: false,
+                        align: 'center',
                         x: 0.5,
                         y: 0,
-                        xref: 'x',
-                        yref: 'y',
-                        text: 'Threshold Model'
-                        showarrow: false,
-
+                        xref: 'paper',
+                        yref: 'paper',
                     },
                     {
+                        text: 'Powerlaw Model',
+                        showarrow: false,
+                        align: 'center',
                         x: 0.25,
                         y: 0,
-                        xref: 'x2',
-                        yref: 'y2',
-                        text: 'Powerlaw Model'
-                        showarrow: false
+                        xref: 'paper',
+                        yref: 'paper',
                     },
                     {
-                        x: 0.2,
+                        text: 'Logistic Threshold Model',
+                        showarrow: false,
+                        align: 'center',
+                        x: 0.5,
                         y: 0,
-                        xref: 'x3',
-                        yref: 'y3',
-                        text: 'Logistic Threshold Model'
-                        showarrow: false
+                        xref: 'paper',
+                        yref: 'paper',
                     }
-                ] 
+                ]
             };
             Plotly.newPlot("subs", data, layout);
 }
