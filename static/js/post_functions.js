@@ -180,6 +180,7 @@ function subplots(x1, x2, x3){
                         xref: 'x',
                         yref: 'y',
                         text: 'Threshold Model'
+                        showarrow: false
                     },
                     {
                         x: 0.25,
@@ -187,6 +188,7 @@ function subplots(x1, x2, x3){
                         xref: 'x2',
                         yref: 'y2',
                         text: 'Powerlaw Model'
+                        showarrow: false
                     },
                     {
                         x: 0.2,
@@ -194,6 +196,7 @@ function subplots(x1, x2, x3){
                         xref: 'x3',
                         yref: 'y3',
                         text: 'Logistic Threshold Model'
+                        showarrow: false
                     }
                 ]
             };
