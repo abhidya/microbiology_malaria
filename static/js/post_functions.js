@@ -91,7 +91,20 @@ function all_graphs(a, b, c){
 
             var alldata = [trace1, trace2, trace3];
             var layout = {
-                showlegend: false,
+                showlegend: true,
+                legend: {
+                    bgcolor: '#E8E8E8',
+                    bordercolor: '#808080',
+                    borderwidth: 2,
+                    font: {
+                        family: 'Courier New, monospace',
+                        size: 12,
+                        color: '#000000'
+                    },
+                    traceorder: 'reversed',
+                    x: 1.5,
+                    y: 1
+                },
                 xaxis: {
                     title: 'Infection Probability per Bite',
                     titlefont: {
@@ -112,7 +125,7 @@ function all_graphs(a, b, c){
                 width: 800,
                 height: 650,
                 margin: {
-                    l: 60,
+                    l: 40,
                     r: 50,
                     t: 50,
                     b: 50,
@@ -126,6 +139,7 @@ function subplots(x1, x2, x3){
             var trace1 = {
                 x: x1,
                 type: "histogram",
+                    histnorm: 'probability',
                     opacity: 0.4,
                     marker: {
                         color: 'green'
@@ -136,6 +150,7 @@ function subplots(x1, x2, x3){
                 xaxis: 'x2',
                 yaxis: 'y2',
                 type: "histogram",
+                    histnorm: 'probability',
                     opacity: 0.6,
                     marker: {
                         color: 'red'
@@ -146,6 +161,7 @@ function subplots(x1, x2, x3){
                 xaxis: 'x3',
                 yaxis: 'y3',
                 type: "histogram",
+                    histnorm: 'probability',
                     opacity: 0.5,
                     marker: {
                         color: 'blue'
