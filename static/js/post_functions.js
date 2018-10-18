@@ -125,7 +125,7 @@ function all_graphs(a, b, c){
 function subplots(x1, x2, x3){
             var trace1 = {
                 x: x1,
-                name: 'Threshold',
+                name: 'Threshold Model',
                 type: "histogram",
                     opacity: 0.4,
                     marker: {
@@ -134,7 +134,7 @@ function subplots(x1, x2, x3){
             };
             var trace2 = {
                 x: x2,
-                name: 'Powerlaw',
+                name: 'Powerlaw Model',
                 xaxis: 'x2',
                 yaxis: 'y2',
                 type: "histogram",
@@ -145,7 +145,7 @@ function subplots(x1, x2, x3){
             };
             var trace3 = {
                 x: x3,
-                name: 'Logistic Threshold',
+                name: 'Logistic Threshold Model',
                 xaxis: 'x3',
                 yaxis: 'y3',
                 type: "histogram",
@@ -157,19 +157,13 @@ function subplots(x1, x2, x3){
 
             var data = [trace1, trace2, trace3];
             var layout = {
-                showlegend: true,
-                legend: {
-                    orientation: 'v',
-                    x: 1,
-                    y: 1,
-                    traceorder: 'reversed',
-                    font: {
-                        family: 'Courier New, monospace',
-                        size: 18,
-                        color: '#000'
-                    }
-                },
+                showlegend: false,
                 autosize: false,
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 18,
+                    color: '#7f7f7f'
+                }
                 width: 750,
                 height: 700,
                 margin: {
@@ -179,6 +173,29 @@ function subplots(x1, x2, x3){
                     b: 50,
                 },
                 grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
+                annotations: [
+                    {
+                        x: 0.5,
+                        y: 0,
+                        xref: 'x',
+                        yref: 'y',
+                        text: 'Threshold Model'
+                    },
+                    {
+                        x: 0.25,
+                        y: 0,
+                        xref: 'x2',
+                        yref: 'y2',
+                        text: 'Powerlaw Model'
+                    },
+                    {
+                        x: 0.2,
+                        y: 0,
+                        xref: 'x3',
+                        yref: 'y3',
+                        text: 'Logistic Threshold Model'
+                    }
+                ]
             };
             Plotly.newPlot("subs", data, layout);
 }
