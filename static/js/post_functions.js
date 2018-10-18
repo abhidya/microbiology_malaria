@@ -170,14 +170,15 @@ function subplots(x1, x2, x3){
                     b: 50,
                 },
                 grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
-                annotations: [
+               /* annotations: [
                     {
                         x: 0.5,
                         y: 0,
                         xref: 'x',
                         yref: 'y',
                         text: 'Threshold Model'
-                        showarrow: false
+                        showarrow: false,
+
                     },
                     {
                         x: 0.25,
@@ -195,7 +196,7 @@ function subplots(x1, x2, x3){
                         text: 'Logistic Threshold Model'
                         showarrow: false
                     }
-                ]
+                ] */
             };
             Plotly.newPlot("subs", data, layout);
 }
