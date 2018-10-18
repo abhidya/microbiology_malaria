@@ -68,7 +68,7 @@ function all_graphs(a, b, c){
                         color: 'green',
                         line: {
                             color: 'green',
-                            width: 1.5
+                            width: 1
                         }
                     },
             };
@@ -82,7 +82,7 @@ function all_graphs(a, b, c){
                         color: 'red',
                         line: {
                             color: 'red',
-                            width: 1.5
+                            width: 1
                         }
                     },
             };
@@ -96,7 +96,7 @@ function all_graphs(a, b, c){
                         color: 'blue'
                         line: {
                             color: 'blue',
-                            width: 1.5
+                            width: 1
                         }
                     },
             };
@@ -110,7 +110,7 @@ function all_graphs(a, b, c){
                     borderwidth: 2,
                     font: {
                         family: 'Courier New, monospace',
-                        size: 15,
+                        size: 14,
                         color: '#000000'
                     },
                     traceorder: 'reversed',
