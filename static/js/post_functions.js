@@ -65,7 +65,11 @@ function all_graphs(a, b, c){
                     histnorm: 'probability',
                     opacity: 0.4,
                     marker: {
-                        color: 'green'
+                        color: 'green',
+                        line: {
+                            color: 'green',
+                            width: 1.5
+                        }
                     },
             };
              var trace2 = {
@@ -75,7 +79,11 @@ function all_graphs(a, b, c){
                     histnorm: 'probability',
                     opacity: 0.6,
                     marker: {
-                        color: 'red'
+                        color: 'red',
+                        line: {
+                            color: 'red',
+                            width: 1.5
+                        }
                     },
             };
              var trace3 = {
@@ -86,6 +94,10 @@ function all_graphs(a, b, c){
                     opacity: 0.5,
                     marker: {
                         color: 'blue'
+                        line: {
+                            color: 'blue',
+                            width: 1.5
+                        }
                     },
             };
 
@@ -104,7 +116,7 @@ function all_graphs(a, b, c){
                     traceorder: 'reversed',
                     orientation: 'h',
                     x: 0.25,
-                    y: 1.05
+                    y: 1.08
                 },
                 xaxis: {
                     title: 'Infection Probability per Bite',
@@ -126,7 +138,7 @@ function all_graphs(a, b, c){
                 width: 800,
                 height: 600,
                 margin: {
-                    l: 50,
+                    l: 70,
                     r: 50,
                     t: 50,
                     b: 50,
