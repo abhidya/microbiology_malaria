@@ -11,7 +11,7 @@ function closeModal() {
 // $("#graphs").hide();
 
 
-
+/*
 function powerlaw(data) {
     var trace = {
         x: data,
@@ -56,6 +56,7 @@ function log_treshold(data) {
     Plotly.newPlot('logisticthreshold_probs', data);
 
 }
+*/
 
 function all_graphs(a, b, c){
              var trace1 = {
@@ -101,7 +102,7 @@ function all_graphs(a, b, c){
                         size: 14,
                         color: '#000000'
                     },
-                   // traceorder: 'reversed',
+                    traceorder: 'reversed',
                     orientation: 'h',
                     x: 0.2,
                     y: 1.08
@@ -137,7 +138,7 @@ function all_graphs(a, b, c){
 }
 
 function subplots(x1, x2, x3){
-            var trace3 = {
+            var trace1 = {
                 x: x1,
                 type: "histogram",
                     opacity: 0.4,
@@ -145,7 +146,7 @@ function subplots(x1, x2, x3){
                         color: 'green'
                     },
             };
-            var trace1 = {
+            var trace2 = {
                 x: x2,
                 xaxis: 'x2',
                 yaxis: 'y2',
@@ -155,7 +156,7 @@ function subplots(x1, x2, x3){
                         color: 'red'
                     },
             };
-            var trace2 = {
+            var trace3 = {
                 x: x3,
                 xaxis: 'x3',
                 yaxis: 'y3',
@@ -181,41 +182,6 @@ function subplots(x1, x2, x3){
                     b: 50,
                 },
                 grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
-             /*   annotations: [
-                    {
-                        text: 'Threshold Model',
-                        font: {
-                            family: 'Courier New, monospace',
-                            size: 16,
-                            color: '#000000'
-                        },
-                        showarrow: false,
-                        xref: 'x',
-                        yref: 'y',
-                    },
-                    {
-                        text: 'Powerlaw Model',
-                        font: {
-                            family: 'Courier New, monospace',
-                            size: 16,
-                            color: '#000000'
-                        },
-                        showarrow: false,
-                        xref: 'x2',
-                        yref: 'y2',
-                    },
-                    {
-                        text: 'Logistic Threshold Model',
-                        font: {
-                            family: 'Courier New, monospace',
-                            size: 16,
-                            color: '#000000'
-                        },
-                        showarrow: false,
-                        xref: 'x3',
-                        yref: 'y3',
-                    }
-                ] */
             };
             Plotly.newPlot("subs", data, layout);
 }
@@ -243,30 +209,9 @@ frm.submit(function (e) {
 
             // $(".bins").hide(100);
 
-           // alert(data);
-           /*
-            if (data.threshold != null) {
-                treshold(data.threshold);
-                $("#threshold_probs_container_h1").text("threshold_probs_container_h1");
-                // $("#powerlaw_probs_container").show(400);
-
-            }
-            if (data.powerLaw != null) {
-                powerlaw(data.powerLaw);
-                $("#powerlaw_probs_container_h1").text("powerlaw_probs_container_h1");
-                // $("#threshold_probs_container").show(400);
-
-            }
-            if (data.logisticThreshold != null) {
-                log_treshold(data.logisticThreshold);
-                $("#logisticthreshold_probs_container_h1").text("logisticthreshold_probs_container_h1");
-
-            }
-            */
             if(data){
                 all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
-                subplots(data.threshold, data.powerLaw, data.logisticThreshold);
-                $("#allGraphs_container_h1").text("allGraphs_container_h1");
+                subplots(data.threshold, data.logisticThreshold, data.powerLaw);
             }
 
         },
