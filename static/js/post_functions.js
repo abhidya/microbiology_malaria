@@ -66,10 +66,6 @@ function all_graphs(a, b, c){
                     opacity: 0.4,
                     marker: {
                         color: 'green',
-                        line: {
-                            color: 'green',
-                            width: 1
-                        }
                     },
             };
              var trace2 = {
@@ -80,10 +76,6 @@ function all_graphs(a, b, c){
                     opacity: 0.6,
                     marker: {
                         color: 'red',
-                        line: {
-                            color: 'red',
-                            width: 1
-                        }
                     },
             };
              var trace3 = {
@@ -94,10 +86,6 @@ function all_graphs(a, b, c){
                     opacity: 0.5,
                     marker: {
                         color: 'blue'
-                        line: {
-                            color: 'blue',
-                            width: 1
-                        }
                     },
             };
 
