@@ -168,30 +168,45 @@ function subplots(x1, x2, x3){
                 annotations: [
                     {
                         text: 'Threshold Model',
+                        font: {
+                            family: 'Courier New, monospace',
+                            size: 14,
+                            color: '#000000'
+                        },
                         showarrow: false,
                         align: 'center',
                         x: 0.5,
                         y: 0,
-                        xref: 'paper',
-                        yref: 'paper',
+                        xref: 'x',
+                        yref: 'y',
                     },
                     {
                         text: 'Powerlaw Model',
+                        font: {
+                            family: 'Courier New, monospace',
+                            size: 14,
+                            color: '#000000'
+                        },
                         showarrow: false,
                         align: 'center',
                         x: 0.25,
                         y: 0,
-                        xref: 'paper',
-                        yref: 'paper',
+                        xref: 'x2',
+                        yref: 'y2',
                     },
                     {
                         text: 'Logistic Threshold Model',
+                        font: {
+                            family: 'Courier New, monospace',
+                            size: 14,
+                            color: '#000000'
+                        },
                         showarrow: false,
                         align: 'center',
                         x: 0.5,
                         y: 0,
-                        xref: 'paper',
-                        yref: 'paper',
+                        xref: 'x3',
+                        yref: 'y3',
                     }
                 ]
             };
