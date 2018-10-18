@@ -151,10 +151,22 @@ function subplots(x1, x2, x3){
 
             var data = [trace1, trace2, trace3];
             var layout = {
+                showlegend: true,
+                legend: {
+                    "orientation:" "h",
+                    x: 0.5,
+                    y: 1,
+                    font: {
+                        family: 'Courier New, monospace',
+                        size: 18,
+                        color: '#000'
+                    },
+                    bgcolor: '#E2E2E2'
+                },
                 autosize: false,
                 width: 700,
                 height: 800,
-                grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
+                grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'top to bottom'},
             };
             Plotly.newPlot("subs", data, layout);
 }
