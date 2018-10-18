@@ -64,7 +64,7 @@ function all_graphs(a, b, c){
                 name: 'Threshold',
                 type: "histogram",
                     histnorm: 'probability',
-                    opacity: 0.4,
+                    opacity: 0.8,
                     marker: {
                         color: 'green',
                     },
@@ -74,7 +74,7 @@ function all_graphs(a, b, c){
                 name: 'Powerlaw',
                 type: "histogram",
                     histnorm: 'probability',
-                    opacity: 0.6,
+                    opacity: 0.8,
                     marker: {
                         color: 'red',
                     },
@@ -84,7 +84,7 @@ function all_graphs(a, b, c){
                 name: 'Logistic Threshold',
                 type: "histogram",
                     histnorm: 'probability',
-                    opacity: 0.5,
+                    opacity: 0.8,
                     marker: {
                         color: 'blue'
                     },
@@ -99,13 +99,13 @@ function all_graphs(a, b, c){
                     borderwidth: 2,
                     font: {
                         family: 'Courier New, monospace',
-                        size: 14,
+                        size: 16,
                         color: '#000000'
                     },
                     traceorder: 'reversed',
                     orientation: 'h',
                     x: 0.2,
-                    y: 1.08
+                    y: 1.12
                 },
                 xaxis: {
                     title: 'Infection Probability per Bite',
@@ -141,7 +141,7 @@ function subplots(x1, x2, x3){
             var trace1 = {
                 x: x1,
                 type: "histogram",
-                    opacity: 0.4,
+                    opacity: 0.8,
                     marker: {
                         color: 'green'
                     },
@@ -151,7 +151,7 @@ function subplots(x1, x2, x3){
                 xaxis: 'x2',
                 yaxis: 'y2',
                 type: "histogram",
-                    opacity: 0.6,
+                    opacity: 0.8,
                     marker: {
                         color: 'blue'
                     },
@@ -161,7 +161,7 @@ function subplots(x1, x2, x3){
                 xaxis: 'x3',
                 yaxis: 'y3',
                 type: "histogram",
-                    opacity: 0.5,
+                    opacity: 0.8,
                     marker: {
                         color: 'red'
                     },
