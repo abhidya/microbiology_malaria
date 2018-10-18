@@ -153,16 +153,15 @@ function subplots(x1, x2, x3){
             var layout = {
                 showlegend: true,
                 legend: {
-                    "orientation:" "h",
+                    orientation: 'h',
                     x: 0.5,
                     y: 1,
-                    traceorder: 'normal',
+                    traceorder: 'reversed',
                     font: {
                         family: 'Courier New, monospace',
                         size: 18,
                         color: '#000'
-                    },
-                    bgcolor: '#E2E2E2'
+                    }
                 },
                 autosize: false,
                 width: 700,
