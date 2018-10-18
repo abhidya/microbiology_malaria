@@ -125,7 +125,7 @@ function all_graphs(a, b, c){
                 },
                 autosize: false,
                 width: 800,
-                height: 600,
+                height: 650,
                 margin: {
                     l: 70,
                     r: 50,
