@@ -60,6 +60,7 @@ function log_treshold(data) {
 function all_graphs(a, b, c){
              var trace1 = {
                 x: a,
+                name: 'Threshold',
                 type: "histogram",
                     histnorm: 'probability',
                     opacity: 0.4,
@@ -69,6 +70,7 @@ function all_graphs(a, b, c){
             };
              var trace2 = {
                 x: b,
+                name: 'Powerlaw',
                 type: "histogram",
                     histnorm: 'probability',
                     opacity: 0.4,
@@ -78,6 +80,7 @@ function all_graphs(a, b, c){
             };
              var trace3 = {
                 x: c,
+                name: 'Logistic Threshold',
                 type: "histogram",
                     histnorm: 'probability',
                     opacity: 0.4,
@@ -88,8 +91,25 @@ function all_graphs(a, b, c){
 
             var alldata = [trace1, trace2, trace3];
             var layout = {
+                title: 'Model Comparison',
+                xaxis: {
+                    title: 'Infection Probability per Bite',
+                    titlefont: {
+                        family: 'Courier New, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                    }
+                },
+                yaxis: {
+                    title: 'PDF',
+                    titlefont: {
+                        family: 'Courier New, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                    }
+                },
                 autosize: false,
-                width: 600,
+                width: 700,
                 height: 800,
                 barmode: "overlay"
             };
@@ -99,6 +119,7 @@ function all_graphs(a, b, c){
 function subplots(x1, x2, x3){
             var trace1 = {
                 x: x1,
+                name: 'Threshold',
                 type: "histogram",
                     opacity: 0.4,
                     marker: {
@@ -107,6 +128,7 @@ function subplots(x1, x2, x3){
             };
             var trace2 = {
                 x: x2,
+                name: 'Powerlaw',
                 xaxis: 'x2',
                 yaxis: 'y2',
                 type: "histogram",
@@ -117,6 +139,7 @@ function subplots(x1, x2, x3){
             };
             var trace3 = {
                 x: x3,
+                name: 'Logistic Threshold',
                 xaxis: 'x3',
                 yaxis: 'y3',
                 type: "histogram",
@@ -129,7 +152,7 @@ function subplots(x1, x2, x3){
             var data = [trace1, trace2, trace3];
             var layout = {
                 autosize: false,
-                width: 600,
+                width: 700,
                 height: 800,
                 grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
             };
