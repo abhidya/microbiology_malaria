@@ -102,7 +102,7 @@ function all_graphs(a, b, c){
                         color: '#000000'
                     },
                     traceorder: 'reversed',
-                    x: 1,
+                    x: 0.8,
                     y: 1
                 },
                 xaxis: {
@@ -125,7 +125,7 @@ function all_graphs(a, b, c){
                 width: 800,
                 height: 650,
                 margin: {
-                    l: 40,
+                    l: 50,
                     r: 50,
                     t: 50,
                     b: 50,
@@ -186,13 +186,12 @@ function subplots(x1, x2, x3){
                         text: 'Threshold Model',
                         font: {
                             family: 'Courier New, monospace',
-                            size: 14,
+                            size: 16,
                             color: '#000000'
                         },
                         showarrow: false,
                         align: 'center',
-                        x: 0.25,
-                        y: 1,
+                        valign: 'top',
                         xref: 'x',
                         yref: 'y',
                     },
@@ -200,13 +199,12 @@ function subplots(x1, x2, x3){
                         text: 'Powerlaw Model',
                         font: {
                             family: 'Courier New, monospace',
-                            size: 14,
+                            size: 16,
                             color: '#000000'
                         },
                         showarrow: false,
                         align: 'center',
-                        x: 0.25,
-                        y: 1,
+                        valign: 'top',
                         xref: 'x2',
                         yref: 'y2',
                     },
@@ -214,13 +212,12 @@ function subplots(x1, x2, x3){
                         text: 'Logistic Threshold Model',
                         font: {
                             family: 'Courier New, monospace',
-                            size: 14,
+                            size: 16,
                             color: '#000000'
                         },
                         showarrow: false,
                         align: 'center',
-                        x: 0.55,
-                        y: 1,
+                        valign: 'top',
                         xref: 'x3',
                         yref: 'y3',
                     }
