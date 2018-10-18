@@ -139,7 +139,6 @@ function subplots(x1, x2, x3){
             var trace1 = {
                 x: x1,
                 type: "histogram",
-                    histnorm: 'probability',
                     opacity: 0.4,
                     marker: {
                         color: 'green'
@@ -150,7 +149,6 @@ function subplots(x1, x2, x3){
                 xaxis: 'x2',
                 yaxis: 'y2',
                 type: "histogram",
-                    histnorm: 'probability',
                     opacity: 0.6,
                     marker: {
                         color: 'red'
@@ -161,7 +159,6 @@ function subplots(x1, x2, x3){
                 xaxis: 'x3',
                 yaxis: 'y3',
                 type: "histogram",
-                    histnorm: 'probability',
                     opacity: 0.5,
                     marker: {
                         color: 'blue'
