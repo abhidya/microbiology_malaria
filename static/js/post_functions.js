@@ -189,8 +189,6 @@ function subplots(x1, x2, x3){
                             color: '#000000'
                         },
                         showarrow: false,
-                        align: 'center',
-                        valign: 'bottom',
                         xref: 'x',
                         yref: 'y',
                     },
@@ -202,8 +200,6 @@ function subplots(x1, x2, x3){
                             color: '#000000'
                         },
                         showarrow: false,
-                        align: 'center',
-                        valign: 'bottom',
                         xref: 'x2',
                         yref: 'y2',
                     },
@@ -215,8 +211,6 @@ function subplots(x1, x2, x3){
                             color: '#000000'
                         },
                         showarrow: false,
-                        align: 'center',
-                        valign: 'bottom',
                         xref: 'x3',
                         yref: 'y3',
                     }
