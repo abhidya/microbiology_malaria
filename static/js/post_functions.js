@@ -99,12 +99,12 @@ function all_graphs(a, b, c){
                     borderwidth: 2,
                     font: {
                         family: 'Courier New, monospace',
-                        size: 16,
+                        size: 20,
                         color: '#000000'
                     },
                     traceorder: 'reversed',
                     orientation: 'h',
-                    x: 0.2,
+                    x: 0.1,
                     y: 1.12
                 },
                 xaxis: {
