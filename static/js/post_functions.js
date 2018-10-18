@@ -156,6 +156,7 @@ function subplots(x1, x2, x3){
                     "orientation:" "h",
                     x: 0.5,
                     y: 1,
+                    traceorder: 'normal',
                     font: {
                         family: 'Courier New, monospace',
                         size: 18,
@@ -166,7 +167,7 @@ function subplots(x1, x2, x3){
                 autosize: false,
                 width: 700,
                 height: 800,
-                grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'top to bottom'},
+                grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
             };
             Plotly.newPlot("subs", data, layout);
 }
