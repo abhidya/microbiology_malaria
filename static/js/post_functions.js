@@ -98,13 +98,13 @@ function all_graphs(a, b, c){
                     borderwidth: 2,
                     font: {
                         family: 'Courier New, monospace',
-                        size: 12,
+                        size: 15,
                         color: '#000000'
                     },
                     traceorder: 'reversed',
                     orientation: 'h',
-                    x: 0.5,
-                    y: 1.02
+                    x: 0.25,
+                    y: 1.05
                 },
                 xaxis: {
                     title: 'Infection Probability per Bite',
@@ -124,7 +124,7 @@ function all_graphs(a, b, c){
                 },
                 autosize: false,
                 width: 800,
-                height: 650,
+                height: 600,
                 margin: {
                     l: 50,
                     r: 50,
