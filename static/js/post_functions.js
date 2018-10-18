@@ -117,7 +117,7 @@ function all_graphs(a, b, c){
                     t: 50,
                     b: 50,
                 },
-                barmode: "stack"
+                barmode: "overlay"
             };
             Plotly.newPlot("allGraphs", alldata, layout);
 }
@@ -170,7 +170,7 @@ function subplots(x1, x2, x3){
                     b: 50,
                 },
                 grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
-               /* annotations: [
+                annotations: [
                     {
                         x: 0.5,
                         y: 0,
@@ -196,7 +196,7 @@ function subplots(x1, x2, x3){
                         text: 'Logistic Threshold Model'
                         showarrow: false
                     }
-                ] */
+                ] 
             };
             Plotly.newPlot("subs", data, layout);
 }
