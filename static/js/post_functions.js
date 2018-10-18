@@ -97,7 +97,7 @@ function all_graphs(a, b, c){
                     titlefont: {
                         family: 'Courier New, monospace',
                         size: 18,
-                        color: '#7f7f7f'
+                        color: '#000000'
                     }
                 },
                 yaxis: {
@@ -105,19 +105,19 @@ function all_graphs(a, b, c){
                     titlefont: {
                         family: 'Courier New, monospace',
                         size: 18,
-                        color: '#7f7f7f'
+                        color: '#000000'
                     }
                 },
                 autosize: false,
                 width: 800,
                 height: 650,
                 margin: {
-                    l: 50,
+                    l: 60,
                     r: 50,
                     t: 50,
                     b: 50,
                 },
-                barmode: "overlay"
+                barmode: "stack"
             };
             Plotly.newPlot("allGraphs", alldata, layout);
 }
