@@ -58,7 +58,7 @@ function log_treshold(data) {
 }
 
 function all_graphs(a, b, c){
-             var trace1 = {
+             var trace3 = {
                 x: a,
                 name: 'Threshold',
                 type: "histogram",
@@ -68,7 +68,7 @@ function all_graphs(a, b, c){
                         color: 'green',
                     },
             };
-             var trace2 = {
+             var trace1 = {
                 x: b,
                 name: 'Powerlaw',
                 type: "histogram",
@@ -78,7 +78,7 @@ function all_graphs(a, b, c){
                         color: 'red',
                     },
             };
-             var trace3 = {
+             var trace2 = {
                 x: c,
                 name: 'Logistic Threshold',
                 type: "histogram",
@@ -101,9 +101,9 @@ function all_graphs(a, b, c){
                         size: 14,
                         color: '#000000'
                     },
-                    traceorder: 'reversed',
+                   // traceorder: 'reversed',
                     orientation: 'h',
-                    x: 0.25,
+                    x: 0.2,
                     y: 1.08
                 },
                 xaxis: {
@@ -137,7 +137,7 @@ function all_graphs(a, b, c){
 }
 
 function subplots(x1, x2, x3){
-            var trace1 = {
+            var trace3 = {
                 x: x1,
                 type: "histogram",
                     opacity: 0.4,
@@ -145,7 +145,7 @@ function subplots(x1, x2, x3){
                         color: 'green'
                     },
             };
-            var trace2 = {
+            var trace1 = {
                 x: x2,
                 xaxis: 'x2',
                 yaxis: 'y2',
@@ -155,7 +155,7 @@ function subplots(x1, x2, x3){
                         color: 'red'
                     },
             };
-            var trace3 = {
+            var trace2 = {
                 x: x3,
                 xaxis: 'x3',
                 yaxis: 'y3',
