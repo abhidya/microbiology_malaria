@@ -159,8 +159,8 @@ function subplots(x1, x2, x3){
                 showlegend: true,
                 legend: {
                     orientation: 'h',
-                    x: 0.5,
-                    y: 1.1,
+                    x: 1,
+                    y: 1.05,
                     traceorder: 'reversed',
                     font: {
                         family: 'Courier New, monospace',
