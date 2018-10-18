@@ -102,8 +102,9 @@ function all_graphs(a, b, c){
                         color: '#000000'
                     },
                     traceorder: 'reversed',
-                    x: 0.7,
-                    y: 0.7
+                    orientation: 'h',
+                    x: 0.5,
+                    y: 1.02
                 },
                 xaxis: {
                     title: 'Infection Probability per Bite',
@@ -180,7 +181,7 @@ function subplots(x1, x2, x3){
                     b: 50,
                 },
                 grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
-                annotations: [
+             /*   annotations: [
                     {
                         text: 'Threshold Model',
                         font: {
@@ -214,7 +215,7 @@ function subplots(x1, x2, x3){
                         xref: 'x3',
                         yref: 'y3',
                     }
-                ]
+                ] */
             };
             Plotly.newPlot("subs", data, layout);
 }
