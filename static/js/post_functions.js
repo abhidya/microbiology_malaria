@@ -109,8 +109,8 @@ function all_graphs(a, b, c){
                     }
                 },
                 autosize: false,
-                width: 650,
-                height: 700,
+                width: 800,
+                height: 650,
                 margin: {
                     l: 50,
                     r: 50,
@@ -161,8 +161,8 @@ function subplots(x1, x2, x3){
                     size: 18,
                     color: '#7f7f7f'
                 } */
-                width: 700,
-                height: 700,
+                width: 650,
+                height: 650,
                 margin: {
                     l: 50,
                     r: 50,
