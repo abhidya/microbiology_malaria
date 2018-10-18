@@ -102,8 +102,8 @@ function all_graphs(a, b, c){
                         color: '#000000'
                     },
                     traceorder: 'reversed',
-                    x: 0.8,
-                    y: 1
+                    x: 0.7,
+                    y: 0.7
                 },
                 xaxis: {
                     title: 'Infection Probability per Bite',
@@ -169,6 +169,8 @@ function subplots(x1, x2, x3){
             var layout = {
                 showlegend: false,
                 autosize: false,
+                autorange: true,
+                rangemode: 'normal',
                 width: 650,
                 height: 650,
                 margin: {
@@ -188,7 +190,7 @@ function subplots(x1, x2, x3){
                         },
                         showarrow: false,
                         align: 'center',
-                        valign: 'top',
+                        valign: 'bottom',
                         xref: 'x',
                         yref: 'y',
                     },
@@ -201,7 +203,7 @@ function subplots(x1, x2, x3){
                         },
                         showarrow: false,
                         align: 'center',
-                        valign: 'top',
+                        valign: 'bottom',
                         xref: 'x2',
                         yref: 'y2',
                     },
@@ -214,7 +216,7 @@ function subplots(x1, x2, x3){
                         },
                         showarrow: false,
                         align: 'center',
-                        valign: 'top',
+                        valign: 'bottom',
                         xref: 'x3',
                         yref: 'y3',
                     }
