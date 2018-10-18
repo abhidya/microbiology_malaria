@@ -102,7 +102,7 @@ function all_graphs(a, b, c){
                         color: '#000000'
                     },
                     traceorder: 'reversed',
-                    x: 1.5,
+                    x: 1,
                     y: 1
                 },
                 xaxis: {
@@ -192,7 +192,7 @@ function subplots(x1, x2, x3){
                         showarrow: false,
                         align: 'center',
                         x: 0.25,
-                        y: 2500,
+                        y: 1,
                         xref: 'x',
                         yref: 'y',
                     },
@@ -206,7 +206,7 @@ function subplots(x1, x2, x3){
                         showarrow: false,
                         align: 'center',
                         x: 0.25,
-                        y: 305,
+                        y: 1,
                         xref: 'x2',
                         yref: 'y2',
                     },
@@ -220,7 +220,7 @@ function subplots(x1, x2, x3){
                         showarrow: false,
                         align: 'center',
                         x: 0.55,
-                        y: 1670,
+                        y: 1,
                         xref: 'x3',
                         yref: 'y3',
                     }
