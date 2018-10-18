@@ -156,12 +156,12 @@ function subplots(x1, x2, x3){
             var layout = {
                 showlegend: false,
                 autosize: false,
-                font: {
+               /* font: {
                     family: 'Courier New, monospace',
                     size: 18,
                     color: '#7f7f7f'
-                }
-                width: 750,
+                } */
+                width: 700,
                 height: 700,
                 margin: {
                     l: 50,
