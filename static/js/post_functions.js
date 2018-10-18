@@ -91,7 +91,6 @@ function all_graphs(a, b, c){
 
             var alldata = [trace1, trace2, trace3];
             var layout = {
-                title: 'Model Comparison',
                 xaxis: {
                     title: 'Infection Probability per Bite',
                     titlefont: {
@@ -110,7 +109,13 @@ function all_graphs(a, b, c){
                 },
                 autosize: false,
                 width: 700,
-                height: 800,
+                height: 700,
+                margin: {
+                    l: 50,
+                    r: 50,
+                    t: 50,
+                    b: 50,
+                },
                 barmode: "overlay"
             };
             Plotly.newPlot("allGraphs", alldata, layout);
@@ -155,7 +160,7 @@ function subplots(x1, x2, x3){
                 legend: {
                     orientation: 'h',
                     x: 0.5,
-                    y: 1,
+                    y: 1.1,
                     traceorder: 'reversed',
                     font: {
                         family: 'Courier New, monospace',
@@ -165,7 +170,13 @@ function subplots(x1, x2, x3){
                 },
                 autosize: false,
                 width: 700,
-                height: 800,
+                height: 700,
+                margin: {
+                    l: 50,
+                    r: 50,
+                    t: 50,
+                    b: 50,
+                },
                 grid: {rows: 3, columns: 1, pattern: 'independent', roworder: 'bottom to top'},
             };
             Plotly.newPlot("subs", data, layout);
