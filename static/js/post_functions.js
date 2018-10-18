@@ -153,7 +153,7 @@ function subplots(x1, x2, x3){
                 type: "histogram",
                     opacity: 0.6,
                     marker: {
-                        color: 'red'
+                        color: 'blue'
                     },
             };
             var trace3 = {
@@ -163,7 +163,7 @@ function subplots(x1, x2, x3){
                 type: "histogram",
                     opacity: 0.5,
                     marker: {
-                        color: 'blue'
+                        color: 'red'
                     },
             };
 
