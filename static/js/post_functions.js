@@ -109,7 +109,7 @@ function all_graphs(a, b, c){
                     }
                 },
                 autosize: false,
-                width: 700,
+                width: 650,
                 height: 700,
                 margin: {
                     l: 50,
@@ -159,9 +159,9 @@ function subplots(x1, x2, x3){
             var layout = {
                 showlegend: true,
                 legend: {
-                    orientation: 'h',
+                    orientation: 'v',
                     x: 1,
-                    y: 1.05,
+                    y: 1,
                     traceorder: 'reversed',
                     font: {
                         family: 'Courier New, monospace',
@@ -170,7 +170,7 @@ function subplots(x1, x2, x3){
                     }
                 },
                 autosize: false,
-                width: 700,
+                width: 750,
                 height: 700,
                 margin: {
                     l: 50,
