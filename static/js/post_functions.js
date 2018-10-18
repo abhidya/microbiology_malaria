@@ -58,7 +58,7 @@ function log_treshold(data) {
 }
 
 function all_graphs(a, b, c){
-             var trace3 = {
+             var trace1 = {
                 x: a,
                 name: 'Threshold',
                 type: "histogram",
@@ -68,7 +68,7 @@ function all_graphs(a, b, c){
                         color: 'green',
                     },
             };
-             var trace1 = {
+             var trace3 = {
                 x: b,
                 name: 'Powerlaw',
                 type: "histogram",
