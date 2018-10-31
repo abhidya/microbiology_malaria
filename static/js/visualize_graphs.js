@@ -12,6 +12,8 @@ function makeGraphs(error, projectsJson, statesJson) {
     });
 
 
+
+
     //Create a Crossfilter instance
     var ndx = crossfilter(project);
 
