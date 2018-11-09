@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from threading import Lock
 import json
+import ast
 from flask import Flask, render_template, request, jsonify, make_response
 from flask_pymongo import PyMongo
 import datetime
@@ -21,10 +22,10 @@ FIELDS = {'location': True, 'species': True, 'date': True}
 
 @app.after_request
 def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-  return response
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 
 @app.route('/')
@@ -64,28 +65,9 @@ def transform_view():
     response = make_response(csv)
     cd = 'attachment; filename=mycsv.csv'
     response.headers['Content-Disposition'] = cd
-    response.mimetype='text/csv'
+    response.mimetype = 'text/csv'
 
     return response
-    # probs = request.form.getlist('probs[]')
-    # size = request.form['size']
-    # functionLaw = request.form.getlist('functionLaw[]')
-    # binsStart = request.form.getlist('binsStart[]')
-    # binsEnd = request.form.getlist('binsEnd[]')
-    # location = request.form['location']
-    # species = request.form['species']
-    # t = datetime.datetime.now()
-    # s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
-    #
-    # dictee = {"location": location, "species": species, "size": size, "binStart": binsStart, "binEnd": binsEnd,
-    #         "Probability": probs, "Models": functionLaw, "date": s[:-3]}
-    # r = json.dumps(dictee, indent=4, sort_keys=True, default=str)
-    # result = json.loads(r)
-    #
-    # result = make_response(str(result))
-    # result.mimetype = "text"
-    # result.headers["Content-disposition"] = "attachment; filename=results.txt"
-    # return result
 
 
 @app.route('/compute', methods=['POST'])
@@ -112,9 +94,37 @@ def new_entry():
     loaded_r = json.loads(r)
     # print(loaded_r)
     mongo.db.data.insert_one(loaded_r)
+    loaded_r.pop('_id', None)
+    data["download"] = str(loaded_r)
+    return jsonify(data), 200
 
+
+@app.route('/jsoncompute', methods=['POST'])
+def upload_entry():
+    incomming_data = str(request.data).replace('b"{', '{')
+    incomming_data = incomming_data.replace('}"', '}')
+    incomming_data = ast.literal_eval(incomming_data)
+    probs = incomming_data['Probability']
+    size = incomming_data['size']
+    functionLaw = incomming_data['Models']
+    binsStart = incomming_data['binStart']
+    binsEnd = incomming_data['binEnd']
+    location = incomming_data['location']
+    species = incomming_data['species']
+    data = compute(functionLaw, size, probs, binsStart, binsEnd)
+    # print(functionLaw, size, probs, binsStart, binsEnd, location, species)
+    t = datetime.datetime.now()
+    # t = datetime.datetime(year, month, day)
+    s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
+
+    dict = {"location": location, "species": species, "size": size, "binStart": binsStart, "binEnd": binsEnd,
+            "Probability": probs, "Models": functionLaw, "date": s[:-3]}
+    r = json.dumps(dict, indent=4, sort_keys=True, default=str)
+    loaded_r = json.loads(r)
+    # print(loaded_r)
+    data["download"] = str(loaded_r)
     return jsonify(data), 200
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

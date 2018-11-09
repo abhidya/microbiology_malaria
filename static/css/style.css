@@ -1,8 +1,7 @@
-
 /*.powerlaw_probs_container,*/
 /*.logisticthreshold_probs_container,*/
 /*.threshold_probs_container {*/
-    /*display: none;*/
+/*display: none;*/
 /*}*/
 
 body, html {
@@ -49,3 +48,62 @@ a {
     text-align: center;
     overflow: auto;
 }
+
+#downloadAnchorElem {
+    color: hsla(216, 70%, 53%, 1);
+    text-decoration: underline;
+}
+
+#downloadAnchorElem::before {
+    /*content: url('/static/images/download.png');*/
+    /*height: 1em;*/
+    /*position: relative;*/
+    /*top: 0.75em;*/
+    /*right: 0.5em;*/
+    /*width: 1em;*/
+    /**/
+    /**/
+    background-image: url('/static/images/download.png');
+    background-size: 60px 60px;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    content: "";
+}
+
+#uploadAnchorElem:hover,
+#uploadAnchorElem:focus {
+    text-decoration: none;
+}
+
+#uploadAnchorElem {
+    color: hsla(216, 70%, 53%, 1);
+    text-decoration: underline;
+}
+
+#uploadAnchorElem::before {
+    /*content: url('/static/images/download.png');*/
+    /*height: 1em;*/
+    /*position: relative;*/
+    /*top: 0.75em;*/
+    /*right: 0.5em;*/
+    /*width: 1em;*/
+    /**/
+    /**/
+    background-image: url('/static/images/Upload.png');
+    background-size: 60px 60px;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    content: "";
+}
+
+#uploadAnchorElem:hover,
+#uploadAnchorElem:focus {
+    text-decoration: none;
+}
+
+#container{
+    text-align: center;
+}
+
