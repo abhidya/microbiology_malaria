@@ -1,7 +1,8 @@
 import random as rand
 from math import exp
-
+import scipy.stats  as stats
 from numpy import zeros, abs, set_printoptions, inf
+import random
 
 set_printoptions(threshold=inf)
 
@@ -84,8 +85,9 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
             threshold_probs = zeros(numsamples)
             for i in range(numsamples):
                 threshold_probs[i] = threshold(mosquito_sample(val_array))
+                threshold_probs[i] = stats.binom.rvs(n=100, p=threshold(mosquito_sample(val_array)), size=1) / 100
             response['threshold'] = threshold_probs.tolist()
-
+        # random.randint(1,101)
         if model == "logisticThreshold":
             logisticThreshold_probs = zeros(numsamples)
             for i in range(numsamples):

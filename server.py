@@ -79,11 +79,13 @@ def new_entry():
     binsEnd = request.form.getlist('binsEnd[]')
     location = request.form['location']
     species = request.form['species']
+    # print(functionLaw, size, probs, binsStart, binsEnd)
+
     data = compute(functionLaw, size, probs, binsStart, binsEnd)
     # print(functionLaw, size, probs, binsStart, binsEnd, location, species)
-    year = random.randint(2010, 2019)
-    month = random.randint(1, 11)
-    day = random.randint(1, 28)
+    # year = random.randint(2010, 2019)
+    # month = random.randint(1, 11)
+    # day = random.randint(1, 28)
     t = datetime.datetime.now()
     # t = datetime.datetime(year, month, day)
     s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
