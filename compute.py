@@ -2,7 +2,6 @@ import random as rand
 from math import exp
 import scipy.stats  as stats
 from numpy import zeros, abs, set_printoptions, inf
-import random
 
 set_printoptions(threshold=inf)
 
