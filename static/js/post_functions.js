@@ -239,14 +239,14 @@ function subplots(x1, x2, x3) {
 
     var data = [trace1, trace2, trace3];
     var layout = {
-        xaxis: {
-            title: "Threshold Model: Infection Probability per Bite"
+        xaxis3: {
+            title: "Powerlaw Model: Infection Probability per Bite"
         },
         xaxis2: {
             title: "Logistic Threshold Model: Infection Probability per Bite"
         },
         xaxis: {
-            title: "Powerlaw Model: Infection Probability per Bite"
+            title: "Threshold Model: Infection Probability per Bite"
         },
         yaxis: {
             title: "Number of Runs"
