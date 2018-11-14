@@ -78,52 +78,6 @@ document.getElementById('import').onclick = function () {
 // $("#graphs").hide();
 
 
-/*
-function powerlaw(data) {
-    var trace = {
-        x: data,
-        type: 'histogram',
-            opacity: 0.4,
-            marker: {
-                color: 'red'
-            },
-    };
-    var data = [trace];
-    Plotly.newPlot('powerlaw_probs', data);
-
-}
-
-
-function treshold(data) {
-    var trace = {
-        x: data,
-        type: 'histogram',
-            opacity: 0.4,
-            marker: {
-                color: 'green'
-            },
-    };
-
-    var data = [trace];
-    Plotly.newPlot('threshold_probs', data);
-
-}
-
-
-function log_treshold(data) {
-    var trace = {
-        x: data,
-        type: 'histogram',
-            opacity: 0.4,
-            marker: {
-                color: 'blue'
-            },
-    };
-    var data = [trace];
-    Plotly.newPlot('logisticthreshold_probs', data);
-
-}
-*/
 
 function all_graphs(a, b, c) {
     var trace1 = {
@@ -131,7 +85,7 @@ function all_graphs(a, b, c) {
         name: 'Threshold',
         type: "histogram",
         histnorm: 'probability',
-        opacity: 0.8,
+        opacity: 0.2,
         marker: {
             color: 'green',
         },
@@ -141,7 +95,7 @@ function all_graphs(a, b, c) {
         name: 'Powerlaw',
         type: "histogram",
         histnorm: 'probability',
-        opacity: 0.6,
+        opacity: 0.2,
         marker: {
             color: 'red',
         },
@@ -151,7 +105,7 @@ function all_graphs(a, b, c) {
         name: 'Logistic Threshold',
         type: "histogram",
         histnorm: 'probability',
-        opacity: 0.45,
+        opacity: 0.2,
         marker: {
             color: 'blue'
         },
