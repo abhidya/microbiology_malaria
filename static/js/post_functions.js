@@ -207,6 +207,7 @@ function all_graphs(a, b, c) {
 function subplots(x1, x2, x3) {
     var trace1 = {
         x: x1,
+        name: "Threshold",
         type: "histogram",
         opacity: 0.8,
         marker: {
@@ -217,6 +218,7 @@ function subplots(x1, x2, x3) {
         x: x2,
         xaxis: 'x2',
         yaxis: 'y2',
+        name: "Logistic Threshold",
         type: "histogram",
         opacity: 0.45,
         marker: {
@@ -227,6 +229,7 @@ function subplots(x1, x2, x3) {
         x: x3,
         xaxis: 'x3',
         yaxis: 'y3',
+        name: "Powerlaw",
         type: "histogram",
         opacity: 0.6,
         marker: {
