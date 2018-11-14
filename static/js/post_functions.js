@@ -151,13 +151,13 @@ function all_graphs(a, b, c) {
         name: 'Logistic Threshold',
         type: "histogram",
         histnorm: 'probability',
-        opacity: 0.3,
+        opacity: 0.45,
         marker: {
             color: 'blue'
         },
     };
 
-    var alldata = [trace2, trace3, trace1];
+    var alldata = [trace2, trace1, trace3];
     var layout = {
         showlegend: true,
         legend: {
@@ -218,7 +218,7 @@ function subplots(x1, x2, x3) {
         xaxis: 'x2',
         yaxis: 'y2',
         type: "histogram",
-        opacity: 0.3,
+        opacity: 0.45,
         marker: {
             color: 'blue'
         },
