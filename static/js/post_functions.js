@@ -243,7 +243,7 @@ function subplots(x1, x2, x3) {
             title: "Powerlaw Model: Infection Probability per Bite",
              titlefont: {
                 family: 'Courier New, monospace',
-                size: 18,
+                size: 14,
                 color: '#000000'
             }
         },
@@ -251,7 +251,7 @@ function subplots(x1, x2, x3) {
             title: "Logistic Threshold Model: Infection Probability per Bite",
              titlefont: {
                 family: 'Courier New, monospace',
-                size: 18,
+                size: 14,
                 color: '#000000'
             }
         },
@@ -259,7 +259,7 @@ function subplots(x1, x2, x3) {
             title: "Threshold Model: Infection Probability per Bite",
              titlefont: {
                 family: 'Courier New, monospace',
-                size: 18,
+                size: 14,
                 color: '#000000'
             }
         },
@@ -267,7 +267,7 @@ function subplots(x1, x2, x3) {
             title: "Number of Runs",
              titlefont: {
                 family: 'Courier New, monospace',
-                size: 18,
+                size: 14,
                 color: '#000000'
             }
         },
@@ -275,7 +275,7 @@ function subplots(x1, x2, x3) {
             title: "Number of Runs",
              titlefont: {
                 family: 'Courier New, monospace',
-                size: 18,
+                size: 14,
                 color: '#000000'
             }
         },
@@ -283,7 +283,7 @@ function subplots(x1, x2, x3) {
             title: "Number of Runs",
              titlefont: {
                 family: 'Courier New, monospace',
-                size: 18,
+                size: 14,
                 color: '#000000'
             }
         },
