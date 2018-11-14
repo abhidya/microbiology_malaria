@@ -141,7 +141,7 @@ function all_graphs(a, b, c) {
         name: 'Powerlaw',
         type: "histogram",
         histnorm: 'probability',
-        opacity: 0.8,
+        opacity: 0.6,
         marker: {
             color: 'red',
         },
@@ -151,7 +151,7 @@ function all_graphs(a, b, c) {
         name: 'Logistic Threshold',
         type: "histogram",
         histnorm: 'probability',
-        opacity: 0.8,
+        opacity: 0.3,
         marker: {
             color: 'blue'
         },
@@ -218,7 +218,7 @@ function subplots(x1, x2, x3) {
         xaxis: 'x2',
         yaxis: 'y2',
         type: "histogram",
-        opacity: 0.8,
+        opacity: 0.3,
         marker: {
             color: 'blue'
         },
@@ -228,7 +228,7 @@ function subplots(x1, x2, x3) {
         xaxis: 'x3',
         yaxis: 'y3',
         type: "histogram",
-        opacity: 0.8,
+        opacity: 0.6,
         marker: {
             color: 'red'
         },
