@@ -240,7 +240,7 @@ function subplots(x1, x2, x3) {
     var data = [trace1, trace2, trace3];
     var layout = {
         xaxis3: {
-            title: "Powerlaw Model: Infection Probability per Bite",
+            title: "Infection Probability per Bite (Powerlaw Model)",
              titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
@@ -248,7 +248,7 @@ function subplots(x1, x2, x3) {
             }
         },
         xaxis2: {
-            title: "Logistic Threshold Model: Infection Probability per Bite",
+            title: "Infection Probability per Bite (Logistic Threshold Model)",
              titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
@@ -256,7 +256,7 @@ function subplots(x1, x2, x3) {
             }
         },
         xaxis: {
-            title: "Threshold Model: Infection Probability per Bite",
+            title: "Infection Probability per Bite (Threshold Model)",
              titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
