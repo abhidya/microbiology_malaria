@@ -2,7 +2,7 @@ import random as rand
 from math import exp
 import scipy.stats  as stats
 from numpy import zeros, abs, set_printoptions, inf
-
+import statistics
 set_printoptions(threshold=inf)
 
 
@@ -79,18 +79,26 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
                 # sample_array[i] = mosquito_sample(val_array)
                 powerlaw_probs[i] = powerlaw(mosquito_sample(val_array))
             response['powerLaw'] = powerlaw_probs.tolist()
-
+            response['powerLaw_median'] = statistics.median(powerlaw_probs)
+            response['powerLaw_lower'] = powerlaw_probs[int(len(powerlaw_probs)*.0275)]
+            response['powerLaw_higher'] = powerlaw_probs[int(len(powerlaw_probs)*.975)]
         if model == "threshold":
             threshold_probs = zeros(numsamples)
             for i in range(numsamples):
                 threshold_probs[i] = threshold(mosquito_sample(val_array))
                 threshold_probs[i] = stats.binom.rvs(n=100, p=threshold(mosquito_sample(val_array)), size=1) / 100
             response['threshold'] = threshold_probs.tolist()
+            response['threshold_median'] = statistics.median(threshold_probs)
+            response['threshold_lower'] = threshold_probs[int(len(threshold_probs)*.0275)]
+            response['threshold_higher'] = threshold_probs[int(len(threshold_probs)*.975)]
+
         # random.randint(1,101)
         if model == "logisticThreshold":
             logisticThreshold_probs = zeros(numsamples)
             for i in range(numsamples):
                 logisticThreshold_probs[i] = logistic_threshold(mosquito_sample(val_array))
             response['logisticThreshold'] = logisticThreshold_probs.tolist()
-
+            response['logisticThreshold_probs_median'] = statistics.median(logisticThreshold_probs)
+            response['logisticThreshold_probs_lower'] = logisticThreshold_probs[int(len(logisticThreshold_probs)*.0275)]
+            response['logisticThreshold_probs_higher'] = logisticThreshold_probs[int(len(logisticThreshold_probs)*.975)]
     return response
