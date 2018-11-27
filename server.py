@@ -2,22 +2,37 @@
 from threading import Lock
 import json
 import ast
-from flask import Flask, render_template, request, jsonify, make_response
-from flask_pymongo import PyMongo
+from flask import Flask, render_template, request, jsonify, make_response, url_for, redirect
 import datetime
 import random
 from compute import compute
 
+mongoflag = False
+
+
+
+import sys
+
+
 async_mode = None
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/malaria'
-mongo = PyMongo(app)
+
 thread = None
 thread_lock = Lock()
 
-FIELDS = {'location': True, 'species': True, 'date': True}
+
+if "--mongodb" in sys.argv:
+    mongoflag = True
+    from flask_pymongo import PyMongo
+
+    app.config['SECRET_KEY'] = 'secret!'
+    app.config['MONGO_URI'] = 'mongodb://localhost:27017/malaria'
+    mongo = PyMongo(app)
+    FIELDS = {'location': True, 'species': True, 'date': True}
+
+
+
 
 
 @app.after_request
@@ -45,7 +60,17 @@ def custom():
 
 @app.route('/data.html')
 def data():
-    return render_template('data.html')
+    if mongoflag:
+        return render_template('data.html')
+    else:
+        return redirect(url_for('fubar'))
+
+
+
+
+@app.route('/mongodberror.html')
+def fubar():
+    return render_template('mongodberror.html')
 
 
 @app.route('/data/visualization', methods=['get'])
@@ -57,6 +82,8 @@ def data_visualization():
         # print(project)
     json_projects = json.dumps(json_projects, indent=4, sort_keys=True, default=str)
     return json_projects, 200
+
+
 
 
 @app.route('/transform', methods=["POST"])
@@ -95,8 +122,9 @@ def new_entry():
     r = json.dumps(dict, indent=4, sort_keys=True, default=str)
     loaded_r = json.loads(r)
     # print(loaded_r)
-    mongo.db.data.insert_one(loaded_r)
-    loaded_r.pop('_id', None)
+    if mongoflag:
+        mongo.db.data.insert_one(loaded_r)
+        loaded_r.pop('_id', None)
     data["download"] = str(loaded_r)
     return jsonify(data), 200
 
