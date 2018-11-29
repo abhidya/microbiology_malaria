@@ -1,0 +1,10 @@
+mkl-random==1.0.1
+DateTime==4.2
+Flask==1.0.2
+jsonschema==2.6.0
+Flask-PyMongo==2.1.0
+numpy==1.15.0
+scipy==1.1.0
+requests==2.18.4
+robobrowser==0.5.3
+tqdm==4.24.0

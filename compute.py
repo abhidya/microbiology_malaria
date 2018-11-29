@@ -63,10 +63,11 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd):
         return index + 1
 
     max_value = int(max(cutoffs))
+    min_value = int(min(min(intervals)))
     val_array = zeros(max_value)
     sample_array = zeros(numsamples)
 
-    for i in range(max_value):
+    for i in range(min_value, max_value):
         val_array[i] = cdfProbSpz(i + 1)
 
     response = {}

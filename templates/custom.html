@@ -85,13 +85,12 @@
     </div>
 
 </div>
-<div id="fade">
-</div>
+
 
 <div id="modal">
     <img id="loader" src="/static/images/loading.gif"/>
 </div>
-
+<div id="fade"></div>
 
 <div id="graphs" name="graphs" style="width: 100%; display: table;">
     <div style="display: table-row">
@@ -99,8 +98,15 @@
         <div id="subs" style="display:table-cell;"></div>
     </div>
 </div>
+<div id="container">
+    <a id="downloadAnchorElem" style="display:none"></a>
+    <a id="uploadAnchorElem"></a>
+    <input type="file" id="selectFiles" style="display:none" value="Import"/>
+    <button id="import" style="display:none">Import</button>
+</div>
 
 <script src="/static/js/post_functions.js"></script>
+
 
 </body>
 </html>
