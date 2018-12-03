@@ -206,7 +206,7 @@ function subplots(incomming_data) {
                 text: 'Median',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 0,
+                ax: 30,
                 ay: -80
             },
             {
@@ -217,7 +217,7 @@ function subplots(incomming_data) {
                 text: 'Median',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 0,
+                ax: 30,
                 ay: -80
             },
             {
@@ -227,8 +227,8 @@ function subplots(incomming_data) {
                 yref: 'y3',
                 text: 'Median',
                 showarrow: true,
-                arrowhead: 0,
-                ax: 0,
+                arrowhead: 3,
+                ax: 30,
                 ay: -80
             },
             {
@@ -239,7 +239,7 @@ function subplots(incomming_data) {
                 text: '97.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 0,
+                ax: 60,
                 ay: -80
             },
             {
@@ -250,7 +250,7 @@ function subplots(incomming_data) {
                 text: '97.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 0,
+                ax: 60,
                 ay: -80
             },
             {
@@ -261,7 +261,7 @@ function subplots(incomming_data) {
                 text: '97.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 0,
+                ax: 60,
                 ay: -80
             },
             {
@@ -272,7 +272,7 @@ function subplots(incomming_data) {
                 text: '2.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 0,
+                ax: 90,
                 ay: -80
             },
             {
@@ -283,7 +283,7 @@ function subplots(incomming_data) {
                 text: '2.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 0,
+                ax: 90,
                 ay: -80
             },
             {
@@ -294,12 +294,11 @@ function subplots(incomming_data) {
                 text: '2.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 0,
+                ax: 90,
                 ay: -80
             },
         ],
         xaxis3: {
-            range: [0, .5],
             title: "Infection Probability per Bite (Powerlaw Model)",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -308,7 +307,6 @@ function subplots(incomming_data) {
             }
         },
         xaxis2: {
-            range: [0, .5],
             title: "Infection Probability per Bite (Logistic Threshold Model)",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -317,7 +315,6 @@ function subplots(incomming_data) {
             }
         },
         xaxis: {
-            range: [0, .5],
             title: "Infection Probability per Bite (Threshold Model)",
             titlefont: {
                 family: 'Courier New, monospace',
