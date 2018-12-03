@@ -319,7 +319,7 @@ frm.submit(function (e) {
             // $(".bins").hide(100);
 
             if (data) {
-                all_graphs(data.threshold, data.powerLaw, data.logisticThreshold_probs);
+                all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
                 subplots(data.threshold, data.logisticThreshold, data.powerLaw);
                 var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
                 var dlAnchorElem = document.getElementById('downloadAnchorElem');
