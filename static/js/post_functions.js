@@ -208,7 +208,7 @@ function subplots(x1, x2, x3) {
                 ay: -40
             },
             {
-                x: logisticThreshold_probs_median,
+                x: logisticThreshold_median,
                 y: 0,
                 xref: 'x2',
                 yref: 'y2',
@@ -320,7 +320,7 @@ frm.submit(function (e) {
 
             if (data) {
                 all_graphs(data.threshold, data.powerLaw, data.logisticThreshold_probs);
-                subplots(data.threshold, data.logisticThreshold_probs, data.powerLaw);
+                subplots(data.threshold, data.logisticThreshold, data.powerLaw);
                 var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
                 var dlAnchorElem = document.getElementById('downloadAnchorElem');
                 dlAnchorElem.setAttribute("href", dataStr);
