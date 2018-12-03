@@ -197,7 +197,7 @@ function subplots(x1, x2, x3) {
     var layout = {
         annotations: [
             {
-                x: x1_median,
+                x: x1.threshold_median,
                 y: 0,
                 xref: 'x',
                 yref: 'y',
@@ -208,7 +208,7 @@ function subplots(x1, x2, x3) {
                 ay: -40
             },
             {
-                x: x2_median,
+                x: x2.logisticThreshold_median,
                 y: 0,
                 xref: 'x2',
                 yref: 'y2',
@@ -219,7 +219,7 @@ function subplots(x1, x2, x3) {
                 ay: -40
             },
             {
-                x: x3_median,
+                x: x3.powerLaw_median,
                 y: 0,
                 xref: 'x3',
                 yref: 'y3',
