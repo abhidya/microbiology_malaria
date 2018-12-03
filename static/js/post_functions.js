@@ -128,6 +128,7 @@ function all_graphs(a, b, c) {
             y: 1.12
         },
         xaxis: {
+            range: [0, 1],
             title: 'Infection Probability per Bite',
             titlefont: {
                 family: 'Courier New, monospace',
@@ -298,6 +299,7 @@ function subplots(incomming_data) {
             },
         ],
         xaxis3: {
+            range: [0, 1],
             title: "Infection Probability per Bite (Powerlaw Model)",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -306,6 +308,7 @@ function subplots(incomming_data) {
             }
         },
         xaxis2: {
+            range: [0, 1],
             title: "Infection Probability per Bite (Logistic Threshold Model)",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -314,6 +317,7 @@ function subplots(incomming_data) {
             }
         },
         xaxis: {
+            range: [0, 1],
             title: "Infection Probability per Bite (Threshold Model)",
             titlefont: {
                 family: 'Courier New, monospace',
