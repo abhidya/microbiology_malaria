@@ -139,3 +139,31 @@ a {
     height: 60px;
     content: "";
 }
+
+
+#undo_button:hover,
+#undo_button:focus {
+    text-decoration: none;
+}
+
+#undo_button {
+    color: hsla(216, 70%, 53%, 1);
+    text-decoration: underline;
+}
+
+#undo_button::before {
+    /*content: url('/static/images/download.png');*/
+    /*height: 1em;*/
+    /*position: relative;*/
+    /*top: 0.75em;*/
+    /*right: 0.5em;*/
+    /*width: 1em;*/
+    /**/
+    /**/
+    background-image: url('/static/images/undo.png');
+    background-size: 60px 60px;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    content: "";
+}
