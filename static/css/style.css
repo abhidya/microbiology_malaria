@@ -98,12 +98,44 @@ a {
     content: "";
 }
 
-#uploadAnchorElem:hover,
-#uploadAnchorElem:focus {
-    text-decoration: none;
-}
-
 #container{
     text-align: center;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-rows: 1.7fr 0.3fr;
+  grid-template-areas: ". ." "buttons .";
+}
+
+.buttons { grid-area: buttons; }
+
+
+
+#log_button:hover,
+#log_button:focus {
+    text-decoration: none;
+}
+
+#log_button {
+    color: hsla(216, 70%, 53%, 1);
+    text-decoration: underline;
+}
+
+#log_button::before {
+    /*content: url('/static/images/download.png');*/
+    /*height: 1em;*/
+    /*position: relative;*/
+    /*top: 0.75em;*/
+    /*right: 0.5em;*/
+    /*width: 1em;*/
+    /**/
+    /**/
+    background-image: url('/static/images/log.png');
+    background-size: 60px 60px;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    content: "";
+}

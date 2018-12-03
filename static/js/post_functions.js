@@ -1,11 +1,15 @@
 function openModal() {
     document.getElementById('modal').style.display = 'block';
     document.getElementById('fade').style.display = 'block';
+    document.getElementById('uploadAnchorElem').style.display = 'none';
+    uploadAnchorElem
 }
 
 function closeModal() {
     document.getElementById('modal').style.display = 'none';
     document.getElementById('fade').style.display = 'none';
+    document.getElementById('uploadAnchorElem').style.display = 'block';
+    document.getElementById('log_button').style.display = 'block';
 }
 
 
@@ -50,6 +54,7 @@ document.getElementById('import').onclick = function () {
                 if (data) {
                     all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
                     subplots(data);
+                    localStorage.setItem("post_data", data.download);
                     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
                     var dlAnchorElem = document.getElementById('downloadAnchorElem');
                     dlAnchorElem.setAttribute("href", dataStr);
@@ -72,6 +77,50 @@ document.getElementById('import').onclick = function () {
     }
 
     fr.readAsText(files.item(0));
+};
+
+
+document.getElementById('log_button').onclick = function () {
+    var log_data = localStorage.getItem("post_data")
+    $.ajax({
+        type: 'post',
+        url: "/logcompute",
+        data: log_data,
+        dataType: 'json',
+        contentType: 'application/json',
+        beforeSend: function () {
+            openModal();
+        },
+        success: function (data) {
+            console.log('Submission was successful.');
+            console.log(data);
+            // $("#graphs").show(400);
+
+            // $(".bins").hide(100);
+
+            if (data) {
+                all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
+                subplots(data);
+                localStorage.setItem("post_data", data.download);
+                var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
+                var dlAnchorElem = document.getElementById('downloadAnchorElem');
+                dlAnchorElem.setAttribute("href", dataStr);
+                dlAnchorElem.setAttribute("download", "parameters.json");
+                dlAnchorElem.setAttribute("style", "display: block;");
+            }
+
+        },
+
+        complete: function (data) {
+            closeModal();
+
+        },
+        error: function (data) {
+            console.log('An error occurred.');
+            console.log(data);
+        },
+    });
+
 };
 
 
@@ -386,6 +435,8 @@ frm.submit(function (e) {
             if (data) {
                 all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
                 subplots(data);
+                console.log(data.download)
+                localStorage.setItem("post_data", data.download);
                 var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
                 var dlAnchorElem = document.getElementById('downloadAnchorElem');
                 dlAnchorElem.setAttribute("href", dataStr);

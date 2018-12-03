@@ -156,5 +156,32 @@ def upload_entry():
     return jsonify(data), 200
 
 
+@app.route('/logcompute', methods=['POST'])
+def log_compute():
+    incomming_data = str(request.data).replace('b"{', '{')
+    incomming_data = incomming_data.replace('}"', '}')
+    incomming_data = ast.literal_eval(incomming_data)
+    probs = incomming_data['Probability']
+    size = incomming_data['size']
+    functionLaw = incomming_data['Models']
+    binsStart = incomming_data['binStart']
+    binsEnd = incomming_data['binEnd']
+    location = incomming_data['location']
+    species = incomming_data['species']
+    data = compute(functionLaw, size, probs, binsStart, binsEnd, logcompute=True)
+    # print(functionLaw, size, probs, binsStart, binsEnd, location, species)
+    t = datetime.datetime.now()
+    # t = datetime.datetime(year, month, day)
+    s = t.strftime('%Y-%m-%d %H:%M:%S.%f')
+
+    dict = {"location": location, "species": species, "size": size, "binStart": binsStart, "binEnd": binsEnd,
+            "Probability": probs, "Models": functionLaw, "date": s[:-3]}
+    r = json.dumps(dict, indent=4, sort_keys=True, default=str)
+    loaded_r = json.loads(r)
+    # print(loaded_r)
+    data["download"] = str(loaded_r)
+    return jsonify(data), 200
+
+
 if __name__ == '__main__':
     app.run()
