@@ -227,7 +227,7 @@ function subplots(incomming_data) {
                 yref: 'y3',
                 text: 'Median',
                 showarrow: true,
-                arrowhead: 3,
+                arrowhead: 0,
                 ax: 0,
                 ay: -80
             },
@@ -299,7 +299,7 @@ function subplots(incomming_data) {
             },
         ],
         xaxis3: {
-            range: [0, 1],
+            range: [0, .5],
             title: "Infection Probability per Bite (Powerlaw Model)",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -308,7 +308,7 @@ function subplots(incomming_data) {
             }
         },
         xaxis2: {
-            range: [0, 1],
+            range: [0, .5],
             title: "Infection Probability per Bite (Logistic Threshold Model)",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -317,7 +317,7 @@ function subplots(incomming_data) {
             }
         },
         xaxis: {
-            range: [0, 1],
+            range: [0, .5],
             title: "Infection Probability per Bite (Threshold Model)",
             titlefont: {
                 family: 'Courier New, monospace',
