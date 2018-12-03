@@ -115,12 +115,12 @@ function all_graphs(a, b, c) {
     {
         buttons: [
             {
-                args: ['type', '-'],
+                args: ['yaxis.type', '-'],
                 label: 'Linear Scale',
                 method: 'restyle'
             },
             {
-                args: ['type', 'log'],
+                args: ['yaxis.type', 'log'],
                 label:'Log Scale',
                 method:'restyle'
             }
@@ -162,8 +162,7 @@ function all_graphs(a, b, c) {
         },
         yaxis: {
             type: '-',
-            autorange: false,
-            title: 'PDF',
+            title: 'Number of Runs',
             titlefont: {
                 family: 'Courier New, monospace',
                 size: 18,
