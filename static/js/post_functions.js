@@ -230,38 +230,7 @@ function subplots(incomming_data) {
                 ay: -40
             },
             {
-                x: x1.threshold_higher,
-                y: 0,
-                xref: 'x',
-                yref: 'y',
-                text: '97.5%',
-                showarrow: true,
-                arrowhead: 3,
-                ax: 0,
-                ay: -40
-            },
-            {
-                x: x2.logisticThreshold_higher,
-                y: 0,
-                xref: 'x2',
-                yref: 'y2',
-                text: '97.5%',
-                showarrow: true,
-                arrowhead: 3,
-                ax: 0,
-                ay: -40
-            },
-            {
-                x: x3.powerLaw_higher,
-                y: 0,
-                xref: 'x3',
-                yref: 'y3',
-                text: '97.5%',
-                showarrow: true,
-                arrowhead: 3,
-                ax: 0,
-                ay: -40
-            }
+             
         ],
         xaxis3: {
             title: "Infection Probability per Bite (Powerlaw Model)",
