@@ -115,12 +115,12 @@ function all_graphs(a, b, c) {
     {
         buttons: [
             {
-                args: ['yaxis.type': '-'],
+                args: [{'yaxis.type':'-'}],
                 label: 'Linear Scale',
                 method: 'restyle'
             },
             {
-                args: ['yaxis.type': 'log'],
+                args: [{'yaxis.type':'log'}],
                 label:'Log Scale',
                 method:'restyle'
             }
