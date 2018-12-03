@@ -151,6 +151,7 @@ function all_graphs(a, b, c) {
             x: 0.1,
             y: 1.12
         },
+        updatemenus: updatemenus,
         xaxis: {
             title: 'Infection Probability per Bite',
             titlefont: {
@@ -160,9 +161,8 @@ function all_graphs(a, b, c) {
             }
         },
         yaxis: {
-            type: 'log',
+            type: '-',
             autorange: false,
-            updatemenus: updatemenus,
             title: 'PDF',
             titlefont: {
                 family: 'Courier New, monospace',
