@@ -296,8 +296,6 @@ function subplots(incomming_data) {
             },
         ],
         xaxis3: {
-            type: 'log',
-            autorange: true,
             title: "Infection Probability per Bite (Powerlaw Model)",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -306,8 +304,6 @@ function subplots(incomming_data) {
             }
         },
         xaxis2: {
-            type: 'log',
-            autorange: true,
             title: "Infection Probability per Bite (Logistic Threshold Model)",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -316,8 +312,6 @@ function subplots(incomming_data) {
             }
         },
         xaxis: {
-            type: 'log',
-            autorange: false,
             title: "Infection Probability per Bite (Threshold Model)",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -326,6 +320,8 @@ function subplots(incomming_data) {
             }
         },
         yaxis: {
+            type: 'log',
+            autorange: false,
             title: "Number of Runs",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -334,6 +330,8 @@ function subplots(incomming_data) {
             }
         },
         yaxis2: {
+            type: 'log',
+            autorange: false,
             title: "Number of Runs",
             titlefont: {
                 family: 'Courier New, monospace',
@@ -342,6 +340,8 @@ function subplots(incomming_data) {
             }
         },
         yaxis3: {
+            type: 'log',
+            autorange: false,
             title: "Number of Runs",
             titlefont: {
                 family: 'Courier New, monospace',
