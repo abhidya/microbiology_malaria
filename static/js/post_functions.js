@@ -111,6 +111,30 @@ function all_graphs(a, b, c) {
     };
 
     var alldata = [trace2, trace1, trace3];
+    var updatemenus=[
+        {
+            buttons: [
+                {
+                    args: ['type', '-' ],
+                    label: 'Linear Scale'
+                    method: 'restyle'
+                },
+                {
+                    args: ['type', 'log'],
+                    label: 'Log Scale'
+                    method: 'restyle'
+                }
+            ],
+            direction: 'left',
+            pad: {'r': 10, 't': 10},
+            showactive: true,
+            type: 'buttons',
+            x: 0.1,
+            xanchor: 'left',
+            y: 1.1,
+            yanchor: 'top'
+        }
+    ]
     var layout = {
         showlegend: true,
         legend: {
@@ -127,6 +151,7 @@ function all_graphs(a, b, c) {
             x: 0.1,
             y: 1.12
         },
+        updatemenus: updatemenus,
         xaxis: {
             range: [0, 1],
             title: 'Infection Probability per Bite',
@@ -137,7 +162,7 @@ function all_graphs(a, b, c) {
             }
         },
         yaxis: {
-            type: 'log',
+            type: '-',
             autorange: false,
             title: 'Number of Runs',
             titlefont: {
@@ -157,6 +182,7 @@ function all_graphs(a, b, c) {
         },
         barmode: "overlay"
     };
+
     Plotly.newPlot("allGraphs", alldata, layout);
 }
 
