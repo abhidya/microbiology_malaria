@@ -206,6 +206,28 @@ function subplots(x1, x2, x3) {
                 arrowhead: 3,
                 ax: 0,
                 ay: -40
+            },
+            {
+                x: x2.logisticThreshold_median,
+                y: 0,
+                xref: 'x2',
+                yref: 'y2',
+                text: 'Median',
+                showarrow: true,
+                arrowhead: 3,
+                ax: 0,
+                ay: -40
+            },
+            {
+                x: x3.powerLaw_median,
+                y: 0,
+                xref: 'x3',
+                yref: 'y3',
+                text: 'Median',
+                showarrow: true,
+                arrowhead: 3,
+                ax: 0,
+                ay: -40
             }
         ],
         xaxis3: {
