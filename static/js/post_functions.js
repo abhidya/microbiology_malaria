@@ -197,7 +197,7 @@ function subplots(x1, x2, x3) {
     var layout = {
         annotations: [
             {
-                x: x1.threshold_median,
+                x: threshold_median,
                 y: 0,
                 xref: 'x',
                 yref: 'y',
@@ -208,7 +208,7 @@ function subplots(x1, x2, x3) {
                 ay: -40
             },
             {
-                x: x2.logisticThreshold_median,
+                x: logisticThreshold_probs_median,
                 y: 0,
                 xref: 'x2',
                 yref: 'y2',
@@ -219,7 +219,7 @@ function subplots(x1, x2, x3) {
                 ay: -40
             },
             {
-                x: x3.powerLaw_median,
+                x: powerLaw_median,
                 y: 0,
                 xref: 'x3',
                 yref: 'y3',
@@ -319,8 +319,8 @@ frm.submit(function (e) {
             // $(".bins").hide(100);
 
             if (data) {
-                all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
-                subplots(data.threshold, data.logisticThreshold, data.powerLaw);
+                all_graphs(data.threshold, data.powerLaw, data.logisticThreshold_probs);
+                subplots(data.threshold, data.logisticThreshold_probs, data.powerLaw);
                 var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
                 var dlAnchorElem = document.getElementById('downloadAnchorElem');
                 dlAnchorElem.setAttribute("href", dataStr);
