@@ -161,6 +161,8 @@ function all_graphs(a, b, c) {
 function subplots(x1, x2, x3) {
     var trace1 = {
         x: x1,
+        xaxis: 'x',
+        yaxis: 'y',
         name: "Threshold",
         type: "histogram",
         opacity: 0.5,
@@ -193,6 +195,19 @@ function subplots(x1, x2, x3) {
 
     var data = [trace1, trace2, trace3];
     var layout = {
+        annotations: [
+            {
+                x: x1.threshold_median,
+                y: 0,
+                xref: 'x',
+                yref: 'y',
+                text: 'Median',
+                showarrow: true,
+                arrowhead: 3,
+                ax: 0,
+                ay: -40
+            }
+        ],
         xaxis3: {
             title: "Infection Probability per Bite (Powerlaw Model)",
              titlefont: {
