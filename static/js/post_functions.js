@@ -78,7 +78,6 @@ document.getElementById('import').onclick = function () {
 // $("#graphs").hide();
 
 
-
 function all_graphs(a, b, c) {
     var trace1 = {
         x: a,
@@ -230,7 +229,7 @@ function subplots(incomming_data) {
                 ay: -40
             },
             {
-                x: x1.threshold_higher,
+                x: incomming_data.threshold_higher,
                 y: 0,
                 xref: 'x',
                 yref: 'y',
@@ -241,7 +240,7 @@ function subplots(incomming_data) {
                 ay: -40
             },
             {
-                x: x2.logisticThreshold_higher,
+                x: incomming_data.logisticThreshold_probs_higher,
                 y: 0,
                 xref: 'x2',
                 yref: 'y2',
@@ -252,7 +251,7 @@ function subplots(incomming_data) {
                 ay: -40
             },
             {
-                x: x3.powerLaw_higher,
+                x: incomming_data.powerLaw_higher,
                 y: 0,
                 xref: 'x3',
                 yref: 'y3',
@@ -261,11 +260,44 @@ function subplots(incomming_data) {
                 arrowhead: 3,
                 ax: 0,
                 ay: -40
-            }
+            },
+            {
+                x: incomming_data.threshold_lower,
+                y: 0,
+                xref: 'x',
+                yref: 'y',
+                text: '2.5%',
+                showarrow: true,
+                arrowhead: 3,
+                ax: 0,
+                ay: -40
+            },
+            {
+                x: incomming_data.logisticThreshold_probs_lower,
+                y: 0,
+                xref: 'x2',
+                yref: 'y2',
+                text: '2.5%',
+                showarrow: true,
+                arrowhead: 3,
+                ax: 0,
+                ay: -40
+            },
+            {
+                x: incomming_data.powerLaw_lower,
+                y: 0,
+                xref: 'x3',
+                yref: 'y3',
+                text: '2.5%',
+                showarrow: true,
+                arrowhead: 3,
+                ax: 0,
+                ay: -40
+            },
         ],
         xaxis3: {
             title: "Infection Probability per Bite (Powerlaw Model)",
-             titlefont: {
+            titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
                 color: '#000000'
@@ -273,7 +305,7 @@ function subplots(incomming_data) {
         },
         xaxis2: {
             title: "Infection Probability per Bite (Logistic Threshold Model)",
-             titlefont: {
+            titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
                 color: '#000000'
@@ -281,7 +313,7 @@ function subplots(incomming_data) {
         },
         xaxis: {
             title: "Infection Probability per Bite (Threshold Model)",
-             titlefont: {
+            titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
                 color: '#000000'
@@ -289,7 +321,7 @@ function subplots(incomming_data) {
         },
         yaxis: {
             title: "Number of Runs",
-             titlefont: {
+            titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
                 color: '#000000'
@@ -297,7 +329,7 @@ function subplots(incomming_data) {
         },
         yaxis2: {
             title: "Number of Runs",
-             titlefont: {
+            titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
                 color: '#000000'
@@ -305,7 +337,7 @@ function subplots(incomming_data) {
         },
         yaxis3: {
             title: "Number of Runs",
-             titlefont: {
+            titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
                 color: '#000000'
