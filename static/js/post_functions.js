@@ -161,7 +161,7 @@ function all_graphs(a, b, c) {
             }
         },
         yaxis: {
-            autorange: false,
+           // autorange: false,
            // type: '-',
             title: 'Number of Runs',
             titlefont: {
