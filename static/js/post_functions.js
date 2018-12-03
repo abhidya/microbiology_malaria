@@ -1,11 +1,14 @@
 function openModal() {
     document.getElementById('modal').style.display = 'block';
     document.getElementById('fade').style.display = 'block';
+    document.getElementById('uploadAnchorElem').style.display = 'none';
+    uploadAnchorElem
 }
 
 function closeModal() {
     document.getElementById('modal').style.display = 'none';
     document.getElementById('fade').style.display = 'none';
+    document.getElementById('uploadAnchorElem').style.display = 'block';
 }
 
 
@@ -43,6 +46,7 @@ document.getElementById('import').onclick = function () {
             success: function (data) {
                 console.log('Submission was successful.');
                 console.log(data);
+
                 // $("#graphs").show(400);
 
                 // $(".bins").hide(100);
@@ -50,6 +54,7 @@ document.getElementById('import').onclick = function () {
                 if (data) {
                     all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
                     subplots(data);
+                    localStorage.setItem("post_data", data.download);
                     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
                     var dlAnchorElem = document.getElementById('downloadAnchorElem');
                     dlAnchorElem.setAttribute("href", dataStr);
@@ -73,6 +78,8 @@ document.getElementById('import').onclick = function () {
 
     fr.readAsText(files.item(0));
 };
+
+
 
 
 // $("#graphs").hide();
@@ -341,7 +348,7 @@ function subplots(incomming_data) {
             }
         },
         xaxis: {
-            title: "Infection Probability per Bite (Threshold Model)",
+            title: "Infection Probability per Bite (Threshold Model) (100 Bernoulli retrials)",
             titlefont: {
                 family: 'Courier New, monospace',
                 size: 14,
@@ -414,6 +421,7 @@ frm.submit(function (e) {
         success: function (data) {
             console.log('Submission was successful.');
             console.log(data);
+
             // $("#graphs").show(400);
 
             // $(".bins").hide(100);
@@ -421,6 +429,7 @@ frm.submit(function (e) {
             if (data) {
                 all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
                 subplots(data);
+                localStorage.setItem("post_data", data.download);
                 var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
                 var dlAnchorElem = document.getElementById('downloadAnchorElem');
                 dlAnchorElem.setAttribute("href", dataStr);
