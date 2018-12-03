@@ -92,7 +92,6 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd,  logcompute=False):
             response['powerLaw'] = powerlaw_probs.tolist()
             if logcompute:
                 response['powerLaw'] = [loggyboys(y) for y in response['powerLaw']]
-
             response['powerLaw_median'] = statistics.median(response['powerLaw'])
             response['powerLaw_lower'] = sorted(response['powerLaw'])[int(len(response['powerLaw'])*.0275)]
             response['powerLaw_higher'] = sorted(response['powerLaw'])[int(len(response['powerLaw'])*.975)]
@@ -116,7 +115,6 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd,  logcompute=False):
             response['logisticThreshold'] = logisticThreshold_probs.tolist()
             if logcompute:
                 response['logisticThreshold'] = [loggyboys(y) for y in response['logisticThreshold']]
-
             response['logisticThreshold_probs_median'] = statistics.median(response['logisticThreshold'])
             response['logisticThreshold_probs_lower'] = sorted(response['logisticThreshold'])[int(len(response['logisticThreshold'])*.0275)]
             response['logisticThreshold_probs_higher'] = sorted(response['logisticThreshold'])[int(len(response['logisticThreshold'])*.975)]
