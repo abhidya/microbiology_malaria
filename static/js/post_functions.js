@@ -111,6 +111,30 @@ function all_graphs(a, b, c) {
     };
 
     var alldata = [trace2, trace1, trace3];
+    var updatemenus=[
+    {
+        buttons: [
+            {
+                args: ['type', 'log'],
+                label: 'Log Scale',
+                method: 'restyle'
+            },
+            {
+                args: ['type', '-'],
+                label:'Linear Scale',
+                method:'restyle'
+            }
+        ],
+        direction: 'left',
+        pad: {'r': 10, 't': 10},
+        showactive: true,
+        type: 'buttons',
+        x: 0.1,
+        xanchor: 'left',
+        y: 1.1,
+        yanchor: 'top'
+    }
+]
     var layout = {
         showlegend: true,
         legend: {
@@ -136,6 +160,9 @@ function all_graphs(a, b, c) {
             }
         },
         yaxis: {
+            type: 'log',
+            autorange: false,
+            updatemenus: updatemenus,
             title: 'PDF',
             titlefont: {
                 family: 'Courier New, monospace',
