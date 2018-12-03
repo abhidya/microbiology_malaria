@@ -204,7 +204,7 @@ function subplots(incomming_data) {
                 showarrow: true,
                 arrowhead: 3,
                 ax: 0,
-                ay: -40
+                ay: -70
             },
             {
                 x: incomming_data.logisticThreshold_probs_median,
@@ -215,7 +215,7 @@ function subplots(incomming_data) {
                 showarrow: true,
                 arrowhead: 3,
                 ax: 0,
-                ay: -40
+                ay: -70
             },
             {
                 x: incomming_data.powerLaw_median,
@@ -226,7 +226,7 @@ function subplots(incomming_data) {
                 showarrow: true,
                 arrowhead: 3,
                 ax: 0,
-                ay: -40
+                ay: -70
             },
             {
                 x: incomming_data.threshold_higher,
@@ -237,7 +237,7 @@ function subplots(incomming_data) {
                 showarrow: true,
                 arrowhead: 3,
                 ax: 0,
-                ay: -40
+                ay: -100
             },
             {
                 x: incomming_data.logisticThreshold_probs_higher,
@@ -248,7 +248,7 @@ function subplots(incomming_data) {
                 showarrow: true,
                 arrowhead: 3,
                 ax: 0,
-                ay: -40
+                ay: -100
             },
             {
                 x: incomming_data.powerLaw_higher,
@@ -259,7 +259,7 @@ function subplots(incomming_data) {
                 showarrow: true,
                 arrowhead: 3,
                 ax: 0,
-                ay: -40
+                ay: -100
             },
             {
                 x: incomming_data.threshold_lower,
