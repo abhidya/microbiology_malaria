@@ -49,7 +49,7 @@ document.getElementById('import').onclick = function () {
 
                 if (data) {
                     all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
-                    subplots(data.threshold, data.logisticThreshold, data.powerLaw);
+                    subplots(data);
                     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
                     var dlAnchorElem = document.getElementById('downloadAnchorElem');
                     dlAnchorElem.setAttribute("href", dataStr);
@@ -158,9 +158,9 @@ function all_graphs(a, b, c) {
     Plotly.newPlot("allGraphs", alldata, layout);
 }
 
-function subplots(x1, x2, x3) {
+function subplots(incomming_data) {
     var trace1 = {
-        x: x1,
+        x: incomming_data.threshold,
         xaxis: 'x',
         yaxis: 'y',
         name: "Threshold",
@@ -171,7 +171,7 @@ function subplots(x1, x2, x3) {
         },
     };
     var trace2 = {
-        x: x2,
+        x: incomming_data.logisticThreshold,
         xaxis: 'x2',
         yaxis: 'y2',
         name: "Logistic Threshold",
@@ -182,7 +182,7 @@ function subplots(x1, x2, x3) {
         },
     };
     var trace3 = {
-        x: x3,
+        x: incomming_data.powerLaw,
         xaxis: 'x3',
         yaxis: 'y3',
         name: "Powerlaw",
@@ -197,7 +197,7 @@ function subplots(x1, x2, x3) {
     var layout = {
         annotations: [
             {
-                x: x1.threshold_median,
+                x: incomming_data.threshold_median,
                 y: 0,
                 xref: 'x',
                 yref: 'y',
@@ -208,7 +208,7 @@ function subplots(x1, x2, x3) {
                 ay: -40
             },
             {
-                x: x2.logisticThreshold_median,
+                x: incomming_data.logisticThreshold_probs_median,
                 y: 0,
                 xref: 'x2',
                 yref: 'y2',
@@ -219,7 +219,7 @@ function subplots(x1, x2, x3) {
                 ay: -40
             },
             {
-                x: x3.powerLaw_median,
+                x: incomming_data.powerLaw_median,
                 y: 0,
                 xref: 'x3',
                 yref: 'y3',
@@ -353,7 +353,7 @@ frm.submit(function (e) {
 
             if (data) {
                 all_graphs(data.threshold, data.powerLaw, data.logisticThreshold);
-                subplots(data.threshold, data.logisticThreshold, data.powerLaw);
+                subplots(data);
                 var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data.download));
                 var dlAnchorElem = document.getElementById('downloadAnchorElem');
                 dlAnchorElem.setAttribute("href", dataStr);
