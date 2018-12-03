@@ -111,7 +111,7 @@ function all_graphs(a, b, c) {
         },
     };
 
-    var alldata = [trace2, trace1, trace3];
+    var alldata = [trace1, trace2, trace3];
     var layout = {
         showlegend: true,
         legend: {
