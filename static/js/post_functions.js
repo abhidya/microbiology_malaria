@@ -85,7 +85,7 @@ function all_graphs(a, b, c) {
         name: 'Threshold',
         type: "histogram",
         histnorm: 'probability',
-        opacity: 0.6,
+        opacity: 0.8,
         marker: {
             color: 'green',
         },
@@ -105,7 +105,7 @@ function all_graphs(a, b, c) {
         name: 'Logistic Threshold',
         type: "histogram",
         histnorm: 'probability',
-        opacity: 0.6,
+        opacity: 0.45,
         marker: {
             color: 'blue'
         },
