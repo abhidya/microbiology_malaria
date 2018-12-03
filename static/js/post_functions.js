@@ -317,7 +317,7 @@ function subplots(incomming_data) {
         },
         xaxis: {
             type: 'log',
-            autorange: true,
+            autorange: false,
             title: "Infection Probability per Bite (Threshold Model)",
             titlefont: {
                 family: 'Courier New, monospace',
