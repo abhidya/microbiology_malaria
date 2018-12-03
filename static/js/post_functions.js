@@ -83,7 +83,7 @@ function all_graphs(a, b, c) {
         x: a,
         name: 'Threshold',
         type: "histogram",
-        histnorm: 'probability',
+       // histnorm: 'probability',
         opacity: 0.5,
         marker: {
             color: 'green',
@@ -93,7 +93,7 @@ function all_graphs(a, b, c) {
         x: b,
         name: 'Powerlaw',
         type: "histogram",
-        histnorm: 'probability',
+       // histnorm: 'probability',
         opacity: 0.45,
         marker: {
             color: 'red',
@@ -103,7 +103,7 @@ function all_graphs(a, b, c) {
         x: c,
         name: 'Logistic Threshold',
         type: "histogram",
-        histnorm: 'probability',
+      //  histnorm: 'probability',
         opacity: 0.6,
         marker: {
             color: 'blue'
@@ -136,6 +136,7 @@ function all_graphs(a, b, c) {
             }
         },
         yaxis: {
+           // type:
             title: 'PDF',
             titlefont: {
                 family: 'Courier New, monospace',
