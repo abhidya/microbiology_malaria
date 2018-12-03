@@ -238,7 +238,7 @@ function subplots(incomming_data) {
                 text: '97.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 30,
+                ax: 0,
                 ay: -80
             },
             {
@@ -249,7 +249,7 @@ function subplots(incomming_data) {
                 text: '97.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 30,
+                ax: 0,
                 ay: -80
             },
             {
@@ -260,7 +260,7 @@ function subplots(incomming_data) {
                 text: '97.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 30,
+                ax: 0,
                 ay: -80
             },
             {
@@ -271,7 +271,7 @@ function subplots(incomming_data) {
                 text: '2.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: -30,
+                ax: 0,
                 ay: -80
             },
             {
@@ -282,7 +282,7 @@ function subplots(incomming_data) {
                 text: '2.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: -30,
+                ax: 0,
                 ay: -80
             },
             {
@@ -293,7 +293,7 @@ function subplots(incomming_data) {
                 text: '2.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: -30,
+                ax: 0,
                 ay: -80
             },
         ],
