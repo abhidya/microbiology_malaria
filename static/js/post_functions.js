@@ -161,7 +161,8 @@ function all_graphs(a, b, c) {
             }
         },
         yaxis: {
-            type: '-',
+            autorange: false,
+           // type: '-',
             title: 'Number of Runs',
             titlefont: {
                 family: 'Courier New, monospace',
