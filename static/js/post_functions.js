@@ -207,7 +207,7 @@ function subplots(incomming_data) {
                 showarrow: true,
                 arrowhead: 3,
                 ax: 0,
-                ay: -60
+                ay: -70
             },
             {
                 x: incomming_data.logisticThreshold_probs_median,
@@ -218,7 +218,7 @@ function subplots(incomming_data) {
                 showarrow: true,
                 arrowhead: 3,
                 ax: 0,
-                ay: -60
+                ay: -70
             },
             {
                 x: incomming_data.powerLaw_median,
@@ -229,7 +229,7 @@ function subplots(incomming_data) {
                 showarrow: true,
                 arrowhead: 3,
                 ax: 0,
-                ay: -60
+                ay: -70
             },
             {
                 x: incomming_data.threshold_higher,
@@ -239,7 +239,7 @@ function subplots(incomming_data) {
                 text: '97.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 30,
+                ax: 0,
                 ay: -100
             },
             {
@@ -250,7 +250,7 @@ function subplots(incomming_data) {
                 text: '97.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 30,
+                ax: 0,
                 ay: -100
             },
             {
@@ -261,7 +261,7 @@ function subplots(incomming_data) {
                 text: '97.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 30,
+                ax: 0,
                 ay: -100
             },
             {
@@ -272,8 +272,8 @@ function subplots(incomming_data) {
                 text: '2.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 60,
-                ay: -30
+                ax: 0,
+                ay: -40
             },
             {
                 x: incomming_data.logisticThreshold_probs_lower,
@@ -283,8 +283,8 @@ function subplots(incomming_data) {
                 text: '2.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 60,
-                ay: -30
+                ax: 0,
+                ay: -40
             },
             {
                 x: incomming_data.powerLaw_lower,
@@ -294,8 +294,8 @@ function subplots(incomming_data) {
                 text: '2.5%',
                 showarrow: true,
                 arrowhead: 3,
-                ax: 60,
-                ay: -30
+                ax: 0,
+                ay: -40
             },
         ],
         xaxis3: {
