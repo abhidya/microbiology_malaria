@@ -98,12 +98,16 @@ a {
     content: "";
 }
 
-#uploadAnchorElem:hover,
-#uploadAnchorElem:focus {
-    text-decoration: none;
-}
-
 #container{
     text-align: center;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-rows: 1.7fr 0.3fr;
+  grid-template-areas: ". ." "buttons .";
+}
+
+.buttons { grid-area: buttons; }
 
