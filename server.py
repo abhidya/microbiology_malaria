@@ -22,7 +22,8 @@ thread = None
 thread_lock = Lock()
 
 
-if "--mongodb" in sys.argv:
+#if "--mongodb" in sys.argv:
+if True:
     mongoflag = True
     from flask_pymongo import PyMongo
 
