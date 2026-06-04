@@ -2,16 +2,12 @@
 from threading import Lock
 import json
 import ast
+import os
 from flask import Flask, render_template, request, jsonify, make_response, url_for, redirect
 import datetime
-import random
 from compute import compute
 
 mongoflag = False
-
-
-
-import sys
 
 
 async_mode = None
@@ -22,15 +18,26 @@ thread = None
 thread_lock = Lock()
 
 
-#if "--mongodb" in sys.argv:
-if True:
-    mongoflag = True
-    from flask_pymongo import PyMongo
+FIXTURE_DATA = [
+    {"location": "Lab demo", "species": "P. falciparum", "date": "offline-fixture"},
+    {"location": "Field demo", "species": "P. vivax", "date": "offline-fixture"},
+]
 
-    app.config['SECRET_KEY'] = 'secret!'
-    app.config['MONGO_URI'] = 'mongodb://localhost:27017/malaria'
-    mongo = PyMongo(app)
-    FIELDS = {'location': True, 'species': True, 'date': True}
+
+if os.environ.get("MALARIA_MONGO_URI"):
+    mongoflag = True
+    try:
+        from flask_pymongo import PyMongo
+
+        app.config['SECRET_KEY'] = 'secret!'
+        app.config['MONGO_URI'] = os.environ["MALARIA_MONGO_URI"]
+        mongo = PyMongo(app)
+        FIELDS = {'location': True, 'species': True, 'date': True}
+    except ImportError:
+        mongoflag = False
+        mongo = None
+else:
+    mongo = None
 
 
 
@@ -49,6 +56,15 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/health')
+def health():
+    return jsonify({
+        "ok": True,
+        "mongo": mongoflag,
+        "mode": "mongo" if mongoflag else "offline-fixture",
+    })
+
+
 @app.route('/example.html')
 def example():
     return render_template('example.html')
@@ -61,10 +77,9 @@ def custom():
 
 @app.route('/data.html')
 def data():
-    if mongoflag:
-        return render_template('data.html')
-    else:
+    if not mongoflag:
         return redirect(url_for('fubar'))
+    return render_template('data.html')
 
 
 
@@ -76,6 +91,9 @@ def fubar():
 
 @app.route('/data/visualization', methods=['get'])
 def data_visualization():
+    if not mongoflag:
+        return json.dumps(FIXTURE_DATA, indent=4, sort_keys=True, default=str), 200
+
     projects = mongo.db.data.find(projection=FIELDS)
     json_projects = []
     for project in projects:

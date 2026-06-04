@@ -1,10 +1,20 @@
 import random as rand
 from math import exp, log
-import scipy.stats  as stats
+try:
+    import scipy.stats as stats
+except ImportError:
+    stats = None
 from numpy import zeros, abs, set_printoptions, inf
 import statistics
 
 set_printoptions(threshold=inf)
+
+
+def binomial_rate(trials, probability):
+    if stats is not None:
+        return stats.binom.rvs(n=trials, p=probability, size=1) / trials
+    successes = sum(1 for _ in range(trials) if rand.random() < probability)
+    return successes / trials
 
 
 def compute(functionLaw, size, probabs, binsStart, binsEnd,  logcompute=False):
@@ -99,7 +109,7 @@ def compute(functionLaw, size, probabs, binsStart, binsEnd,  logcompute=False):
             threshold_probs = zeros(numsamples)
             for i in range(numsamples):
                 threshold_probs[i] = threshold(mosquito_sample(val_array))
-                threshold_probs[i] = stats.binom.rvs(n=100, p=threshold(mosquito_sample(val_array)), size=1) / 100
+                threshold_probs[i] = binomial_rate(100, threshold(mosquito_sample(val_array)))
             response['threshold'] = threshold_probs.tolist()
             if logcompute:
                 response['threshold'] = [loggyboys(y) for y in response['threshold']]

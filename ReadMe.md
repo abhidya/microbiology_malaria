@@ -12,9 +12,17 @@ pip install -r requirements.txt
 python server.py
 ```
 
-The app expects a local MongoDB instance at `mongodb://localhost:27017/malaria`
-for the data visualization endpoints. If MongoDB is not running, use the code as
-a read-only demo/reference until the persistence layer is configured.
+The app no longer requires MongoDB for the default local demo. Without
+`MALARIA_MONGO_URI`, `/data/visualization` returns fixture data and `/compute`
+can run locally. Set `MALARIA_MONGO_URI` to enable MongoDB-backed persistence.
+
+```sh
+python smoke_test.py
+```
+
+`/health` reports whether the server is running in MongoDB or offline-fixture
+mode. If SciPy is unavailable, the threshold model uses a small local binomial
+fallback so the compute demo can still run.
 
 
 ## /data/visualization
@@ -128,7 +136,6 @@ all images used by site
 
 ## lib 
 javascript source code for libraries used and css and imgs
-
 
 
 
