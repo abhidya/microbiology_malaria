@@ -1,6 +1,21 @@
 
 ## API
 
+Legacy Flask demo for simulating and visualizing malaria microbiology data.
+
+## Local run notes
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python server.py
+```
+
+The app expects a local MongoDB instance at `mongodb://localhost:27017/malaria`
+for the data visualization endpoints. If MongoDB is not running, use the code as
+a read-only demo/reference until the persistence layer is configured.
+
 
 ## /data/visualization
 Method: Get
@@ -113,7 +128,6 @@ all images used by site
 
 ## lib 
 javascript source code for libraries used and css and imgs
-
 
 
 
